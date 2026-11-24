@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>WorkFlow · Bilingual Workplace English Studio</title>
+  <title>EduDraft · Trợ lý Soạn Giáo án Song ngữ KHTN & Tiếng Anh</title>
   <style>
     :root{
       --g:#245f4a;
@@ -13,93 +13,89 @@
       --i:#173f36;
       --m:#687970;
       --b:#dfe6da;
+      --plus:#2b6cb0;
       --pro:#654a9c;
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--p);color:var(--i);font:15px Arial,sans-serif}
-    .w{width:min(1150px,calc(100% - 36px));margin:auto}
+    .w{width:min(1140px,calc(100% - 36px));margin:auto}
     .top{height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--b);position:sticky;top:0;background:#f8f7f0ed;backdrop-filter:blur(6px);z-index:5}
     .brand{font-weight:900;font-size:21px;cursor:pointer}
-    .brand small{display:block;font-size:9px;color:var(--m);font-weight:600}
-    nav{display:flex;gap:16px;font-weight:bold;font-size:13px}
+    .brand small{display:block;font-size:10px;color:var(--m);font-weight:600}
+    nav{display:flex;gap:20px;font-weight:bold;font-size:13px}
     a{text-decoration:none;color:inherit}
     nav a:hover{color:var(--g)}
     .nav-right{display:flex;align-items:center;gap:8px}
-    .btn,button{border:0;border-radius:10px;padding:10px 13px;background:var(--g);color:white;font-weight:bold;cursor:pointer;font-size:13px;transition:opacity .15s,transform .15s}
-    .btn:hover,button:hover{opacity:.92}
+    .btn,button{border:0;border-radius:10px;padding:10px 14px;background:var(--g);color:white;font-weight:bold;cursor:pointer;font-size:13px;transition:opacity .15s}
+    .btn:hover,button:hover{opacity:.9}
     .out{background:transparent;color:var(--g);border:1px solid #cbd8c9}
+    .plus{background:var(--plus);color:white}
     .pro{background:var(--pro);color:white}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;padding:65px 0 38px;align-items:center}
+
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;padding:52px 0 38px;align-items:center}
     .ey{font-size:10px;font-weight:bold;color:#668447;letter-spacing:1px;text-transform:uppercase}
-    .hero h1{font-size:56px;line-height:1.04;letter-spacing:-2.5px;margin:12px 0}
+    .hero h1{font-size:48px;line-height:1.06;letter-spacing:-2px;margin:12px 0}
     .hero h1 span{color:#779d4b}
-    .hero p{line-height:1.7;color:var(--m);max-width:560px;font-size:14px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .board{background:#e7efd6;border-radius:25px;padding:22px}
-    .row{padding:15px;margin:10px 0;background:white;border-radius:12px;font-size:12px;font-weight:bold}
-    .row span{float:right;color:var(--m);font-weight:normal}
-    .stats,.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .stats{grid-template-columns:repeat(4,1fr);margin-bottom:70px}
-    .stat,.card,.panel{background:var(--c);border:1px solid var(--b);border-radius:17px;padding:18px}
-    .stat b{display:block;font-size:18px;margin-top:4px}
-    .stat small,p{color:var(--m);font-size:12px;line-height:1.6}
-    .sec{margin-bottom:70px;scroll-margin-top:85px}
-    .head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:14px}
-    .head h2{font-size:30px;margin:6px 0}
-    .card{cursor:pointer;transition:transform .18s,box-shadow .18s}
+    .hero p{line-height:1.65;color:var(--m);max-width:550px;font-size:14px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .board{background:#e7efd6;border-radius:22px;padding:20px}
+    .row{padding:14px;margin:10px 0;background:white;border-radius:12px;font-size:13px;font-weight:bold}
+    .row span{float:right;color:var(--m);font-weight:normal;font-size:12px}
+
+    .sec{margin-bottom:60px;scroll-margin-top:85px}
+    .head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+    .head h2{font-size:28px;margin:6px 0}
+    .head p{margin:0;color:var(--m);font-size:13px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--c);border:1px solid var(--b);border-radius:18px;padding:20px;cursor:pointer;transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column;justify-content:space-between}
     .card:hover{transform:translateY(-4px);box-shadow:0 10px 24px #173f3612}
-    .card h3{margin:10px 0 4px;font-size:17px}
-    .cover{height:96px;border-radius:12px;display:grid;place-items:center;font-size:44px;background:#d7ebe9;margin-bottom:10px}
-    .cover.star{background:#f4dfbc}
-    .cover.nego{background:#e3ddf4}
-    .tag,.pill{display:inline-block;padding:5px 9px;background:#eef4e3;border-radius:20px;font-size:10px;font-weight:bold;color:#557143}
-    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
-    .chip{background:transparent;color:var(--g);border:1px solid #cddaca;padding:7px 11px;font-size:12px}
-    .chip.active{background:var(--g);color:white;border-color:var(--g)}
-    .mat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .item{border:1px solid var(--b);padding:12px;border-radius:12px;background:white;font-size:12px}
-    .item small{display:block;color:var(--m);line-height:1.45;margin:6px 0}
-    .qty{width:78px;padding:5px 7px;font-size:12px}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .search,input,textarea,select{border:1px solid var(--b);border-radius:9px;padding:9px;width:100%;background:white;font:inherit;font-size:13px}
-    .terms{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;max-height:540px;overflow:auto;padding-right:4px}
-    .term{border:1px solid var(--b);padding:12px;border-radius:12px;background:white}
-    .term b{font-size:13px}
-    .term p{margin:6px 0}
-    .quiz-box{background:var(--c);border:1px solid var(--b);border-radius:17px;padding:22px}
-    .q-opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;border-radius:11px;border:1px solid var(--b);background:white;color:var(--i);font-weight:normal;font-size:13px;line-height:1.5}
-    .q-opt:hover{border-color:var(--g);background:#f4f8ee}
-    .q-opt.correct{background:#e3f3dc;border-color:#245f4a;color:#173f36;font-weight:bold}
-    .q-opt.wrong{background:#fbe6e6;border-color:#c94a4a;color:#7a1c1c}
-    .q-exp{margin-top:12px;padding:14px;border-radius:12px;background:#eef4e3;font-size:13px;line-height:1.6}
-    .modalbg{position:fixed;inset:0;background:#102b2370;display:none;z-index:10;align-items:center;justify-content:center;padding:15px}
+    .card h3{margin:10px 0 6px;font-size:17px}
+    .card p{color:var(--m);font-size:13px;line-height:1.55;margin:0 0 14px}
+    .cover{height:80px;border-radius:12px;display:grid;place-items:center;font-size:38px;background:#d7ebe9;margin-bottom:12px}
+    .cover.eng{background:#e3ddf4}
+    .tag,.pill{display:inline-block;padding:5px 10px;background:#eef4e3;border-radius:20px;font-size:11px;font-weight:bold;color:#557143}
+    .tag.eng{background:#ebe5f9;color:#553c9a}
+
+    /* STUDIO SOẠN THẢO SONG NGỮ */
+    .studio-wrap{background:var(--c);border:1px solid var(--b);border-radius:20px;overflow:hidden;box-shadow:0 8px 24px #173f360a}
+    .studio-top{padding:16px 22px;background:#eff3e9;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .studio-body{display:grid;grid-template-columns:245px 1fr;min-height:600px}
+    .side{background:#f5f7f1;padding:14px;border-right:1px solid var(--b);display:flex;flex-direction:column;justify-content:space-between}
+    .step{display:block;width:100%;text-align:left;margin:5px 0;background:transparent;color:#596f63;padding:11px 12px;border-radius:10px;font-size:13px}
+    .step.active{background:white;color:var(--g);box-shadow:0 2px 6px #0000000d}
+    .work{padding:24px 28px}
+    .bi{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+    .tri{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:10px}
+    .box{border:1px solid var(--b);padding:14px;border-radius:12px;background:white;margin-bottom:14px}
+    input,textarea,select{border:1px solid var(--b);border-radius:9px;padding:10px;width:100%;background:white;font:inherit;font-size:13px;margin-top:6px}
+    textarea{min-height:145px;resize:vertical;line-height:1.6}
+    .suggest-bar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px;padding:12px;background:#f3f7ec;border-radius:12px;border:1px dashed #b9ccb0;align-items:center}
+    .suggest-bar span{font-size:12px;font-weight:bold;color:var(--g)}
+    .cue-box{background:#f9fbf6;border:1px solid var(--b);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:12px}
+    .cue-chip{display:inline-block;margin:4px 4px 0 0;padding:5px 9px;background:white;border:1px solid #cbd8c9;border-radius:8px;cursor:pointer;font-size:11px;color:var(--i)}
+    .cue-chip:hover{background:#eef4e3;border-color:var(--g)}
+
+    /* GÓI TÀI KHOẢN */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .plan-card{background:var(--c);border:1px solid var(--b);border-radius:18px;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+    .plan-card.featured{border:2px solid var(--plus);box-shadow:0 10px 26px #2b6cb018}
+    .plan-card.pro-card{background:#1d4838;color:white;border-color:#1d4838}
+    .plan-card.pro-card p,.plan-card.pro-card li{color:#e2ece7}
+    .price{font-size:32px;font-weight:900;margin:10px 0}
+    .price small{font-size:13px;font-weight:normal}
+    .plan-list{padding-left:18px;margin:14px 0 22px;line-height:1.8;font-size:13px;color:var(--m)}
+
+    .modalbg{position:fixed;inset:0;background:#102b2375;display:none;z-index:10;align-items:center;justify-content:center;padding:15px}
     .modalbg.show{display:flex}
-    .modal{width:min(1100px,100%);max-height:94vh;overflow:auto;background:var(--c);border-radius:20px;box-shadow:0 20px 50px #00000033}
-    .mhead{padding:14px 18px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--c);z-index:2}
-    .editor{display:grid;grid-template-columns:205px 1fr;min-height:650px}
-    .side{background:#eff3e9;padding:12px}
-    .step{display:block;width:100%;text-align:left;margin:5px 0;background:transparent;color:#596f63;padding:10px 12px}
-    .step.active{background:white;color:var(--g);box-shadow:0 2px 6px #0000000a}
-    .work{padding:22px 28px}
-    .bi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-    .box{border:1px solid var(--b);padding:12px;border-radius:12px;background:white}
-    .box textarea{min-height:105px;border:0;border-top:1px solid var(--b);border-radius:0;margin-top:6px;padding:8px 2px;resize:vertical}
-    .tbl{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
-    .tbl td,.tbl th{border:1px solid var(--b);padding:8px;text-align:left;vertical-align:top}
-    .tbl th{background:#eef4e3}
-    @media(max-width:820px){
+    .modal{width:min(860px,100%);max-height:90vh;overflow:auto;background:var(--c);border-radius:20px;padding:22px}
+
+    @media(max-width:850px){
       nav{display:none}
-      .hero,.two,.bi{grid-template-columns:1fr}
-      .hero h1{font-size:40px}
-      .stats,.grid,.mat,.terms{grid-template-columns:1fr 1fr}
-      .editor{grid-template-columns:1fr}
-      .side{white-space:nowrap;overflow:auto}
+      .hero,.grid,.plans,.bi,.tri,.studio-body{grid-template-columns:1fr}
+      .hero h1{font-size:38px}
+      .side{border-right:0;border-bottom:1px solid var(--b)}
       .step{display:inline-block;width:auto}
-      .work{padding:17px}
-    }
-    @media(max-width:500px){
-      .stats,.grid,.mat,.terms{grid-template-columns:1fr}
-      .hero{padding-top:35px}
     }
   </style>
 </head>
@@ -107,1002 +103,764 @@
 
 <header class="w top">
   <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    ✳ WorkFlow
-    <small>Bilingual Workplace English Studio</small>
+    ✳ EduDraft
+    <small>Soạn thảo Giáo án Song ngữ KHTN &amp; Tiếng Anh</small>
   </div>
   <nav>
-    <a href="#studio">Kịch bản</a>
-    <a href="#toolkit">Khung mẫu</a>
-    <a href="#glossary">Từ điển</a>
-    <a href="#english">Câu giao tiếp</a>
-    <a href="#quiz">Trắc nghiệm</a>
+    <a href="#templates">Giáo án mẫu</a>
+    <a href="#editor">Trình soạn thảo</a>
+    <a href="#pricing">Gói Plus / Pro</a>
   </nav>
   <div class="nav-right">
-    <button class="out" id="planBadge" onclick="toggleQuickPlan()" title="Bấm để chuyển nhanh Free / Pro">Đang dùng: Free</button>
-    <button class="pro" onclick="pricing()">Nâng cấp Pro</button>
+    <span class="pill" id="currentPlanBadge">Gói hiện tại: Free</span>
+    <a href="#pricing" class="btn pro">Nâng cấp gói</a>
   </div>
 </header>
 
 <main class="w">
+  <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="ey">WORKPLACE &amp; BUSINESS ENGLISH · SONG NGỮ ANH – VIỆT</div>
-      <h1>Làm chủ tiếng Anh<br><span>giao tiếp đi làm.</span></h1>
-      <p>Nền tảng luyện phản xạ và soạn kịch bản họp, viết email, đàm phán khách hàng &amp; phỏng vấn theo khung chuẩn quốc tế (Meeting Flow &amp; STAR/PREP): có mẫu câu song ngữ, từ điển công sở, kho câu giao tiếp và bài trắc nghiệm tình huống thực chiến.</p>
+      <div class="ey">TRỢ LÝ SOẠN GIÁO ÁN SONG NGỮ CHUẨN SƯ PHẠM</div>
+      <h1>Soạn giáo án<br><span>KHTN &amp; Tiếng Anh.</span></h1>
+      <p>Hệ thống soạn thảo giáo án chi tiết theo tiến trình hoạt động dạy học (Mục tiêu – Chuẩn bị – Khởi động – Hình thành kiến thức – Luyện tập – Vận dụng), tích hợp song ngữ Anh – Việt và kho gợi ý lời dẫn trên lớp (Classroom English).</p>
       <div class="hero-actions">
-        <button onclick="openEdit('sync')">Mở Studio Kịch bản →</button>
-        <button class="out" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Làm trắc nghiệm phản xạ</button>
+        <button onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Mở trình soạn thảo →</button>
+        <button class="out" onclick="newLesson('KHTN')">+ Giáo án KHTN mới</button>
+        <button class="out" onclick="newLesson('ENG')">+ Giáo án Tiếng Anh mới</button>
       </div>
     </div>
     <div class="board">
-      <div class="row">💼 Meeting &amp; Email Flow <span>Open · Align · Propose · Commit · Follow-up</span></div>
-      <div class="row">🎯 STAR / PREP Pitch <span>Situation · Task · Action · Result · Impact</span></div>
-      <div class="row">🌐 Bilingual Prompts <span>Mẫu câu chuẩn sắc thái công sở</span></div>
-      <div class="row">🧠 Situational Quiz <span>12 tình huống phản xạ thực tế</span></div>
+      <div class="row">🔬 Giáo án KHTN Song ngữ <span>Chuẩn 5512 + Thuật ngữ &amp; Lời dẫn Anh</span></div>
+      <div class="row">🇬🇧 Giáo án Tiếng Anh <span>Lead-in · Presentation · Practice · Production</span></div>
+      <div class="row">✨ Gợi ý soạn thảo chuyên sâu <span>Chèn mẫu câu hỏi, CCQs, thí nghiệm &amp; Rubric</span></div>
+      <div class="row">💎 Gói Free · Plus · Pro <span>Xuất bảng giáo án Word (.doc) &amp; In PDF</span></div>
     </div>
   </section>
 
-  <div class="stats">
-    <div class="stat">💼<b>5 bước chuẩn</b><small>Meeting Flow &amp; STAR/PREP</small></div>
-    <div class="stat">🌐<b>Anh – Việt</b><small>Song ngữ từng tình huống</small></div>
-    <div class="stat">📖<b>56 thuật ngữ</b><small>Business &amp; Office Glossary</small></div>
-    <div class="stat">✅<b>12 câu Quiz</b><small>Chấm điểm &amp; giải thích chi tiết</small></div>
-  </div>
-
-  <!-- 1. STUDIO KỊCH BẢN ĐI LÀM -->
-  <section class="sec" id="studio">
+  <!-- 1. GIÁO ÁN MẪU -->
+  <section class="sec" id="templates">
     <div class="head">
       <div>
-        <div class="ey">TRÌNH SOẠN KỊCH BẢN &amp; PHẢN XẠ CÔNG SỞ</div>
-        <h2>Kịch bản đi làm thực chiến</h2>
-        <p>Chọn tình huống công việc thực tế để chỉnh sửa lời thoại song ngữ, chèn cụm từ đắt giá và xuất file chuẩn bị họp/phỏng vấn.</p>
+        <div class="ey">THƯ VIỆN GIÁO ÁN CHI TIẾT</div>
+        <h2>Giáo án mẫu KHTN &amp; Tiếng Anh</h2>
+        <p>Chọn một giáo án mẫu hoàn chỉnh bên dưới để nạp vào trình soạn thảo song ngữ và tùy chỉnh.</p>
       </div>
-      <button class="out" onclick="createNewScenario()">+ Tạo kịch bản mới</button>
+      <div style="display:flex;gap:8px">
+        <button class="out" onclick="newLesson('KHTN')">+ Tạo bài KHTN</button>
+        <button class="out" onclick="newLesson('ENG')">+ Tạo bài Tiếng Anh</button>
+      </div>
     </div>
-    <div class="grid" id="lessons"></div>
+    <div class="grid" id="lessonGrid"></div>
   </section>
 
-  <!-- 2. BỘ KHUNG MẪU & CẤU PHẦN GIAO TIẾP -->
-  <section class="sec" id="toolkit">
+  <!-- 2. TRÌNH SOẠN THẢO GIÁO ÁN SONG NGỮ & GỢI Ý -->
+  <section class="sec" id="editor">
     <div class="head">
       <div>
-        <div class="ey">EMAIL &amp; MEETING TEMPLATES BUILDER</div>
-        <h2>Kho cấu phần câu &amp; Khung mẫu</h2>
-        <p>Tick chọn các cấu phần cần thiết để tự động ghép thành dàn ý Email hoặc Kịch bản họp trong Studio.</p>
+        <div class="ey">KHÔNG GIAN SOẠN THẢO SONG NGỮ 5 BƯỚC</div>
+        <h2>Trình soạn thảo &amp; Gợi ý chi tiết</h2>
+        <p>Soạn thảo chi tiết từng hoạt động song song Tiếng Việt &amp; Tiếng Anh, chèn gợi ý sư phạm và câu lệnh lớp học.</p>
       </div>
-      <button class="out" onclick="insertToolkit()">Chèn vào Kịch bản</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="out" onclick="duplicateLesson()">Nhân bản bài</button>
+        <button class="out" onclick="previewLesson()">Xem trước giáo án</button>
+        <button class="plus" onclick="exportDoc()">Xuất Word (.doc)</button>
+        <button class="pro" onclick="printPdf()">In / Xuất PDF</button>
+      </div>
     </div>
-    <div class="filters">
-      <button class="chip active" onclick="filterMat('all',this)">Tất cả (20)</button>
-      <button class="chip" onclick="filterMat('email',this)">Email &amp; Văn bản</button>
-      <button class="chip" onclick="filterMat('meeting',this)">Họp &amp; Thuyết trình</button>
+
+    <div class="studio-wrap">
+      <div class="studio-top">
+        <div>
+          <span class="tag" id="editorTypeBadge">Giáo án KHTN</span>
+          <b id="editorHeading" style="margin-left:8px;font-size:15px"></b>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <small style="color:var(--m)">Phân môn:</small>
+          <button class="out" style="padding:6px 10px;font-size:12px" onclick="switchSubject('KHTN')">🔬 KHTN Song ngữ</button>
+          <button class="out" style="padding:6px 10px;font-size:12px" onclick="switchSubject('ENG')">🇬🇧 Tiếng Anh</button>
+        </div>
+      </div>
+
+      <div class="studio-body">
+        <aside class="side">
+          <div>
+            <button class="step active" onclick="setStep(0,this)">1. Thông tin, Mục tiêu &amp; Chuẩn bị</button>
+            <button class="step" onclick="setStep(1,this)">2. Khởi động &amp; Hình thành kiến thức</button>
+            <button class="step" onclick="setStep(2,this)">3. Luyện tập &amp; Vận dụng thực tiễn</button>
+            <button class="step" onclick="setStep(3,this)">4. Thuật ngữ IPA, Rubric &amp; Dặn dò</button>
+          </div>
+          <div style="padding:10px;background:white;border-radius:10px;border:1px solid var(--b);font-size:11px;color:var(--m);margin-top:16px">
+            <b style="color:var(--g);display:block;margin-bottom:4px">Trạng thái lưu:</b>
+            Tự động lưu trên trình duyệt.<br>
+            <span id="hintCounter"></span>
+          </div>
+        </aside>
+        <div class="work" id="workArea"></div>
+      </div>
     </div>
-    <div class="mat" id="mats"></div>
   </section>
 
-  <!-- 3. TỪ ĐIỂN CÔNG SỞ & SỔ TAY TỪ KHÓ -->
-  <section class="sec" id="glossary">
+  <!-- 3. ĐỀ MỤC CHỌN MUA GÓI PLUS, PRO -->
+  <section class="sec" id="pricing">
     <div class="head">
       <div>
-        <div class="ey">WORKPLACE GLOSSARY &amp; VOCABULARY NOTE</div>
-        <h2>Từ điển tiếng Anh công sở</h2>
-        <p>Tra cứu 56 thuật ngữ &amp; cụm từ đi làm phổ biến kèm IPA, sắc thái và ví dụ thực tế.</p>
-      </div>
-      <button class="out" onclick="insertVocab()">Chèn Vocabulary Box</button>
-    </div>
-    <div class="two">
-      <div>
-        <input class="search" id="search" oninput="renderTerms()" placeholder="Tìm leverage, bottleneck, follow up, stakeholder, deliverable…">
-        <div class="terms" id="terms"></div>
-      </div>
-      <div class="panel">
-        <b>Sổ tay từ vựng cá nhân <span id="limit" class="pill"></span></b>
-        <p style="margin:6px 0 0">Lưu từ mới từ từ điển hoặc tự thêm cụm từ bạn hay dùng khi đi làm.</p>
-        <input id="newword" placeholder="Từ / Cụm từ mới (VD: touch base)" style="margin-top:12px">
-        <textarea id="newnote" placeholder="Nghĩa tiếng Việt, mẹo nhớ, ngữ cảnh áp dụng…" style="margin-top:8px;min-height:76px"></textarea>
-        <button onclick="addNote()" style="margin-top:8px">+ Lưu vào sổ tay</button>
-        <div id="notes" style="margin-top:14px;max-height:360px;overflow:auto"></div>
+        <div class="ey">BẢNG GIÁ &amp; QUYỀN LỢI</div>
+        <h2>Chọn gói sử dụng Plus / Pro</h2>
+        <p>Mở khóa không giới hạn gợi ý soạn giáo án song ngữ chi tiết và xuất file Word / PDF chuẩn.</p>
       </div>
     </div>
-  </section>
 
-  <!-- 4. NGÂN HÀNG CÂU GIAO TIẾP CÔNG SỞ -->
-  <section class="sec" id="english">
-    <div class="ey">OFFICE &amp; MEETING ENGLISH BANK</div>
-    <h2>Ngân hàng mẫu câu giao tiếp công sở</h2>
-    <p>Chọn tình huống để copy nhanh các mẫu câu lịch sự, tự nhiên như người bản xứ.</p>
-    <div class="filters" id="ef"></div>
-    <div class="two" id="eb"></div>
-  </section>
-
-  <!-- 5. TRẮC NGHIỆM PHẢN XẠ ĐI LÀM -->
-  <section class="sec" id="quiz">
-    <div class="head">
-      <div>
-        <div class="ey">SITUATIONAL WORKPLACE QUIZ</div>
-        <h2>Luyện tập trắc nghiệm tình huống đi làm</h2>
-        <p>Kiểm tra khả năng chọn sắc thái câu trả lời, từ vựng ngữ cảnh và cách xử lý tình huống với sếp/khách hàng.</p>
+    <div class="plans">
+      <div class="plan-card">
+        <div>
+          <span class="tag">CƠ BẢN</span>
+          <h3 style="margin:12px 0 4px;font-size:20px">Gói Free</h3>
+          <div class="price">0đ <small>/ mãi mãi</small></div>
+          <p>Trải nghiệm soạn thảo giáo án song ngữ cơ bản.</p>
+          <ul class="plan-list">
+            <li>Lưu tối đa <b>3 giáo án</b></li>
+            <li>Gợi ý soạn thảo cơ bản (<b>3 lượt/ngày</b>)</li>
+            <li>Xem trước và copy toàn bộ giáo án</li>
+            <li>Hỗ trợ cả mẫu KHTN &amp; Tiếng Anh</li>
+          </ul>
+        </div>
+        <button class="out" style="width:100%" id="btnFree" onclick="selectPlan('Free')">Đang sử dụng</button>
       </div>
-      <div>
-        <span class="pill" id="quizScore" style="font-size:12px;padding:7px 12px">Điểm: 0 / 12</span>
-      </div>
-    </div>
-    <div class="quiz-box" id="quizContainer"></div>
-  </section>
 
-  <!-- 6. RUBRIC TỰ ĐÁNH GIÁ & GÓI TÀI KHOẢN -->
-  <section class="sec two">
-    <div class="panel">
-      <div class="ey">SELF-ASSESSMENT RUBRIC</div>
-      <h2>Tiêu chí tự đánh giá giao tiếp</h2>
-      <table class="tbl">
-        <thead>
-          <tr><th>Criterion / Tiêu chí</th><th>4 Professional</th><th>2 Developing</th></tr>
-        </thead>
-        <tbody id="rubric"></tbody>
-      </table>
-      <button class="out" onclick="insertRubric()">Chèn Rubric vào Kịch bản</button>
-    </div>
-    <div class="panel">
-      <div class="ey">FREE / PRO ACCOUNT</div>
-      <h2 id="planName">Gói Free · 0đ</h2>
-      <p id="planText">Tối đa 3 kịch bản cá nhân, 15 cụm từ trong sổ tay, tra từ điển &amp; làm trắc nghiệm không giới hạn.</p>
-      <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-        <button class="pro" onclick="pricing()">Xem bảng giá Pro</button>
-        <button class="out" onclick="setPlan('pro')">Bật dùng thử Pro</button>
+      <div class="plan-card featured">
+        <div>
+          <span class="tag" style="background:#dbeafe;color:#1e40af">PHỔ BIẾN NHẤT</span>
+          <h3 style="margin:12px 0 4px;font-size:20px">Gói Plus</h3>
+          <div class="price" style="color:var(--plus)">79.000đ <small>/ tháng</small></div>
+          <p>Dành cho giáo viên soạn bài thường xuyên hàng tuần.</p>
+          <ul class="plan-list">
+            <li>Lưu tối đa <b>30 giáo án</b></li>
+            <li><b>Không giới hạn</b> gợi ý soạn thảo &amp; Classroom English</li>
+            <li>Mở khóa tính năng <b>Xuất file Word (.doc)</b> dạng bảng</li>
+            <li>Trọn bộ mẫu câu CCQs, thí nghiệm &amp; Rubric</li>
+          </ul>
+        </div>
+        <button class="plus" style="width:100%" id="btnPlus" onclick="openCheckout('Plus', '79.000đ / tháng')">Chọn mua gói Plus</button>
+      </div>
+
+      <div class="plan-card pro-card">
+        <div>
+          <span class="tag" style="background:#d9ed9c;color:#173f36">TOÀN DIỆN</span>
+          <h3 style="margin:12px 0 4px;font-size:20px">Gói Pro</h3>
+          <div class="price" style="color:#d9ed9c">149.000đ <small style="color:#e2ece7">/ tháng</small></div>
+          <p>Trợ lý toàn diện cho giáo viên dạy song ngữ &amp; tổ trưởng chuyên môn.</p>
+          <ul class="plan-list">
+            <li><b>Không giới hạn</b> số lượng giáo án lưu trữ</li>
+            <li>Gợi ý chuyên sâu <b>KHTN Song ngữ Anh – Việt</b></li>
+            <li>Xuất cả file <b>Word (.doc) &amp; In PDF</b> định dạng chuẩn</li>
+            <li>Ưu tiên cập nhật bộ giáo án mẫu mới</li>
+          </ul>
+        </div>
+        <button style="width:100%;background:#d9ed9c;color:#173f36" id="btnPro" onclick="openCheckout('Pro', '149.000đ / tháng')">Chọn mua gói Pro</button>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="w" style="padding:28px 0;border-top:1px solid var(--b);color:#78867d;font-size:12px">
-  © 2026 WorkFlow · Bilingual Workplace English Studio. Thực hành giao tiếp tiếng Anh chuyên nghiệp mỗi ngày.
+<footer class="w" style="padding:24px 0;border-top:1px solid var(--b);color:#78867d;font-size:12px">
+  © 2026 EduDraft · Trợ lý Soạn thảo Giáo án Song ngữ KHTN &amp; Tiếng Anh.
 </footer>
 
-<!-- MODAL STUDIO EDITOR -->
-<div class="modalbg" id="edit">
-  <div class="modal">
-    <div class="mhead">
-      <b id="editTitle"></b>
-      <button class="out" onclick="closeM('edit')">Đóng ×</button>
+<!-- MODAL XÁC NHẬN CHỌN GÓI -->
+<div class="modalbg" id="checkoutModal">
+  <div class="modal" style="max-width:480px">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--b);padding-bottom:12px">
+      <b id="checkoutTitle" style="font-size:17px">Đăng ký gói</b>
+      <button class="out" style="padding:5px 10px" onclick="closeCheckout()">×</button>
     </div>
-    <div class="editor">
-      <aside class="side">
-        <button class="step active" onclick="go(0,this)">1. Tổng quan tình huống</button>
-        <button class="step" onclick="go(1,this)">2. Kịch bản 5 bước</button>
-        <button class="step" onclick="go(2,this)">3. Từ vựng &amp; Khung mẫu</button>
-        <button class="step" onclick="go(3,this)">4. Rubric &amp; Xuất file</button>
-      </aside>
-      <div class="work" id="work"></div>
+    <div style="padding:16px 0">
+      <p id="checkoutDesc" style="font-size:14px;line-height:1.6;color:var(--i)"></p>
+      <div class="box" style="background:#f4f8ee;margin-top:12px">
+        <small style="color:var(--m)">Chế độ kích hoạt nhanh:</small>
+        <p style="margin:6px 0 0;font-size:13px">Kích hoạt ngay gói này để mở khóa gợi ý song ngữ không giới hạn và xuất file Word/PDF.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="out" onclick="closeCheckout()">Để sau</button>
+      <button id="confirmPlanBtn" onclick="confirmUpgrade()">Kích hoạt gói ngay</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL BẢNG GIÁ PRO -->
-<div class="modalbg" id="price">
-  <div class="modal" style="max-width:650px">
-    <div class="mhead">
-      <b>Nâng cấp WorkFlow Pro</b>
-      <button class="out" onclick="closeM('price')">Đóng ×</button>
-    </div>
-    <div class="two" style="padding:20px">
-      <div class="box">
-        <span class="tag">CƠ BẢN</span>
-        <h3 style="margin:10px 0">Free · 0đ</h3>
-        <p>• Tối đa 3 kịch bản cá nhân<br>• Lưu tối đa 15 từ vào sổ tay<br>• Tra từ điển 56 thuật ngữ &amp; làm Quiz<br>• Xem trước / Copy nội dung văn bản</p>
-        <button class="out" style="width:100%;margin-top:10px" onclick="setPlan('free')">Dùng gói Free</button>
-      </div>
-      <div class="box" style="background:#285d49;color:white;border-color:#285d49">
-        <span class="tag" style="background:#d9ed9c;color:#173f36">KHUYÊN DÙNG</span>
-        <h3 style="margin:10px 0">Pro · Trải nghiệm đầy đủ</h3>
-        <p style="color:#eef4e3">• Không giới hạn kịch bản &amp; sổ tay từ vựng<br>• Mở khóa toàn bộ gợi ý mẫu câu nâng cao<br>• Xuất kịch bản ra file Word (.doc) &amp; In PDF<br>• Lưu trữ vĩnh viễn trên trình duyệt</p>
-        <button style="width:100%;margin-top:10px;background:#d9ed9c;color:#173f36" onclick="setPlan('pro')">Kích hoạt dùng thử Pro</button>
+<!-- MODAL XEM TRƯỚC GIÁO ÁN -->
+<div class="modalbg" id="previewModal">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--b);padding-bottom:12px">
+      <b>Bản xem trước giáo án song ngữ chi tiết</b>
+      <div style="display:flex;gap:8px">
+        <button class="out" style="padding:6px 12px" onclick="copyPreview()">Copy toàn bộ</button>
+        <button class="out" style="padding:6px 10px" onclick="document.getElementById('previewModal').classList.remove('show')">Đóng ×</button>
       </div>
     </div>
+    <pre id="previewContent" style="white-space:pre-wrap;font:13px/1.65 Arial,sans-serif;background:white;padding:18px;border-radius:12px;border:1px solid var(--b);margin-top:14px"></pre>
   </div>
 </div>
 
 <script>
-const DEFAULT_SCENARIOS = [
+const DEFAULT_LESSONS = [
   {
-    id: 'sync',
-    type: 'Meeting',
-    topic: 'Họp & Báo cáo tiến độ',
-    icon: '📊',
-    en: 'Weekly Project Sync & Blocker Escalation',
-    vi: 'Họp cập nhật tiến độ tuần & Báo cáo vướng mắc',
-    desc: 'Trình bày ngắn gọn kết quả đạt được, nêu rõ điểm nghẽn (bottleneck) và đề xuất phương án tháo gỡ với quản lý.',
-    stepsEn: [
-      'Hi everyone, thanks for joining on time. Today’s goal is to review our Q4 sprint progress and align on next week’s priorities.',
-      'We’ve completed 85% of the core deliverables ahead of schedule, particularly the client onboarding flow.',
-      'However, we hit a bottleneck with the third-party API integration, which could delay testing by two days.',
-      'To mitigate this risk, I propose running parallel QA on the completed modules while our backend team resolves the API issue.',
-      'Does everyone agree with this approach? Let’s lock in Friday 3 PM as our checkpoint.'
-    ],
-    stepsVi: [
-      'Chào mọi người, cảm ơn đã tham gia đúng giờ. Mục tiêu hôm nay là rà soát tiến độ sprint Q4 và thống nhất ưu tiên tuần tới.',
-      'Nhóm đã hoàn thành 85% đầu việc cốt lõi sớm hơn kế hoạch, đặc biệt là luồng tiếp nhận khách hàng.',
-      'Tuy nhiên, chúng ta đang gặp điểm nghẽn ở phần tích hợp API bên thứ ba, có thể làm chậm khâu kiểm thử 2 ngày.',
-      'Để giảm thiểu rủi ro này, tôi đề xuất chạy kiểm thử song song các mô-đun đã xong trong lúc team backend xử lý API.',
-      'Mọi người đồng ý với hướng này chứ? Chúng ta chốt 3 giờ chiều thứ Sáu làm mốc kiểm tra lại nhé.'
-    ]
+    id: 'khtn_1',
+    subject: 'KHTN',
+    icon: '🧪',
+    title: 'Phản ứng Acid – Base và Thang đo pH (Acids, Bases & pH Scale)',
+    grade: 'KHTN 8 · Hóa học',
+    duration: '45 phút (1 tiết)',
+    prep: '• Giáo viên: Bộ 6 dung dịch mẫu (giấm ăn, nước chanh, nước cất, nước muối, nước xà phòng, dung dịch baking soda), giấy quỳ tím, giấy chỉ thị vạn năng pH, khay thí nghiệm, phiếu học tập song ngữ.\n• Học sinh: Đọc trước bài học, chuẩn bị bảng ghi chép kết quả thí nghiệm theo nhóm 4 người.',
+    objectivesVi: '1. Về kiến thức:\n- Nêu được khái niệm acid, base theo thang đo pH (pH < 7: môi trường acid; pH = 7: trung tính; pH > 7: môi trường base).\n- Trình bày được cách sử dụng giấy chỉ thị màu để xác định tính chất của dung dịch.\n2. Về năng lực:\n- Năng lực KHTN: Thực hiện an toàn thí nghiệm kiểm tra độ pH; thu thập, phân tích số liệu và rút ra kết luận.\n- Năng lực chung: Giao tiếp và hợp tác nhóm hiệu quả.\n3. Về phẩm chất: Trung thực trong ghi chép số liệu thí nghiệm, cẩn thận khi thao tác với hóa chất.',
+    objectivesEn: '1. Knowledge:\n- Define acids, bases, and neutral solutions based on the pH scale (0–14).\n- Explain how universal indicator paper identifies the pH level of common substances.\n2. Competences:\n- Scientific Inquiry: Safely conduct a lab test, record pH observations, and draw evidence-based conclusions.\n- Bilingual Communication: Use core chemistry terms accurately during group presentations.\n3. Attitude: Be honest in recording lab data and strictly follow laboratory safety rules.',
+    warmupVi: 'Hoạt động 1: Khởi động (5 phút)\n- Mục tiêu: Tạo hứng thú và kết nối kiến thức thực tiễn về sự đổi màu của chất chỉ thị tự nhiên.\n- Chuyển giao nhiệm vụ: GV chiếu 2 cốc nước trà hoa đậu biếc (1 cốc nguyên chất màu xanh lam, 1 cốc vắt thêm chanh chuyển sang màu tím hồng) và đặt câu hỏi: "Tại sao cùng một loại nước trà nhưng màu sắc lại khác nhau rõ rệt?"\n- Thực hiện & Kết luận: HS thảo luận cặp đôi trong 1 phút, nêu dự đoán. GV dẫn dắt vào bài mới về tính acid – base.',
+    warmupEn: 'Activity 1: Warm-up / Engage (5 mins)\n- Teacher Talk: "Look at these two beakers of butterfly pea tea. When I squeeze lemon juice into beaker B, the color shifts from blue to purple. Why do you think this chemical change happens?"\n- Student Action: Discuss in pairs (Think–Pair–Share) for 60 seconds and share predictions using the prompt: "I think the lemon makes it more acidic because..."',
+    knowledgeVi: 'Hoạt động 2: Hình thành kiến thức – Thí nghiệm đo thang pH (22 phút)\n- Mục tiêu: HS tự tay kiểm tra và xác định được giá trị pH của 6 dung dịch quen thuộc.\n- Chuyển giao nhiệm vụ: GV chia lớp thành 6 nhóm, phát khay dụng cụ và hướng dẫn cách nhúng giấy chỉ thị vạn năng, đối chiếu bảng màu chuẩn trong 30 giây.\n- Thực hiện nhiệm vụ: Các nhóm tiến hành thí nghiệm với 6 mẫu thử, ghi kết quả màu sắc và giá trị pH vào Phiếu học tập số 1.\n- Báo cáo & Kết luận: Đại diện 2 nhóm trình bày kết quả; GV chuẩn hóa kiến thức về thang đo pH từ 0 đến 14.',
+    knowledgeEn: 'Activity 2: Exploration & Lab Experiment (22 mins)\n- Lab Instructions: "Work in groups of 4. Dip one strip of universal indicator paper into each solution, wait 10 seconds, and match the color against the pH chart."\n- Safety Cue: "Wear your safety goggles and avoid touching the solutions directly."\n- Guided Questions: "Which sample has the lowest pH? How do we classify a solution with a pH of 7?"',
+    practiceVi: 'Hoạt động 3: Luyện tập & Vận dụng thực tiễn (15 phút)\n- Luyện tập: HS hoàn thành nhanh 5 câu trắc nghiệm phân loại dung dịch theo giá trị pH trên phiếu cá nhân.\n- Vận dụng: GV nêu tình huống thực tế: "Đất trồng ở một số vùng bị nhiễm phèn, độ pH đo được là 4,5. Người nông dân thường bón vôi bột (CaO/Ca(OH)2) vào ruộng để làm gì?" HS vận dụng phản ứng trung hòa acid – base để giải thích.',
+    practiceEn: 'Activity 3: Practice & Real-world Application (15 mins)\n- Practice Task: Complete the 5-item classification table (Acidic / Neutral / Basic) on your worksheet.\n- Application Scenario: "Farm soil in this area has a pH of 4.5 (too acidic for crops). Why do farmers add lime (calcium hydroxide) to the soil? Discuss and write a 2-sentence explanation."',
+    extraVi: '• Thiết bị & Học liệu: Máy chiếu, bảng màu pH chuẩn, 6 bộ khay thí nghiệm hóa chất an toàn, phiếu học tập.\n• Hướng dẫn về nhà (3 phút): Hoàn thiện báo cáo thực hành nhóm; tìm hiểu độ pH lý tưởng của nước sinh hoạt và dịch vị dạ dày người.',
+    extraEn: '• Key Bilingual Vocabulary:\n  - acid /ˈæs.ɪd/ (n): axit | acidic /əˈsɪd.ɪk/ (adj): có tính axit\n  - base /beɪs/ (n): bazơ | basic /ˈbeɪ.sɪk/ (adj): có tính kiềm/bazơ\n  - neutral /ˈnjuː.trəl/ (adj): trung tính\n  - universal indicator /ˌjuː.nɪˈvɜː.səl ˈɪn.dɪ.keɪ.tər/: chất chỉ thị vạn năng\n• Homework: Write a short lab reflection (50 words) explaining one household acid and one base you found at home.'
   },
   {
-    id: 'nego',
-    type: 'Meeting',
-    topic: 'Đàm phán & Khách hàng',
-    icon: '🤝',
-    en: 'Client Scope Creep & Timeline Negotiation',
-    vi: 'Đàm phán khi khách hàng phát sinh yêu cầu & Lùi hạn',
-    desc: 'Từ chối khéo yêu cầu phát sinh ngoài hợp đồng mà vẫn giữ thiện chí, kèm đề xuất điều chỉnh mốc thời gian hợp lý.',
-    stepsEn: [
-      'Thank you for sharing these additional feature ideas—they align really well with your long-term product vision.',
-      'Looking at our current Statement of Work (SOW), these requests fall outside the initial Phase 1 scope.',
-      'If we incorporate them right now, it will impact our confirmed launch date next Friday.',
-      'I’d love to offer two options: we either launch Phase 1 on time and include these in Phase 2, or extend the timeline by 5 business days.',
-      'Which option works best for your team so I can send over the updated roadmap today?'
-    ],
-    stepsVi: [
-      'Cảm ơn anh/chị đã chia sẻ các ý tưởng tính năng bổ sung này — chúng rất phù hợp với tầm nhìn dài hạn của sản phẩm.',
-      'Đối chiếu với Phạm vi công việc (SOW) hiện tại, các yêu cầu này nằm ngoài phạm vi Giai đoạn 1 ban đầu.',
-      'Nếu đưa vào làm ngay lúc này, tiến độ ra mắt đã chốt vào thứ Sáu tuần tới sẽ bị ảnh hưởng.',
-      'Tôi xin đề xuất 2 phương án: ra mắt Giai đoạn 1 đúng hạn và đưa phần này sang Giai đoạn 2, hoặc lùi lịch thêm 5 ngày làm việc.',
-      'Phương án nào phù hợp nhất với bên anh/chị để tôi gửi lại lộ trình cập nhật ngay hôm nay ạ?'
-    ]
+    id: 'eng_1',
+    subject: 'ENG',
+    icon: '🇬🇧',
+    title: 'Unit 5: Describing Daily Routines & Time Management',
+    grade: 'Tiếng Anh 7 · Global Success',
+    duration: '45 minutes',
+    prep: '• Teacher: Projector, slides with daily routine flashcards, stopwatch, Pair-work Information Gap worksheets (Student A & Student B).\n• Students: Notebooks, pens, review adverbs of frequency (always, usually, often, sometimes, never).',
+    objectivesVi: '1. Về kiến thức:\n- Ghi nhớ và sử dụng đúng 10 cụm động từ chỉ hoạt động hằng ngày.\n- Vận dụng chính xác thì Hiện tại đơn (Present Simple) và trạng từ chỉ tần suất (Adverbs of frequency) để hỏi – đáp về lịch trình.\n2. Về năng lực:\n- Giao tiếp tiếng Anh trôi chảy theo cặp trong hoạt động khai thác thông tin (Information Gap).\n3. Về phẩm chất: Hình thành thói quen quản lý thời gian khoa học, lành mạnh.',
+    objectivesEn: '1. Knowledge:\n- Master 10 daily routine collocations and place adverbs of frequency in the correct sentence position.\n- Use Present Simple questions ("How often do you...?", "What time do you usually...?") accurately.\n2. Skills:\n- Speaking & Listening: Conduct a 3-minute pair interview to complete a weekly schedule.\n3. Attitude: Develop healthy daily routines and effective time-management habits.',
+    warmupVi: 'Hoạt động 1: Khởi động – Trò chơi "Miming & Guessing" (5 phút)\n- GV diễn tả bằng ngôn ngữ cơ thể 4 hành động buổi sáng (tắt báo thức, đánh răng, chạy bộ, bắt xe buýt) không phát ra tiếng.\n- HS giơ tay đoán cụm động từ tiếng Anh tương ứng; nhóm đoán đúng và phát âm chuẩn nhận được 1 điểm cộng.',
+    warmupEn: 'Stage 1: Warm-up – "Miming & Guessing Game" (5 mins)\n- Teacher Talk: "Watch my actions carefully without speaking. Raise your hand if you can name the daily activity in English!"\n- Eliciting: Write student answers on the board and transition into today’s lesson: "Today, we’ll talk about how often we do these routines."',
+    knowledgeVi: 'Hoạt động 2: Hình thành kiến thức – Từ vựng & Cấu trúc (14 phút)\n- Dạy từ vựng (7 phút): GV giới thiệu 6 cụm từ mới qua hình ảnh ngữ cảnh, nhấn trọng âm và tổ chức luyện đọc đồng thanh (Choral drill) kết hợp gọi cá nhân.\n- Ngữ pháp trọng tâm (7 phút): Rút ra quy tắc vị trí trạng từ chỉ tần suất (đứng trước động từ thường, đứng sau động từ "to be") và đặt câu hỏi kiểm tra mức độ hiểu (CCQs).',
+    knowledgeEn: 'Stage 2: Presentation – Vocabulary & Grammar Focus (14 mins)\n- Vocabulary Drilling: Model pronunciation clearly (commute, work out, take a nap, stay up late) → Choral drill → Individual check.\n- Grammar Highlight & CCQs:\n  + Example: "She usually wakes up at 6 AM." / "He is never late for school."\n  + CCQ 1: "Does ‘usually’ go before or after the main verb ‘wakes up’?" (Before)\n  + CCQ 2: "Does it go before or after ‘is’?" (After)',
+    practiceVi: 'Hoạt động 3: Luyện tập & Vận dụng giao tiếp (22 phút)\n- Luyện tập có kiểm soát (8 phút): HS hoàn thành bài tập sắp xếp từ thành câu hoàn chỉnh và chia động từ trên phiếu cá nhân.\n- Vận dụng tự do – Phỏng vấn cặp đôi (14 phút): Phát phiếu Information Gap (bản A và bản B). HS hỏi đáp với bạn cùng bàn để điền nốt các khung giờ trống, sau đó báo cáo trước lớp.',
+    practiceEn: 'Stage 3: Practice & Production (22 mins)\n- Controlled Practice (8 mins): Complete the 6-sentence gap-fill & word-order exercise individually, then peer-check in pairs.\n- Freer Production – "Schedule Detective" Pair Work (14 mins):\n  + Instruction: "Student A has Tom’s morning schedule; Student B has his afternoon schedule. Ask your partner using ‘What time does Tom...?’ and ‘How often does he...?’ without showing your paper."',
+    extraVi: '• Đánh giá cuối tiết (4 phút): GV nhận xét lỗi phát âm và ngữ pháp phổ biến quan sát được trong lúc HS thảo luận nhóm.\n• Bài tập về nhà: Viết một đoạn văn ngắn (60–80 từ) mô tả lịch trình cuối tuần của bản thân và gạch chân các trạng từ chỉ tần suất.',
+    extraEn: '• Target Vocabulary & IPA:\n  - commute /kəˈmjuːt/ (v): đi lại (giữa nhà và trường/nơi làm việc)\n  - work out /wɜːk aʊt/ (phr.v): tập thể dục\n  - take a nap /teɪk ə næp/ (phr): chợp mắt buổi trưa\n  - stay up late /steɪ ʌp leɪt/ (phr): thức khuya\n• Homework: Write a 60–80 word paragraph about your weekend routine and underline at least 4 adverbs of frequency.'
   },
   {
-    id: 'star',
-    type: 'STAR',
-    topic: 'Phỏng vấn & Thăng tiến',
-    icon: '🎯',
-    en: 'Behavioral Interview: Handling Tight Deadlines',
-    vi: 'Phỏng vấn hành vi: Xử lý áp lực deadline gấp',
-    desc: 'Trả lời câu hỏi phỏng vấn bằng cấu trúc STAR sắc bén, nhấn mạnh tư duy ưu tiên và con số kết quả cụ thể.',
-    stepsEn: [
-      'In my previous role as a Project Coordinator, a key client moved their product launch forward by ten days unexpectedly.',
-      'My responsibility was to re-prioritize the team’s workload without compromising quality or burning out the engineers.',
-      'I audited all pending tasks, separated must-have MVP features from nice-to-haves, and held daily 10-minute stand-ups to clear blockers.',
-      'As a result, we delivered the core platform on the new deadline with zero critical bugs, and the client renewed their annual contract.',
-      'This experience taught me that transparent communication and ruthless prioritization are key under tight timelines.'
-    ],
-    stepsVi: [
-      'Ở vị trí Điều phối dự án trước đây, một khách hàng lớn bất ngờ đẩy lịch ra mắt sản phẩm sớm hơn 10 ngày.',
-      'Trách nhiệm của tôi là sắp xếp lại thứ tự ưu tiên công việc của nhóm mà không làm giảm chất lượng hay khiến kỹ sư quá tải.',
-      'Tôi đã rà soát toàn bộ đầu việc, tách tính năng cốt lõi (MVP) khỏi phần bổ sung, và tổ chức họp đứng 10 phút mỗi ngày để gỡ vướng.',
-      'Kết quả là nhóm bàn giao nền tảng đúng hạn mới mà không có lỗi nghiêm trọng nào, và khách hàng đã gia hạn hợp đồng cả năm.',
-      'Trải nghiệm này giúp tôi nhận ra giao tiếp minh bạch và ưu tiên quyết đoán là chìa khóa khi chạy deadline gấp.'
-    ]
+    id: 'khtn_2',
+    subject: 'KHTN',
+    icon: '🌱',
+    title: 'Quang hợp ở thực vật (Photosynthesis in Plants)',
+    grade: 'KHTN 7 · Sinh học',
+    duration: '45 phút (1 tiết)',
+    prep: '• Giáo viên: Tranh cấu tạo tế bào lá cây, video tua nhanh quá trình quang hợp, mẫu lá cây đã bịt giấy đen một phần, đèn cồn, dung dịch iodine.\n• Học sinh: Ôn lại kiến thức về cấu tạo tế bào thực vật và vai trò của lục lạp.',
+    objectivesVi: '1. Về kiến thức:\n- Viết được phương trình quang hợp dạng chữ; nêu rõ nguyên liệu (nước, CO2), năng lượng ánh sáng và sản phẩm (chất hữu cơ, khí O2).\n- Phân tích được ảnh hưởng của ánh sáng và nhiệt độ đến cường độ quang hợp.\n2. Về năng lực:\n- Quan sát, phân tích sơ đồ trao đổi khí qua khí khổng và giải thích kết quả thí nghiệm chứng minh lá tạo tinh bột.\n3. Về phẩm chất: Có ý thức trồng và bảo vệ cây xanh ở trường học và địa phương.',
+    objectivesEn: '1. Knowledge:\n- Write the word equation for photosynthesis; identify inputs (water, carbon dioxide, light) and outputs (glucose, oxygen).\n- Explain how light intensity and temperature affect the rate of photosynthesis.\n2. Competences:\n- Analyze diagrams of gas exchange through stomata and interpret the starch test experiment.\n3. Attitude: Actively protect green spaces at school and in the community.',
+    warmupVi: 'Hoạt động 1: Khởi động – Tình huống có vấn đề (5 phút)\n- GV đặt tình huống: "Một bạn học sinh đặt chậu cây xanh vào trong tủ tối 4 ngày liên tiếp. Theo em, lá cây sẽ thay đổi màu sắc như thế nào và vì sao?"\n- HS thảo luận nhanh trong 1 phút và nêu giả thuyết ban đầu.',
+    warmupEn: 'Activity 1: Warm-up / Problem Scenario (5 mins)\n- Teacher Prompt: "Imagine a student puts a healthy green plant inside a dark closet for 4 days. What happens to its leaves, and why?"\n- Student Prediction: Discuss with your partner and share your hypothesis.',
+    knowledgeVi: 'Hoạt động 2: Hình thành kiến thức – Cơ chế quang hợp (22 phút)\n- Nhiệm vụ 1: HS quan sát sơ đồ lá cây trên màn hình, thảo luận nhóm 4 người để xác định đường đi của nước từ rễ lên lá và khí CO2 đi vào qua khí khổng.\n- Nhiệm vụ 2: Quan sát video thí nghiệm thử tinh bột bằng dung dịch iodine trên lá bịt băng giấy đen → Rút ra vai trò bắt buộc của ánh sáng và diệp lục.',
+    knowledgeEn: 'Activity 2: Concept Formation – How Photosynthesis Works (22 mins)\n- Group Task 1: "Trace how water enters through roots and how carbon dioxide enters through stomata on your diagram."\n- Experiment Observation: "Why did the covered part of the leaf stay brown while the uncovered part turned blue-black with iodine solution?"',
+    practiceVi: 'Hoạt động 3: Luyện tập & Vận dụng (15 phút)\n- Luyện tập: Hoàn thành sơ đồ tư duy phương trình quang hợp và điền bảng so sánh nguyên liệu – sản phẩm.\n- Vận dụng: Giải thích cơ sở khoa học của câu hỏi thực tế: "Tại sao ban ngày người ta khuyến khích dạo chơi dưới tán cây xanh, nhưng ban đêm không nên để quá nhiều chậu cây lớn trong phòng ngủ đóng kín cửa?"',
+    practiceEn: 'Activity 3: Practice & Application (15 mins)\n- Practice: Complete the photosynthesis word equation: Carbon dioxide + Water —(Light & Chlorophyll)→ Glucose + Oxygen.\n- Critical Thinking: "Why is sitting under trees refreshing during the daytime, yet keeping many large plants in a closed bedroom at night is not advised?"',
+    extraVi: '• Thiết bị & Học liệu: Máy chiếu, bộ thí nghiệm thử tinh bột ở lá xanh, phiếu học tập nhóm.\n• Dặn dò về nhà (3 phút): Vẽ sơ đồ tư duy bài Quang hợp; chuẩn bị nội dung bài Hô hấp tế bào ở thực vật.',
+    extraEn: '• Key Bilingual Vocabulary:\n  - photosynthesis /ˌfəʊ.təʊˈsɪn.θə.sɪs/ (n): quá trình quang hợp\n  - chlorophyll /ˈklɔː.rə.fɪl/ (n): chất diệp lục\n  - stomata /ˈstəʊ.mə.tə/ (n): khí khổng\n  - glucose /ˈɡluː.kəʊs/ (n): đường glucozơ (chất hữu cơ)\n• Homework: Create a bilingual mind map summarizing photosynthesis.'
   }
 ];
 
-const TOOLKIT = [
-  ['open_email','✉️','Professional Email Opener','Mở đầu Email lịch sự','email','1 block','Dùng khi bắt đầu email với đối tác/sếp: "I hope this email finds you well. I am writing to follow up on..."'],
-  ['exec_sum','📌','BLUF Executive Summary','Tóm tắt ý chính ngay đầu','email','3 lines','Bottom Line Up Front: Nêu kết luận/yêu cầu chính ngay 2-3 dòng đầu tiên để sếp nắm bắt trong 10 giây.'],
-  ['soft_decline','🛡️','Polite Pushback / Decline','Từ chối khéo & Đề xuất thay thế','email','1 para','Không nói "No" cộc lốc; ghi nhận thiện chí + nêu giới hạn nguồn lực + đưa lựa chọn khác.'],
-  ['cta_email','🎯','Clear Call-to-Action (CTA)','Chốt hành động & Deadline','email','2 lines','Nêu rõ ai làm gì, trước mấy giờ ngày nào: "Could you please confirm by Thursday at 2 PM?"'],
-  ['apology_fix','🔧','Service Recovery Template','Xin lỗi & Khắc phục sự cố','email','1 block','Thừa nhận trách nhiệm ngắn gọn, nêu nguyên nhân gốc rễ và cam kết giải pháp bù đắp cụ thể.'],
-  ['followup_nudge','🔔','Gentle Follow-up Nudge','Nhắc việc tinh tế lần 2','email','3 lines','Tránh dùng "Just checking in"; dùng "I wanted to circle back on [Topic] to keep our timeline on track."'],
-  ['attach_note','📎','Attachment & Reference Cue','Dẫn chiếu tài liệu đính kèm','email','1 line','Gắn kèm tóm tắt nội dung file đính kèm để người nhận biết cần xem trang/mục nào.'],
-  ['sign_off','✍️','Formal & Warm Sign-off','Kết thư chuyên nghiệp','email','1 line','Chọn đúng sắc thái: "Best regards," (chuẩn mực), "Warm regards," (thân thiện), "Sincerely," (trang trọng).'],
-  ['agenda_hook','🗓️','Meeting Agenda & Timebox','Mở đầu họp & Phân bổ thời gian','meeting','2 mins','Chốt mục tiêu cuộc họp và thời lượng từng phần ngay phút đầu để tránh họp lan man.'],
-  ['bridge_phrase','🌉','Transition & Signposting','Cụm từ chuyển ý thuyết trình','meeting','4 cues','Giúp người nghe theo dõi mạch bài: "Moving on to our next point...", "To put this into perspective..."'],
-  ['polite_interrupt','✋','Polite Interruption','Xin phép ngắt lời lịch sự','meeting','1 cue','Dùng khi cần bổ sung ý gấp: "Sorry to jump in here, could I quickly add a point about..."'],
-  ['buy_time','⏳','Thinking / Buying Time Cue','Câu kéo dài thời gian suy nghĩ','meeting','1 cue','Tránh "À, ừm" khi bị hỏi khó: "That’s a great question—let me break that down into two parts."'],
-  ['data_story','📈','Data & Metric Framing','Trình bày số liệu có ngữ cảnh','meeting','2 slides','Đừng chỉ đọc số; hãy nêu xu hướng + nguyên nhân + tác động kinh doanh.'],
-  ['disagree_diplomatic','⚖️','Diplomatic Disagreement','Phản biện giữ thể diện đối phương','meeting','1 para','Dùng cấu trúc "Yes, and...": "I see your point about cost; at the same time, we should consider..."'],
-  ['qna_handle','💬','Q&A Deflection & Follow-up','Xử lý câu hỏi chưa có số liệu','meeting','1 cue','Không đoán mò: "I don’t have the exact figure on hand, so I’ll verify and email you by EOD."'],
-  ['recap_owner','✅','Action Items & Owner Recap','Chốt biên bản & Người phụ trách','meeting','3 mins','Nhắc lại toàn bộ đầu việc, người chịu trách nhiệm (PIC) và hạn chót trước khi rời phòng họp.'],
-  ['star_hook','⭐','STAR Achievement Formula','Công thức kể thành tích STAR','meeting','4 parts','Situation (Bối cảnh) → Task (Nhiệm vụ) → Action (Hành động của bạn) → Result (Con số kết quả).'],
-  ['prep_pitch','🚀','PREP Quick Pitch (60s)','Trình bày quan điểm nhanh 60 giây','meeting','4 parts','Point (Quan điểm) → Reason (Lý do) → Example (Ví dụ) → Point (Chốt lại quan điểm).'],
-  ['elevator_intro','🪪','30-Second Elevator Pitch','Giới thiệu bản thân trong 30s','meeting','4 lines','Tên + Vai trò + Giá trị cốt lõi bạn mang lại + Câu hỏi mở kết nối.'],
-  ['salary_anchor','💰','Value-Based Compensation Cue','Đàm phán lương dựa trên giá trị','meeting','1 para','Dẫn chứng thành tựu đo lường được và mức tham chiếu thị trường thay vì lý do cá nhân.']
-];
+const SUGGESTIONS = {
+  KHTN: {
+    objectivesVi: [
+      '\n• Năng lực KHTN: Đề xuất được giả thuyết khoa học, tiến hành thí nghiệm kiểm chứng an toàn, thu thập số liệu và rút ra kết luận.',
+      '\n• Năng lực tự chủ & hợp tác: Phân công nhiệm vụ rõ ràng trong nhóm thực hành, tôn trọng ý kiến đóng góp của các thành viên.'
+    ],
+    objectivesEn: [
+      '\n• Scientific Inquiry: Formulate a testable hypothesis, perform the experiment safely, and draw evidence-based conclusions.',
+      '\n• Bilingual Competence: Accurately pronounce and apply core science vocabulary in classroom discussions.'
+    ],
+    warmupVi: [
+      '\n• Gợi ý hoạt động (5 phút): Cho HS quan sát 2 hiện tượng thực tế đối lập trong đời sống và thảo luận cặp đôi (Think – Pair – Share) trong 90 giây.',
+      '\n• Câu hỏi gợi mở: "Điều gì sẽ xảy ra nếu ta thay đổi yếu tố này? Em dựa vào quan sát nào để đưa ra dự đoán đó?"'
+    ],
+    warmupEn: [
+      '\n• Classroom English Prompt: "Look at these two contrasting phenomena on the screen. Discuss with your partner for 90 seconds: What do you observe?"',
+      '\n• Eliciting Question: "What might happen if we change this variable? What evidence supports your prediction?"'
+    ],
+    knowledgeVi: [
+      '\n• Tiến trình 4 bước chuẩn 5512:\n  1. Chuyển giao nhiệm vụ: GV nêu rõ yêu cầu thí nghiệm và thời gian hoàn thành.\n  2. Thực hiện nhiệm vụ: HS thao tác theo nhóm 4, ghi chép bảng kết quả.\n  3. Báo cáo, thảo luận: 2 nhóm trình bày, các nhóm khác nhận xét.\n  4. Kết luận, nhận định: GV chuẩn hóa kiến thức trọng tâm.',
+      '\n• Lưu ý an toàn phòng thí nghiệm: Nhắc nhở HS đeo kính bảo hộ, kiểm tra dụng cụ thủy tinh và thu gom hóa chất đúng quy định sau khi làm xong.'
+    ],
+    knowledgeEn: [
+      '\n• Lab Instruction Cue: "Work in groups of 4. Follow steps 1 to 3 on your worksheet, record your observations in the table, and report back in 10 minutes."',
+      '\n• Safety Reminder: "Please put on your safety goggles, handle glassware carefully, and keep your workspace clean."'
+    ],
+    practiceVi: [
+      '\n• Vận dụng thực tiễn: Yêu cầu HS đề xuất 1 giải pháp tiết kiệm năng lượng hoặc bảo vệ môi trường tại gia đình dựa trên nguyên lý khoa học vừa học.',
+      '\n• Đánh giá cuối tiết (Exit Ticket - 3 phút): Mỗi HS viết vào giấy nhớ 1 kiến thức tâm đắc nhất và 1 câu hỏi còn băn khoăn trước khi rời lớp.'
+    ],
+    practiceEn: [
+      '\n• Real-world Task: "Propose one practical solution at home or school based on today’s scientific principle."',
+      '\n• Exit Ticket Prompt: "Before leaving the classroom, write down 1 key takeaway and 1 question you still have."'
+    ],
+    extraVi: [
+      '\n• Rubric đánh giá hoạt động nhóm (Thang 10 điểm): Thao tác an toàn (3đ) – Số liệu chính xác (4đ) – Thuyết trình rõ ràng (3đ).',
+      '\n• Hướng dẫn về nhà: Hoàn thiện báo cáo thực hành và vẽ sơ đồ tư duy tóm tắt bài học.'
+    ],
+    extraEn: [
+      '\n• Bilingual Science Glossary:\n  - hypothesis /haɪˈpɒθ.ə.sɪs/ (n): giả thuyết khoa học\n  - variable /ˈveə.ri.ə.bəl/ (n): biến số thí nghiệm\n  - observation /ˌɒb.zəˈveɪ.ʃən/ (n): sự quan sát\n  - evidence /ˈev.ɪ.dəns/ (n): bằng chứng khoa học',
+      '\n• Homework Instruction: "Review the bilingual vocabulary list and prepare a 2-minute summary for next class."'
+    ]
+  },
+  ENG: {
+    objectivesVi: [
+      '\n• Năng lực giao tiếp: HS vận dụng tự nhiên từ vựng và cấu trúc trọng tâm vào tình huống đóng vai thực tế với độ chính xác trên 80%.',
+      '\n• Tương tác lớp học: Khuyến khích HS sử dụng tiếng Anh lớp học khi kiểm tra chéo bài cho bạn cùng bàn.'
+    ],
+    objectivesEn: [
+      '\n• Communicative Goal: Students apply target vocabulary and structures naturally in real-life role-plays with 80% accuracy.',
+      '\n• Classroom Interaction: Encourage peer-checking in English ("What do you think about number 2?").'
+    ],
+    warmupVi: [
+      '\n• Gợi ý khởi động (5 phút): Trò chơi "Two Truths and a Lie" hoặc "Quick Word Association" liên quan đến chủ đề bài học để kích hoạt vốn từ sẵn có.',
+      '\n• Lời dẫn GV: Yêu cầu HS làm việc theo cặp, liệt kê nhanh 3 từ vựng liên quan đến bức tranh trên màn hình trong 1 phút.'
+    ],
+    warmupEn: [
+      '\n• Activity Idea (5 mins): "Two Truths and a Lie" or "Quick Word Association" to activate prior vocabulary.',
+      '\n• Teacher Prompt: "Look at the picture on the screen. Work in pairs and brainstorm 3 words that come to mind in 60 seconds."'
+    ],
+    knowledgeVi: [
+      '\n• Kiểm tra mức độ hiểu (CCQs): Đặt 2–3 câu hỏi ngắn Có/Không hoặc lựa chọn thay vì hỏi chung chung "Các em hiểu chưa?".',
+      '\n• Luyện phát âm (Drilling 3 bước): GV đọc mẫu rõ ràng → Cả lớp đọc đồng thanh (Choral drill) → Gọi cá nhân sửa trọng âm, ngữ điệu.'
+    ],
+    knowledgeEn: [
+      '\n• CCQs (Concept Checking Questions): Ask short yes/no or choice questions instead of asking "Do you understand?".',
+      '\n• Pronunciation Drill: Model clearly → Choral drill → Individual check (focus on word stress and natural intonation).'
+    ],
+    practiceVi: [
+      '\n• Tiến trình luyện tập từ kiểm soát đến tự do:\n  1. Controlled Practice: Bài tập nối câu / điền từ cá nhân.\n  2. Guided Practice: Luyện hội thoại theo mẫu với bạn cùng bàn.\n  3. Freer Production: Hoạt động phỏng vấn 3 bạn trong lớp (Milling Activity).',
+      '\n• Sửa lỗi cuối hoạt động (Delayed Error Correction): GV ghi chú các lỗi sai phổ biến khi đi quan sát nhóm và chữa chung trên bảng.'
+    ],
+    practiceEn: [
+      '\n• Controlled to Free Practice: Start with gap-fill → Pair dialogue → Milling Activity (stand up and interview 3 classmates).',
+      '\n• Delayed Error Correction: Note common mistakes during pair work and review them anonymously on the board.'
+    ],
+    extraVi: [
+      '\n• Tiêu chí đánh giá nói (Speaking Rubric): Phát âm & Ngữ điệu (3đ) – Dùng đúng từ vựng/ngữ pháp (4đ) – Độ trôi chảy & Tự tin (3đ).',
+      '\n• Hướng dẫn về nhà: Ghi âm 1 đoạn nói ngắn 1 phút hoặc viết 5 câu sử dụng từ vựng mới của bài.'
+    ],
+    extraEn: [
+      '\n• Useful Classroom English Cues:\n  - "Work in pairs / groups of four."\n  - "Swap your worksheet with your partner and check."\n  - "Time’s up! Let’s wrap up and share your answers."',
+      '\n• Homework: "Record a 1-minute voice note or write 5 sentences using today’s target vocabulary."'
+    ]
+  }
+};
 
-const WORDS = `leverage|/ˈlev.ər.ɪdʒ/|tận dụng tối đa (nguồn lực, lợi thế)|We can leverage existing customer data to speed up the campaign.
-bottleneck|/ˈbɒt.əl.nek/|điểm nghẽn, nút thắt cổ chai (trong quy trình)|Manual approval is currently the biggest bottleneck in our workflow.
-stakeholder|/ˈsteɪkˌhəʊl.dər/|các bên liên quan (sếp, khách hàng, team khác)|We need buy-in from all key stakeholders before launching.
-deliverable|/dɪˈlɪv.ər.ə.bəl/|sản phẩm / đầu việc bàn giao cụ thể|Please list all deliverables and deadlines in the project charter.
-align|/əˈlaɪn/|thống nhất quan điểm, đồng bộ mục tiêu|Let’s have a quick call to align on the Q3 marketing budget.
-bandwidth|/ˈbænd.wɪdθ/|quỹ thời gian, sức chứa công việc hiện tại|I don’t have the bandwidth to take on another project this week.
-circle back|/ˈsɜː.kəl bæk/|quay lại trao đổi sau về một vấn đề|Let’s circle back to this topic once we receive the final numbers.
-touch base|/tʌtʃ beɪs/|liên hệ nhanh để cập nhật tình hình|I just wanted to touch base regarding the proposal I sent yesterday.
-on the same page|/ɒn ðə seɪm peɪdʒ/|cùng chung cách hiểu, thống nhất ý kiến|Before we proceed, let’s make sure everyone is on the same page.
-ballpark figure|/ˈbɔːl.pɑːk ˈfɪɡ.jər/|con số ước lượng sơ bộ|Could you give me a ballpark figure for the software license cost?
-scope creep|/skəʊp kriːp/|tình trạng phát sinh thêm yêu cầu ngoài phạm vi ban đầu|Clear documentation helps prevent scope creep during development.
-mitigate|/ˈmɪt.ɪ.ɡeɪt/|giảm thiểu (rủi ro, tác động xấu)|We added backup servers to mitigate the risk of downtime.
-feasible|/ˈfiː.zə.bəl/|khả thi, có thể thực hiện được|Is it feasible to complete the prototype within two weeks?
-streamline|/ˈstriːm.laɪn/|tinh gọn, tối ưu hóa quy trình|This new tool will streamline our invoice approval process.
-milestone|/ˈmaɪl.stəʊn/|cột mốc quan trọng của dự án|Reaching 10,000 active users is our major milestone this quarter.
-turnaround time|/ˈtɜːn.ə.raʊnd taɪm/|thời gian xử lý và hoàn tất một yêu cầu|Our standard turnaround time for design revisions is 24 hours.
-escalate|/ˈes.kə.leɪt/|báo cáo vượt cấp khi gặp sự cố nghiêm trọng|If the issue isn’t resolved by noon, we must escalate it to the director.
-take ownership|/teɪk ˈəʊ.nə.ʃɪp/|chủ động nhận trách nhiệm đến cùng|We appreciate team members who take ownership of their tasks.
-buy-in|/ˈbaɪ.ɪn/|sự đồng thuận và ủng hộ (từ sếp/đội ngũ)|Securing leadership buy-in early saved us weeks of rework.
-iterate|/ˈɪt.ər.eɪt/|cải tiến lặp lại qua từng phiên bản|We will launch the beta version and iterate based on user feedback.
-benchmark|/ˈbentʃ.mɑːk/|tiêu chuẩn tham chiếu, mốc so sánh|We use industry benchmarks to evaluate our conversion rate.
-proactive|/ˌprəʊˈæk.tɪv/|chủ động đón đầu, xử lý trước khi sự cố xảy ra|A proactive approach to client communication builds strong trust.
-transparent|/trænˈspær.ənt/|minh bạch, rõ ràng|Being transparent about delays helps manage client expectations.
-actionable|/ˈæk.ʃən.ə.bəl/|có tính hành động, áp dụng được ngay|The consultant gave us five actionable recommendations.
-wrap up|/ræp ʌp/|kết thúc, tổng kết buổi họp hoặc công việc|We have five minutes left, so let’s wrap up and review action items.
-follow up|/ˈfɒl.əʊ ʌp/|theo sát, gửi phản hồi tiếp nối sau cuộc họp|I will follow up with a summary email right after this meeting.
-keep someone in the loop|/kiːp ɪn ðə luːp/|cập nhật thông tin thường xuyên cho ai đó|Please keep me in the loop on any changes to the launch schedule.
-move the needle|/muːv ðə ˈniː.dl/|tạo ra tác động, thay đổi đáng kể về kết quả|Let’s focus on initiatives that will actually move the needle on revenue.
-low-hanging fruit|/ˌləʊ.hæŋ.ɪŋ ˈfruːt/|việc dễ làm, mang lại kết quả nhanh|Fixing the checkout typo is low-hanging fruit we can finish today.
-pain point|/ˈpeɪn pɔɪnt/|nỗi đau, vấn đề nhức nhối của khách hàng|Our new feature directly solves the customer’s biggest pain point.
-value proposition|/ˈvæl.juː ˌprɒp.əˈzɪʃ.ən/|giá trị cốt lõi khác biệt mang lại cho khách hàng|We need to highlight our unique value proposition in the pitch deck.
-onboarding|/ˈɒnˌbɔː.dɪŋ/|quy trình hội nhập nhân sự mới / hướng dẫn khách mới|A smooth onboarding process increases employee retention.
-retention|/rɪˈten.ʃən/|tỷ lệ giữ chân khách hàng hoặc nhân sự|Customer retention is just as important as acquiring new leads.
-quarterly|/ˈkwɔː.tə.li/|hàng quý (3 tháng một lần)|We present our financial performance during the quarterly business review.
-allocate|/ˈæl.ə.keɪt/|phân bổ (ngân sách, nguồn lực, thời gian)|We need to allocate more budget to digital marketing next month.
-contingency plan|/kənˈtɪn.dʒən.si plæn/|kế hoạch dự phòng rủi ro|Always prepare a contingency plan in case the venue falls through.
-consensus|/kənˈsen.səs/|sự đồng thuận chung của tập thể|After an hour of debate, the committee finally reached a consensus.
-delegate|/ˈdel.ɪ.ɡeɪt/|ủy quyền, giao việc cho cấp dưới|Good managers know how to delegate tasks effectively.
-reiterate|/riˈɪt.ər.eɪt/|nhấn mạnh lại, nhắc lại cho rõ|Let me reiterate that data security is our top priority.
-clarify|/ˈklær.ɪ.faɪ/|làm rõ thông tin gây hiểu nhầm|Could you clarify what you meant by "flexible pricing"?
-acknowledge|/əkˈnɒl.ɪdʒ/|ghi nhận, xác nhận đã nhận thông tin|Thank you for acknowledging receipt of the signed contract.
-expedite|/ˈek.spə.daɪt/|đẩy nhanh tiến độ xử lý|We paid an extra fee to expedite the shipping of prototypes.
-redundancy|/rɪˈdʌn.dən.si/|sự dư thừa trùng lặp / cắt giảm nhân sự|Automating data entry eliminates redundancy across departments.
-synergy|/ˈsɪn.ə.dʒi/|sức mạnh cộng hưởng khi phối hợp|The merger created strong synergy between the two engineering teams.
-kpi|/ˌkeɪ.piːˈaɪ/|chỉ số đo lường hiệu suất công việc|Exceeding our quarterly sales KPI earned the team a bonus.
-roi|/ˌɑːr.əʊˈaɪ/|tỷ suất hoàn vốn đầu tư|Management wants to see the projected ROI before approving the tool.
-eod|/ˌiː.əʊˈdiː/|cuối ngày làm việc (End of Day)|Please submit your expense reports by EOD Friday.
-asap|/ˌeɪ.es.eɪˈpiː/|càng sớm càng tốt (dùng có chừng mực)|Could you review the press release ASAP so we can publish it?
-fyi|/ˌef.waɪˈaɪ/|gửi để bạn nắm thông tin (For Your Information)|FYI, the client meeting has been moved to Room 402.
-eta|/ˌiː.tiːˈeɪ/|thời gian dự kiến hoàn thành / đến nơi|What is the ETA for the updated mobile app build?
-out of office|/aʊt əv ˈɒf.ɪs/|vắng mặt tại văn phòng / nghỉ phép|I’ll be out of office next Monday with limited access to email.
-win-win|/ˌwɪnˈwɪn/|đôi bên cùng có lợi|This partnership structure is a win-win for both companies.
-heads-up|/ˈhedz ʌp/|lời báo trước để chuẩn bị tinh thần|Just a quick heads-up: the server will undergo maintenance tonight.
-brainstorm|/ˈbreɪn.stɔːm/|động não tập thể tìm ý tưởng|Let’s schedule a 30-minute session to brainstorm campaign slogans.
-track record|/ˈtræk ˌrek.ɔːd/|thành tích, lịch sử hoạt động đã được chứng minh|She has a proven track record of scaling B2B startups.
-takeaway|/ˈteɪk.ə.weɪ/|bài học / điểm mấu chốt rút ra sau buổi họp|What is your main takeaway from today’s customer interview?`.split('\n').map(x => x.split('|'));
-
-const BANK = {
-  "Mở đầu & Điều phối họp": [
-    ["Let’s kick things off by reviewing today’s agenda.", "Chúng ta hãy bắt đầu bằng việc điểm qua chương trình họp hôm nay."],
-    ["To stay on schedule, let’s spend 10 minutes on this topic.", "Để đảm bảo đúng tiến độ, hãy dành 10 phút cho chủ đề này."],
-    ["Could you walk us through the latest numbers?", "Bạn có thể trình bày sơ lược cho cả nhóm về các số liệu mới nhất không?"]
+const QUICK_CLASSROOM_CUES = {
+  KHTN: [
+    '“Today’s topic is... Let’s look at the learning objectives.”',
+    '“Work in groups of 4 and assign a timekeeper and a presenter.”',
+    '“What is your hypothesis before we start the experiment?”',
+    '“Record your data carefully in the observation table.”',
+    '“What conclusion can we draw from these results?”'
   ],
-  "Xin ý kiến & Ngắt lời lịch sự": [
-    ["Sorry to jump in, may I add a quick point before we move on?", "Xin lỗi vì ngắt lời, tôi có thể bổ sung nhanh một ý trước khi chuyển sang phần tiếp theo không?"],
-    ["How does this timeline look from the engineering perspective?", "Về phía đội kỹ thuật, mốc thời gian này trông có khả thi không?"],
-    ["Just to make sure I understood correctly, are you saying that…?", "Để chắc chắn tôi hiểu đúng ý, có phải ý bạn là…?"]
-  ],
-  "Từ chối khéo & Đàm phán": [
-    ["I’d love to help with that, though my current capacity is fully booked until Thursday.", "Tôi rất sẵn lòng hỗ trợ việc đó, nhưng lịch hiện tại của tôi đã kín đến hết thứ Năm."],
-    ["While I see the value in option A, option B fits our budget much better.", "Dù thấy rõ giá trị của phương án A, phương án B phù hợp với ngân sách của chúng ta hơn nhiều."],
-    ["Can we meet halfway and deliver the core features first?", "Chúng ta có thể dung hòa bằng cách bàn giao các tính năng cốt lõi trước được không?"]
-  ],
-  "Chốt việc & Follow-up Email": [
-    ["To recap, Sarah will finalize the deck and Mark will send the client invite by EOD.", "Tóm lại, Sarah sẽ hoàn thiện slide và Mark sẽ gửi thư mời khách hàng trước cuối ngày hôm nay."],
-    ["Please let me know if you have any feedback by Wednesday noon.", "Vui lòng phản hồi cho tôi nếu bạn có góp ý gì trước trưa thứ Tư nhé."],
-    ["Thank you for your prompt response and continued partnership.", "Cảm ơn anh/chị đã phản hồi nhanh chóng và luôn đồng hành hợp tác."]
+  ENG: [
+    '“Let’s kick off with a quick 5-minute warm-up game!”',
+    '“Listen and repeat after me. Pay attention to the word stress.”',
+    '“Check your answers with your partner before we review together.”',
+    '“Stand up, walk around, and interview 3 classmates.”',
+    '“Great effort! Let’s look at two common mistakes on the board.”'
   ]
 };
 
-const QUIZ_DATA = [
-  {
-    q: "1. Sếp giao thêm việc gấp khi bạn đang quá tải với báo cáo quý. Câu trả lời nào chuyên nghiệp nhất?",
-    opts: [
-      "I am too busy right now, so I cannot do this task today.",
-      "I’m currently prioritizing the Q3 financial report due at 4 PM. Would you like me to pause that to focus on this new request?",
-      "Maybe I will try to do it tomorrow if I have some free time."
-    ],
-    ans: 1,
-    exp: "Đáp án B chuẩn công sở vì: (1) Nêu rõ việc ưu tiên hiện tại, (2) Không từ chối cộc lốc mà hỏi lại sếp cách sắp xếp thứ tự ưu tiên."
-  },
-  {
-    q: "2. Trong cuộc họp, đồng nghiệp nói quá dài và lạc đề. Bạn muốn kéo cuộc họp về đúng trọng tâm một cách lịch sự:",
-    opts: [
-      "Stop talking about that, we are wasting too much time.",
-      "That’s an interesting point. To keep us on schedule, could we park that for later and focus on the launch plan?",
-      "I think your idea is irrelevant to this meeting."
-    ],
-    ans: 1,
-    exp: "Cụm 'park that for later' (gác lại trao đổi sau) + 'keep us on schedule' ghi nhận ý kiến đồng nghiệp nhưng vẫn giữ kỷ luật thời gian."
-  },
-  {
-    q: "3. Điền từ phù hợp vào câu: 'Before we start building the app, let’s make sure all departments are on the same ______.'",
-    opts: ["paper", "page", "line"],
-    ans: 1,
-    exp: "Thành ngữ công sở 'on the same page' nghĩa là mọi người cùng chung một cách hiểu và thống nhất mục tiêu."
-  },
-  {
-    q: "4. Khách hàng yêu cầu thêm 3 tính năng mới miễn phí ngay sát ngày ra mắt. Thuật ngữ nào mô tả tình trạng này?",
-    opts: ["Low-hanging fruit", "Scope creep", "Turnaround time"],
-    ans: 1,
-    exp: "'Scope creep' là thuật ngữ chỉ việc phạm vi công việc bị phình to/phát sinh thêm ngoài thỏa thuận ban đầu."
-  },
-  {
-    q: "5. Bạn gửi email nhắc khách hàng phản hồi hợp đồng sau 3 ngày im lặng. Câu mở đầu nào tinh tế nhất?",
-    opts: [
-      "Why haven't you replied to my previous email yet?",
-      "I wanted to circle back on the contract sent on Monday to ensure we stay on track for next week’s kickoff.",
-      "Just checking in again. Please reply fast."
-    ],
-    ans: 1,
-    exp: "Dùng 'circle back on...' gắn với lợi ích chung ('stay on track for kickoff') lịch sự và hiệu quả hơn nhiều so với 'Just checking in'."
-  },
-  {
-    q: "6. Trong buổi thuyết trình, khách hàng hỏi một số liệu chi tiết mà bạn chưa nắm chắc. Bạn nên xử lý thế nào?",
-    opts: [
-      "Guess an approximate number so you don't look unprepared.",
-      "That’s a great question. I don’t have the exact figure on hand right now, so I’ll double-check and email you by EOD.",
-      "I don't know, someone else in my team handles that."
-    ],
-    ans: 1,
-    exp: "Tuyệt đối không đoán mò số liệu trước khách hàng. Hẹn xác minh và gửi lại trước cuối ngày (by EOD) thể hiện sự chuyên nghiệp."
-  },
-  {
-    q: "7. Từ 'bottleneck' trong câu 'Code review is our main bottleneck' có nghĩa là gì?",
-    opts: [
-      "Điểm nghẽn làm chậm tiến độ toàn bộ quy trình",
-      "Thành tựu nổi bật nhất của dự án",
-      "Ngân sách dự phòng rủi ro"
-    ],
-    ans: 0,
-    exp: "'Bottleneck' (cổ chai) chỉ khâu bị ùn tắc, làm chậm tốc độ chung của cả dây chuyền hoặc dự án."
-  },
-  {
-    q: "8. Khi viết Email báo cáo cho cấp trên bận rộn, nguyên tắc 'BLUF' nghĩa là gì?",
-    opts: [
-      "Viết càng dài càng thể hiện sự chăm chỉ",
-      "Bottom Line Up Front — Đưa kết luận/đề xuất chính lên ngay 2-3 dòng đầu tiên",
-      "Chỉ gửi file đính kèm mà không cần viết nội dung email"
-    ],
-    ans: 1,
-    exp: "BLUF giúp lãnh đạo nắm ngay trọng tâm và quyết định nhanh mà không phải đọc hết một email dài."
-  },
-  {
-    q: "9. Bạn lỡ gửi nhầm phiên bản báo cáo cũ cho khách hàng. Câu phản hồi nào chuyên nghiệp nhất?",
-    opts: [
-      "Oops, wrong file! Ignore that one.",
-      "Apologies for the confusion—please disregard the previous attachment and find the updated Q4 report attached here.",
-      "My computer had an error so it sent the wrong file."
-    ],
-    ans: 1,
-    exp: "Xin lỗi ngắn gọn ('Apologies for the confusion'), yêu cầu bỏ qua file cũ ('disregard') và đính kèm ngay bản đúng mà không đổ lỗi."
-  },
-  {
-    q: "10. Cụm từ 'bandwidth' trong môi trường công sở thường dùng để nói về điều gì?",
-    opts: [
-      "Tốc độ mạng Wi-Fi văn phòng",
-      "Quỹ thời gian và sức chứa công việc của một người/nhóm",
-      "Mức lương thưởng cuối năm"
-    ],
-    ans: 1,
-    exp: "Ví dụ: 'I don't have the bandwidth right now' = Hiện tại tôi không còn dư thời gian/nguồn lực để nhận thêm việc."
-  },
-  {
-    q: "11. Khi trả lời phỏng vấn theo cấu trúc STAR, chữ 'R' đại diện cho yếu tố quan trọng nào?",
-    opts: [
-      "Reason — Lý do bạn nghỉ việc ở công ty cũ",
-      "Result — Kết quả cụ thể (kèm số liệu đo lường) từ hành động của bạn",
-      "Responsibility — Mô tả bản mô tả công việc"
-    ],
-    ans: 1,
-    exp: "STAR = Situation, Task, Action, Result. Nhà tuyển dụng luôn chú ý nhất phần Result có con số minh chứng rõ ràng."
-  },
-  {
-    q: "12. Bạn muốn thông báo trước cho team về việc bảo trì hệ thống tối nay để mọi người chủ động. Cụm từ nào tự nhiên nhất?",
-    opts: [
-      "Just a quick heads-up: the server will be down for maintenance at 9 PM tonight.",
-      "Warning to all employees about server shutdown.",
-      "I must inform you that the server stops tonight."
-    ],
-    ans: 0,
-    exp: "'Just a quick heads-up' là cụm từ tự nhiên, thân thiện nhất để báo trước thông tin quan trọng cho đồng nghiệp."
-  }
-];
+let lessons = JSON.parse(localStorage.getItem('edudraft_lessons_v3') || 'null') || DEFAULT_LESSONS;
+let cur = lessons[0];
+let step = 0;
+let plan = localStorage.getItem('edudraft_plan') || 'Free';
+let freeHintsUsed = Number(localStorage.getItem('edudraft_hints') || '0');
+let pendingPlan = null;
 
-const RUBRIC = [
-  ['Clarity & Structure / Mạch lạc', 'Opens with clear goal (BLUF/STAR); transitions smoothly.', 'Rambles without clear structure or takeaway.'],
-  ['Tone & Register / Sắc thái', 'Polite, diplomatic, and adapted to audience (boss/client).', 'Too blunt, overly casual, or overly passive.'],
-  ['Workplace Vocabulary / Từ vựng', 'Uses accurate business terms naturally in context.', 'Relies on basic words or misuses idioms.'],
-  ['Actionability / Tính hành động', 'Ends with clear owners, next steps, and deadlines.', 'Leaves next steps vague without deadlines.']
-];
-
-let scenarios = JSON.parse(localStorage.getItem('wfScenarios') || 'null') || DEFAULT_SCENARIOS;
-let cur = scenarios[0];
-let pg = 0;
-let plan = localStorage.getItem('wfPlan') || 'free';
-let sel = JSON.parse(localStorage.getItem('wfToolkit') || '{}');
-let notes = JSON.parse(localStorage.getItem('wfNotes') || '[]');
-let mf = 'all';
-let bf = Object.keys(BANK)[0];
-let qIdx = 0;
-let qAnswers = {};
-
-function saveAll() {
-  localStorage.setItem('wfScenarios', JSON.stringify(scenarios));
-  localStorage.setItem('wfToolkit', JSON.stringify(sel));
-  localStorage.setItem('wfNotes', JSON.stringify(notes));
-  localStorage.setItem('wfPlan', plan);
+function saveState() {
+  localStorage.setItem('edudraft_lessons_v3', JSON.stringify(lessons));
+  localStorage.setItem('edudraft_plan', plan);
+  localStorage.setItem('edudraft_hints', String(freeHintsUsed));
 }
 
-function esc(x) {
-  return String(x).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function esc(s) {
+  return String(s || '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 }
 
-function renderLessons() {
-  const el = document.getElementById('lessons');
-  el.innerHTML = scenarios.map(x => `
-    <article class="card" onclick="openEdit('${x.id}')">
-      <div class="cover ${x.type==='STAR'?'star':(x.id==='nego'?'nego':'')}">${x.icon}</div>
-      <span class="tag">${x.type === 'STAR' ? 'STAR / PREP Pitch' : 'Meeting & Email Flow'}</span>
-      <h3>${esc(x.en)}</h3>
-      <b>${esc(x.vi)}</b>
-      <p>${esc(x.desc)}</p>
-      <span class="pill">${esc(x.topic)}</span>
+function renderGrid() {
+  const grid = document.getElementById('lessonGrid');
+  grid.innerHTML = lessons.map(item => `
+    <article class="card" onclick="loadLesson('${item.id}')">
+      <div>
+        <div class="cover ${item.subject === 'ENG' ? 'eng' : ''}">${item.icon}</div>
+        <span class="tag ${item.subject === 'ENG' ? 'eng' : ''}">${item.subject === 'ENG' ? 'Giáo án Tiếng Anh' : 'Giáo án KHTN Song ngữ'}</span>
+        <h3>${esc(item.title)}</h3>
+        <p>${esc(item.objectivesVi).slice(0, 115)}...</p>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="pill">📚 ${esc(item.grade || 'THCS')} · ${esc(item.duration)}</span>
+        <span style="font-size:12px;font-weight:bold;color:var(--g)">Mở soạn thảo →</span>
+      </div>
     </article>
   `).join('');
 }
 
-function createNewScenario() {
-  if (plan === 'free' && scenarios.length >= 3) {
-    return pricing();
+function loadLesson(id) {
+  cur = lessons.find(x => x.id === id) || lessons[0];
+  renderEditor();
+  document.getElementById('editor').scrollIntoView({ behavior: 'smooth' });
+}
+
+function newLesson(subject) {
+  const maxAllowed = plan === 'Free' ? 3 : (plan === 'Plus' ? 30 : 9999);
+  if (lessons.length >= maxAllowed) {
+    return openCheckout(plan === 'Free' ? 'Plus' : 'Pro', plan === 'Free' ? '79.000đ / tháng' : '149.000đ / tháng');
   }
-  const id = 'custom_' + Date.now();
+  const isEng = subject === 'ENG';
   const item = {
-    id,
-    type: 'Meeting',
-    topic: 'Tình huống cá nhân',
-    icon: '📝',
-    en: 'Custom Workplace Scenario #' + (scenarios.length + 1),
-    vi: 'Kịch bản giao tiếp công sở tùy chỉnh',
-    desc: 'Kịch bản cá nhân hóa cho buổi họp, email quan trọng hoặc buổi phỏng vấn sắp tới.',
-    stepsEn: [
-      'Hi [Name], thank you for taking the time to connect today.',
-      'Here is a quick overview of our current status and key findings.',
-      'One challenge we should address early is...',
-      'My recommendation is to move forward with...',
-      'Let’s confirm our next steps and target deadline.'
-    ],
-    stepsVi: [
-      'Chào [Tên], cảm ơn anh/chị đã dành thời gian trao đổi hôm nay.',
-      'Dưới đây là tổng quan nhanh về tình hình hiện tại và các điểm chính.',
-      'Một thách thức chúng ta cần xử lý sớm là...',
-      'Đề xuất của tôi là triển khai theo hướng...',
-      'Chúng ta hãy chốt các bước tiếp theo và thời hạn hoàn thành nhé.'
-    ]
+    id: 'lesson_' + Date.now(),
+    subject,
+    icon: isEng ? '🇬🇧' : '🔬',
+    title: isEng ? 'New English Lesson Plan #' + (lessons.length + 1) : 'Giáo án KHTN Song ngữ mới #' + (lessons.length + 1),
+    grade: isEng ? 'Tiếng Anh THCS' : 'KHTN THCS',
+    duration: '45 phút (1 tiết)',
+    prep: '• Giáo viên:\n• Học sinh:',
+    objectivesVi: '1. Về kiến thức:\n2. Về năng lực:\n3. Về phẩm chất:',
+    objectivesEn: '1. Knowledge:\n2. Competences / Skills:\n3. Attitude:',
+    warmupVi: '',
+    warmupEn: '',
+    knowledgeVi: '',
+    knowledgeEn: '',
+    practiceVi: '',
+    practiceEn: '',
+    extraVi: '',
+    extraEn: ''
   };
-  scenarios.push(item);
-  saveAll();
-  renderLessons();
-  openEdit(id);
+  lessons.unshift(item);
+  cur = item;
+  saveState();
+  renderGrid();
+  renderEditor();
+  document.getElementById('editor').scrollIntoView({ behavior: 'smooth' });
 }
 
-function renderToolkit() {
-  const el = document.getElementById('mats');
-  el.innerHTML = TOOLKIT.filter(x => mf === 'all' || x[4] === mf).map(x => `
-    <div class="item">
-      <label style="cursor:pointer">
-        <input type="checkbox" ${sel[x[0]] ? 'checked' : ''} onchange="toggleKit('${x[0]}', this.checked)">
-        ${x[1]} <b>${x[2]}</b> <span style="color:var(--m)">(${x[3]})</span>
-      </label>
-      <small>${x[6]}</small>
-      Độ dài: <input class="qty" value="${esc(sel[x[0]] || x[5])}" onchange="qtyKit('${x[0]}', this.value)">
-    </div>
-  `).join('');
-}
-
-function filterMat(f, btn) {
-  mf = f;
-  document.querySelectorAll('#toolkit .chip').forEach(x => x.classList.remove('active'));
-  btn.classList.add('active');
-  renderToolkit();
-}
-
-function toggleKit(id, on) {
-  const found = TOOLKIT.find(a => a[0] === id);
-  if (on && found) sel[id] = found[5];
-  else delete sel[id];
-  saveAll();
-  renderToolkit();
-}
-
-function qtyKit(id, val) {
-  if (sel[id]) {
-    sel[id] = val;
-    saveAll();
+function duplicateLesson() {
+  const maxAllowed = plan === 'Free' ? 3 : (plan === 'Plus' ? 30 : 9999);
+  if (lessons.length >= maxAllowed) {
+    return openCheckout(plan === 'Free' ? 'Plus' : 'Pro', plan === 'Free' ? '79.000đ / tháng' : '149.000đ / tháng');
   }
+  const copy = JSON.parse(JSON.stringify(cur));
+  copy.id = 'lesson_' + Date.now();
+  copy.title = cur.title + ' (Bản sao)';
+  lessons.unshift(copy);
+  cur = copy;
+  saveState();
+  renderGrid();
+  renderEditor();
 }
 
-function renderTerms() {
-  const q = document.getElementById('search').value.toLowerCase().trim();
-  const el = document.getElementById('terms');
-  const filtered = WORDS.filter(x => x.join(' ').toLowerCase().includes(q));
-  el.innerHTML = filtered.map(x => `
-    <div class="term">
-      <b>${esc(x[0])} <small style="color:var(--m);font-weight:normal">${esc(x[1])}</small></b>
-      <p><b style="color:var(--g)">${esc(x[2])}</b><br><i>“${esc(x[3])}”</i></p>
-      <button class="out" style="padding:6px 10px;font-size:11px" onclick="saveTerm('${x[0].replace(/'/g,"\\'")}')">+ Lưu sổ tay</button>
-    </div>
-  `).join('') || '<p>Không tìm thấy thuật ngữ phù hợp.</p>';
+function switchSubject(subject) {
+  cur.subject = subject;
+  cur.icon = subject === 'ENG' ? '🇬🇧' : '🔬';
+  saveState();
+  renderGrid();
+  renderEditor();
 }
 
-function saveTerm(term) {
-  const item = WORDS.find(a => a[0] === term);
-  if (!item) return;
-  if (plan === 'free' && notes.length >= 15) return pricing();
-  if (!notes.some(n => n[0].toLowerCase() === term.toLowerCase())) {
-    notes.unshift(item);
-    saveAll();
-    renderNotes();
-  }
+function setStep(idx, btn) {
+  step = idx;
+  document.querySelectorAll('.step').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderEditor();
 }
 
-function addNote() {
-  const w = document.getElementById('newword').value.trim();
-  const n = document.getElementById('newnote').value.trim();
-  if (!w) return;
-  if (plan === 'free' && notes.length >= 15) return pricing();
-  notes.unshift([w, '', n || 'Cụm từ cá nhân', '']);
-  saveAll();
-  document.getElementById('newword').value = '';
-  document.getElementById('newnote').value = '';
-  renderNotes();
+function insertClassroomCue(fieldEn, cueText) {
+  cur[fieldEn] = (cur[fieldEn] ? cur[fieldEn] + '\n' : '') + '• Teacher Cue: ' + cueText;
+  saveState();
+  renderEditor();
 }
 
-function renderNotes() {
-  document.getElementById('limit').textContent = `${notes.length} / ${plan === 'free' ? '15' : '∞'}`;
-  const el = document.getElementById('notes');
-  el.innerHTML = notes.map((x, i) => `
-    <div class="item" style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:start;gap:8px">
+function renderClassroomCueBar(targetFieldEn) {
+  const cues = QUICK_CLASSROOM_CUES[cur.subject] || [];
+  return `
+    <div class="cue-box">
+      <b style="color:var(--g)">💬 Chèn nhanh câu lệnh lớp học (Classroom English):</b>
       <div>
-        <b>${esc(x[0])}</b> <small style="display:inline">${esc(x[1])}</small>
-        <small style="margin:3px 0 0">${esc(x[2])} ${x[3] ? '— ' + esc(x[3]) : ''}</small>
-      </div>
-      <button class="out" style="padding:4px 8px" onclick="notes.splice(${i},1);saveAll();renderNotes()">×</button>
-    </div>
-  `).join('') || '<p>Chưa có từ nào trong sổ tay. Bấm "+ Lưu sổ tay" ở từ điển bên cạnh.</p>';
-}
-
-function renderBank() {
-  const ef = document.getElementById('ef');
-  const eb = document.getElementById('eb');
-  ef.innerHTML = Object.keys(BANK).map(k => `
-    <button class="chip ${k === bf ? 'active' : ''}" onclick="bf='${k}';renderBank()">${k}</button>
-  `).join('');
-  eb.innerHTML = BANK[bf].map(x => `
-    <div class="item">
-      <b style="font-size:13px">“${esc(x[0])}”</b>
-      <small>${esc(x[1])}</small>
-      <button class="out" style="padding:6px 10px;font-size:11px" onclick="copyText('${x[0].replace(/'/g,"\\'")}', this)">Copy mẫu câu</button>
-    </div>
-  `).join('');
-}
-
-function copyText(txt, btn) {
-  navigator.clipboard?.writeText(txt);
-  const old = btn.textContent;
-  btn.textContent = '✓ Đã copy!';
-  setTimeout(() => btn.textContent = old, 1200);
-}
-
-/* QUIZ ENGINE */
-function renderQuiz() {
-  const q = QUIZ_DATA[qIdx];
-  const answered = qAnswers[qIdx] !== undefined;
-  const score = Object.keys(qAnswers).filter(k => qAnswers[k] === QUIZ_DATA[k].ans).length;
-  document.getElementById('quizScore').textContent = `Điểm: ${score} / ${QUIZ_DATA.length}`;
-
-  const container = document.getElementById('quizContainer');
-  container.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px">
-      <span class="tag">Câu hỏi ${qIdx + 1} / ${QUIZ_DATA.length}</span>
-      <div style="display:flex;gap:6px;flex-wrap:wrap">
-        ${QUIZ_DATA.map((_, i) => {
-          let bg = '#eef4e3', col = '#557143';
-          if (qAnswers[i] !== undefined) {
-            bg = qAnswers[i] === QUIZ_DATA[i].ans ? '#245f4a' : '#c94a4a';
-            col = 'white';
-          } else if (i === qIdx) {
-            bg = '#d9ed9c'; col = '#173f36';
-          }
-          return `<button style="padding:4px 8px;font-size:11px;border-radius:6px;background:${bg};color:${col}" onclick="qIdx=${i};renderQuiz()">${i+1}</button>`;
-        }).join('')}
-      </div>
-    </div>
-    <h3 style="margin:10px 0 14px;font-size:17px;line-height:1.45">${esc(q.q)}</h3>
-    <div>
-      ${q.opts.map((opt, idx) => {
-        let cls = 'q-opt';
-        if (answered) {
-          if (idx === q.ans) cls += ' correct';
-          else if (idx === qAnswers[qIdx]) cls += ' wrong';
-        }
-        return `<button class="${cls}" ${answered ? 'disabled' : ''} onclick="pickAns(${idx})">${String.fromCharCode(65+idx)}. ${esc(opt)}</button>`;
-      }).join('')}
-    </div>
-    ${answered ? `<div class="q-exp"><b>${qAnswers[qIdx] === q.ans ? '✅ Chính xác!' : '❌ Chưa tối ưu!'}</b> ${esc(q.exp)}</div>` : ''}
-    <div style="display:flex;justify-content:space-between;margin-top:16px">
-      <button class="out" ${qIdx === 0 ? 'disabled' : ''} onclick="qIdx--;renderQuiz()">← Câu trước</button>
-      <div style="display:flex;gap:8px">
-        ${answered ? `<button class="out" onclick="qAnswers={};qIdx=0;renderQuiz()">Làm lại từ đầu</button>` : ''}
-        <button ${qIdx === QUIZ_DATA.length - 1 ? 'disabled' : ''} onclick="qIdx++;renderQuiz()">Câu tiếp theo →</button>
+        ${cues.map(c => `<span class="cue-chip" onclick="insertClassroomCue('${targetFieldEn}', '${c.replace(/'/g, "\\'")}')">+ ${esc(c)}</span>`).join('')}
       </div>
     </div>
   `;
 }
 
-function pickAns(idx) {
-  qAnswers[qIdx] = idx;
-  renderQuiz();
-}
-
-/* STUDIO EDITOR */
-function openEdit(id) {
-  cur = scenarios.find(x => x.id === id) || scenarios[0];
-  pg = 0;
-  document.getElementById('editTitle').textContent = cur.en + ' — ' + cur.vi;
-  document.querySelectorAll('.step').forEach((s, i) => s.classList.toggle('active', i === 0));
-  document.getElementById('edit').classList.add('show');
-  renderEditor();
-}
-
-function closeM(id) {
-  document.getElementById(id).classList.remove('show');
-}
-
-function go(n, btn) {
-  saveCurrentStepInputs();
-  pg = n;
-  if (btn) {
-    document.querySelectorAll('.step').forEach(x => x.classList.remove('active'));
-    btn.classList.add('active');
-  } else {
-    document.querySelectorAll('.step').forEach((x, i) => x.classList.toggle('active', i === n));
-  }
-  renderEditor();
-}
-
-function saveCurrentStepInputs() {
-  if (pg === 1) {
-    for (let i = 0; i < 5; i++) {
-      const enEl = document.getElementById('en' + i);
-      const viEl = document.getElementById('vi' + i);
-      if (enEl) cur.stepsEn[i] = enEl.value;
-      if (viEl) cur.stepsVi[i] = viEl.value;
-    }
-    saveAll();
-  }
-}
-
-function getFlowLabels() {
-  return cur.type === 'STAR'
-    ? [
-        ['Situation', 'Bối cảnh tình huống'],
-        ['Task', 'Nhiệm vụ & Mục tiêu'],
-        ['Action', 'Hành động cụ thể của bạn'],
-        ['Result', 'Kết quả đo lường được'],
-        ['Takeaway', 'Bài học & Giá trị mang lại']
-      ]
-    : [
-        ['Open & Context', 'Mở đầu & Đặt vấn đề'],
-        ['Current Status', 'Cập nhật tiến độ / Dữ liệu'],
-        ['Challenge / Gap', 'Điểm nghẽn / Vấn đề phát sinh'],
-        ['Proposal / Align', 'Đề xuất giải pháp & Thống nhất'],
-        ['Action & Deadline', 'Chốt đầu việc & Hạn chót']
-      ];
-}
-
 function renderEditor() {
-  const work = document.getElementById('work');
-  const flow = getFlowLabels();
+  const isEng = cur.subject === 'ENG';
+  const badge = document.getElementById('editorTypeBadge');
+  badge.textContent = isEng ? 'Giáo án Tiếng Anh' : 'Giáo án KHTN Song ngữ';
+  badge.className = 'tag' + (isEng ? ' eng' : '');
+  document.getElementById('editorHeading').textContent = cur.title;
+  document.getElementById('hintCounter').textContent = plan === 'Free'
+    ? `Gợi ý miễn phí đã dùng: ${freeHintsUsed}/3 lượt`
+    : `Gói ${plan}: Không giới hạn gợi ý ✨`;
 
-  if (pg === 0) {
+  const work = document.getElementById('workArea');
+
+  if (step === 0) {
     work.innerHTML = `
-      <div class="ey">OVERVIEW / TỔNG QUAN KỊCH BẢN</div>
-      <h2>${esc(cur.en)}</h2>
-      <p><b>${esc(cur.vi)}</b></p>
-      <div class="filters">
-        <button class="chip ${cur.type==='Meeting'?'active':''}" onclick="cur.type='Meeting';saveAll();renderLessons();renderEditor()">Meeting &amp; Email Flow (5 bước)</button>
-        <button class="chip ${cur.type==='STAR'?'active':''}" onclick="cur.type='STAR';saveAll();renderLessons();renderEditor()">STAR / PREP Framework (5 bước)</button>
+      <div class="ey">BƯỚC 1 · THÔNG TIN CHUNG, CHUẨN BỊ &amp; MỤC TIÊU SONG NGỮ</div>
+      <div class="tri">
+        <div class="box">
+          <b>Tên bài dạy / Lesson Title</b>
+          <input value="${esc(cur.title)}" oninput="cur.title=this.value;document.getElementById('editorHeading').textContent=this.value;saveState();renderGrid()">
+        </div>
+        <div class="box">
+          <b>Khối lớp / Phân môn</b>
+          <input value="${esc(cur.grade || '')}" oninput="cur.grade=this.value;saveState();renderGrid()">
+        </div>
+        <div class="box">
+          <b>Thời lượng / Duration</b>
+          <input value="${esc(cur.duration)}" oninput="cur.duration=this.value;saveState();renderGrid()">
+        </div>
+      </div>
+      <div class="box">
+        <b>Chuẩn bị của Giáo viên &amp; Học sinh (Teaching Aids &amp; Preparation)</b>
+        <textarea style="min-height:85px" oninput="cur.prep=this.value;saveState()">${esc(cur.prep || '')}</textarea>
+      </div>
+      <div class="suggest-bar">
+        <span>✨ Gợi ý mục tiêu:</span>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('objectives', 0)">+ Gợi ý năng lực trọng tâm (Anh – Việt)</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('objectives', 1)">+ Gợi ý phẩm chất &amp; tương tác song ngữ</button>
       </div>
       <div class="bi">
         <div class="box">
-          <b>🇬🇧 English Objective &amp; Context</b>
-          <textarea onchange="cur.en=this.value;saveAll();renderLessons()">${esc(cur.en)}</textarea>
+          <b>🇻🇳 Mục tiêu tiếng Việt (Kiến thức – Năng lực – Phẩm chất)</b>
+          <textarea oninput="cur.objectivesVi=this.value;saveState();renderGrid()">${esc(cur.objectivesVi)}</textarea>
         </div>
         <div class="box">
-          <b>🇻🇳 Mục tiêu &amp; Ngữ cảnh tiếng Việt</b>
-          <textarea onchange="cur.desc=this.value;saveAll();renderLessons()">${esc(cur.desc)}</textarea>
+          <b>🇬🇧 English Objectives (Knowledge – Competences – Attitude)</b>
+          <textarea oninput="cur.objectivesEn=this.value;saveState()">${esc(cur.objectivesEn)}</textarea>
         </div>
       </div>
-      <div style="margin-top:16px">
-        <button onclick="go(1)">Tiếp tục soạn lời thoại 5 bước →</button>
-      </div>
     `;
-  } else if (pg === 1) {
+  } else if (step === 1) {
     work.innerHTML = `
-      <div class="ey">${cur.type === 'STAR' ? 'STAR / PREP PITCH FLOW' : 'WORKPLACE COMMUNICATION FLOW'}</div>
-      <h2>Kịch bản giao tiếp 5 bước song ngữ</h2>
-      <p>Chỉnh sửa trực tiếp hoặc bấm <b>✨ Chèn mẫu câu nâng cao</b> để nâng cấp sắc thái chuyên nghiệp.</p>
-      ${flow.map((x, i) => `
-        <div class="box" style="margin:12px 0">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-            <b>${i + 1}. ${x[0]} / ${x[1]}</b>
-            <button class="out" style="padding:5px 10px;font-size:11px" onclick="insertProHint(${i})">✨ Chèn mẫu câu nâng cao</button>
-          </div>
-          <div class="bi">
-            <div>
-              <small style="font-weight:bold;color:var(--g)">🇬🇧 English Script</small>
-              <textarea id="en${i}" onchange="saveCurrentStepInputs()">${esc(cur.stepsEn[i] || '')}</textarea>
-            </div>
-            <div>
-              <small style="font-weight:bold;color:var(--g)">🇻🇳 Dịch nghĩa &amp; Ghi chú</small>
-              <textarea id="vi${i}" onchange="saveCurrentStepInputs()">${esc(cur.stepsVi[i] || '')}</textarea>
-            </div>
-          </div>
+      <div class="ey">BƯỚC 2 · KHỞI ĐỘNG &amp; HÌNH THÀNH KIẾN THỨC (SONG NGỮ)</div>
+      <div class="suggest-bar">
+        <span>✨ Gợi ý tiến trình lên lớp:</span>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('warmup', 0)">+ Gợi ý Khởi động (Warm-up)</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('warmup', 1)">+ Gợi ý Câu hỏi gợi mở</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('knowledge', 0)">+ Gợi ý 4 bước Hình thành kiến thức</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('knowledge', 1)">+ Gợi ý ${isEng ? 'Luyện phát âm & CCQs' : 'An toàn thí nghiệm'}</button>
+      </div>
+      <div class="bi">
+        <div class="box">
+          <b>🇻🇳 1. Hoạt động Khởi động (Tiếng Việt)</b>
+          <textarea oninput="cur.warmupVi=this.value;saveState()">${esc(cur.warmupVi)}</textarea>
         </div>
-      `).join('')}
-    `;
-  } else if (pg === 2) {
-    const selectedKits = TOOLKIT.filter(x => sel[x[0]]);
-    work.innerHTML = `
-      <div class="ey">VOCABULARY &amp; TEMPLATES</div>
-      <h2>Từ vựng đính kèm &amp; Cấu phần đã chọn</h2>
-      <h3>1. Vocabulary Box (Từ sổ tay của bạn)</h3>
-      <div class="item" style="margin-bottom:16px">
-        ${notes.map(x => `<b>${esc(x[0])}</b> ${esc(x[1])} — ${esc(x[2])}<br>`).join('') || 'Chưa có từ vựng nào. Hãy lưu từ ở mục Từ điển tiếng Anh công sở.'}
+        <div class="box">
+          <b>🇬🇧 1. Warm-up / Engage (English)</b>
+          <textarea oninput="cur.warmupEn=this.value;saveState()">${esc(cur.warmupEn)}</textarea>
+        </div>
       </div>
-      <h3>2. Khung mẫu giao tiếp đã chọn (${selectedKits.length})</h3>
-      <table class="tbl">
-        <tr><th>Cấu phần (English)</th><th>Tiếng Việt</th><th>Độ dài</th><th>Gợi ý áp dụng</th></tr>
-        ${selectedKits.map(x => `<tr><td><b>${esc(x[2])}</b></td><td>${esc(x[3])}</td><td>${esc(sel[x[0]])}</td><td>${esc(x[6])}</td></tr>`).join('') || '<tr><td colspan="4">Chưa tick chọn cấu phần nào ở mục Kho cấu phần câu.</td></tr>'}
-      </table>
-      <button class="out" onclick="closeM('edit');document.getElementById('toolkit').scrollIntoView({behavior:'smooth'})">+ Chọn thêm cấu phần mẫu</button>
+      <div class="bi">
+        <div class="box">
+          <b>🇻🇳 2. Hình thành kiến thức (Tiếng Việt)</b>
+          <textarea style="min-height:175px" oninput="cur.knowledgeVi=this.value;saveState()">${esc(cur.knowledgeVi)}</textarea>
+        </div>
+        <div class="box">
+          <b>🇬🇧 2. Presentation / Lab Exploration (English)</b>
+          <textarea style="min-height:175px" oninput="cur.knowledgeEn=this.value;saveState()">${esc(cur.knowledgeEn)}</textarea>
+        </div>
+      </div>
+      ${renderClassroomCueBar('knowledgeEn')}
     `;
-  } else if (pg === 3) {
+  } else if (step === 2) {
     work.innerHTML = `
-      <div class="ey">SELF-ASSESSMENT &amp; EXPORT</div>
-      <h2>Tiêu chí đánh giá &amp; Xuất kịch bản</h2>
-      <table class="tbl">
-        <tr><th>Criterion / Tiêu chí</th><th>4 Professional</th><th>2 Developing</th></tr>
-        ${RUBRIC.map(x => `<tr><td contenteditable="true">${esc(x[0])}</td><td contenteditable="true">${esc(x[1])}</td><td contenteditable="true">${esc(x[2])}</td></tr>`).join('')}
-      </table>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-        <button onclick="previewScript()">Xem trước &amp; Copy toàn bộ</button>
-        <button class="out" onclick="exportDoc()">Xuất file Word (.doc)</button>
-        <button class="pro" onclick="printPdf()">In / Lưu PDF chuẩn</button>
+      <div class="ey">BƯỚC 3 · LUYỆN TẬP &amp; VẬN DỤNG THỰC TIỄN</div>
+      <div class="suggest-bar">
+        <span>✨ Gợi ý luyện tập &amp; đánh giá:</span>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('practice', 0)">+ Gợi ý Bài tập / Hoạt động cặp nhóm</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('practice', 1)">+ Gợi ý Đánh giá cuối tiết (Exit Ticket)</button>
+      </div>
+      <div class="bi">
+        <div class="box">
+          <b>🇻🇳 Hoạt động Luyện tập &amp; Vận dụng (Tiếng Việt)</b>
+          <textarea style="min-height:210px" oninput="cur.practiceVi=this.value;saveState()">${esc(cur.practiceVi)}</textarea>
+        </div>
+        <div class="box">
+          <b>🇬🇧 Practice &amp; Production (English)</b>
+          <textarea style="min-height:210px" oninput="cur.practiceEn=this.value;saveState()">${esc(cur.practiceEn)}</textarea>
+        </div>
+      </div>
+      ${renderClassroomCueBar('practiceEn')}
+    `;
+  } else if (step === 3) {
+    work.innerHTML = `
+      <div class="ey">BƯỚC 4 · THUẬT NGỮ ANH – VIỆT (IPA), RUBRIC &amp; DẶN DÒ</div>
+      <div class="suggest-bar">
+        <span>✨ Gợi ý bổ sung:</span>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('extra', 0)">+ Gợi ý Rubric đánh giá &amp; Thuật ngữ IPA</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('extra', 1)">+ Gợi ý Hướng dẫn về nhà</button>
+      </div>
+      <div class="bi">
+        <div class="box">
+          <b>🇻🇳 Đánh giá, Thiết bị &amp; Dặn dò về nhà</b>
+          <textarea style="min-height:200px" oninput="cur.extraVi=this.value;saveState()">${esc(cur.extraVi)}</textarea>
+        </div>
+        <div class="box">
+          <b>🇬🇧 Key Vocabulary (IPA) &amp; Homework</b>
+          <textarea style="min-height:200px" oninput="cur.extraEn=this.value;saveState()">${esc(cur.extraEn)}</textarea>
+        </div>
       </div>
     `;
   }
 }
 
-function insertProHint(i) {
-  const hintsEn = [
-    '\n[Pro Cue]: "To make the best use of everyone’s time, let’s align on our primary objective right away."',
-    '\n[Pro Cue]: "Looking at the metrics, we’ve seen a measurable improvement compared to last week’s benchmark."',
-    '\n[Pro Cue]: "To be transparent, this bottleneck could impact our ETA unless we reallocate resources."',
-    '\n[Pro Cue]: "Here are two feasible options—Option A keeps our deadline intact, while Option B adds extra buffer."',
-    '\n[Pro Cue]: "Just to confirm ownership: I will circulate the summary notes by EOD today."'
-  ];
-  const hintsVi = [
-    '\n[Gợi ý Pro]: "Để tận dụng tối đa thời gian của mọi người, chúng ta hãy thống nhất mục tiêu chính ngay từ đầu."',
-    '\n[Gợi ý Pro]: "Nhìn vào số liệu, chúng ta đã có bước cải thiện rõ rệt so với mốc chuẩn tuần trước."',
-    '\n[Gợi ý Pro]: "Chia sẻ minh bạch thì điểm nghẽn này có thể ảnh hưởng thời gian hoàn thành nếu không phân bổ lại nguồn lực."',
-    '\n[Gợi ý Pro]: "Có 2 phương án khả thi — Phương án A giữ nguyên deadline, còn Phương án B giúp có thêm thời gian dự phòng."',
-    '\n[Gợi ý Pro]: "Xác nhận lại người phụ trách: Tôi sẽ gửi email tóm tắt biên bản trước cuối ngày hôm nay."'
-  ];
-  const enEl = document.getElementById('en' + i);
-  const viEl = document.getElementById('vi' + i);
-  if (enEl && viEl) {
-    enEl.value += hintsEn[i];
-    viEl.value += hintsVi[i];
-    saveCurrentStepInputs();
+function applyDualSuggestion(baseField, idx) {
+  if (plan === 'Free' && freeHintsUsed >= 3) {
+    return openCheckout('Plus', '79.000đ / tháng');
   }
+  const poolVi = SUGGESTIONS[cur.subject][baseField + 'Vi'];
+  const poolEn = SUGGESTIONS[cur.subject][baseField + 'En'];
+  if (poolVi && poolVi[idx]) cur[baseField + 'Vi'] = (cur[baseField + 'Vi'] || '') + poolVi[idx];
+  if (poolEn && poolEn[idx]) cur[baseField + 'En'] = (cur[baseField + 'En'] || '') + poolEn[idx];
+  if (plan === 'Free') freeHintsUsed++;
+  saveState();
+  renderEditor();
+  renderGrid();
 }
 
-function insertToolkit() { openEdit(cur.id); go(2); }
-function insertVocab() { openEdit(cur.id); go(2); }
-function insertRubric() { openEdit(cur.id); go(3); }
-
-function buildFullText() {
-  saveCurrentStepInputs();
-  const flow = getFlowLabels();
+function formatLessonText() {
+  const isEng = cur.subject === 'ENG';
   return [
-    'WORKFLOW · BILINGUAL WORKPLACE ENGLISH SCRIPT',
-    'Title: ' + cur.en + ' — ' + cur.vi,
-    'Framework: ' + cur.type,
-    'Context: ' + cur.desc,
-    '\n--- 5-STEP BILINGUAL SCRIPT ---',
-    flow.map((x, i) => (i+1) + '. ' + x[0] + ' (' + x[1] + ')\n   EN: ' + (cur.stepsEn[i] || '') + '\n   VI: ' + (cur.stepsVi[i] || '')).join('\n\n'),
-    '\n--- KEY VOCABULARY ---',
-    notes.map(x => '• ' + x[0] + ' ' + x[1] + ': ' + x[2]).join('\n') || '(None)',
-    '\n--- SELECTED TEMPLATES ---',
-    TOOLKIT.filter(x => sel[x[0]]).map(x => '• ' + x[2] + ' (' + x[3] + ') [' + sel[x[0]] + ']: ' + x[6]).join('\n') || '(None)'
+    `GIÁO ÁN ${isEng ? 'TIẾNG ANH' : 'KHOA HỌC TỰ NHIÊN SONG NGỮ ANH – VIỆT'}`,
+    `Tên bài dạy: ${cur.title}`,
+    `Khối lớp / Phân môn: ${cur.grade || ''} | Thời lượng: ${cur.duration}`,
+    `\nCHUẨN BỊ CỦA GV & HS:\n${cur.prep || '(Chưa nhập)'}`,
+    `\nI. MỤC TIÊU BÀI HỌC / OBJECTIVES`,
+    `[Tiếng Việt]:\n${cur.objectivesVi || '(Chưa nhập)'}`,
+    `[English]:\n${cur.objectivesEn || '(Not filled)'}`,
+    `\nII. KHỞI ĐỘNG / WARM-UP`,
+    `[Tiếng Việt]:\n${cur.warmupVi || '(Chưa nhập)'}`,
+    `[English]:\n${cur.warmupEn || '(Not filled)'}`,
+    `\nIII. HÌNH THÀNH KIẾN THỨC / PRESENTATION`,
+    `[Tiếng Việt]:\n${cur.knowledgeVi || '(Chưa nhập)'}`,
+    `[English]:\n${cur.knowledgeEn || '(Not filled)'}`,
+    `\nIV. LUYỆN TẬP & VẬN DỤNG / PRACTICE & PRODUCTION`,
+    `[Tiếng Việt]:\n${cur.practiceVi || '(Chưa nhập)'}`,
+    `[English]:\n${cur.practiceEn || '(Not filled)'}`,
+    `\nV. THUẬT NGỮ, ĐÁNH GIÁ & DẶN DÒ / VOCABULARY & HOMEWORK`,
+    `[Tiếng Việt]:\n${cur.extraVi || '(Chưa nhập)'}`,
+    `[English]:\n${cur.extraEn || '(Not filled)'}`
   ].join('\n');
 }
 
-function previewScript() {
-  const txt = buildFullText();
-  navigator.clipboard?.writeText(txt);
-  alert('Đã copy toàn bộ kịch bản song ngữ vào Clipboard!\n\n' + txt.slice(0, 650) + '...');
+function previewLesson() {
+  document.getElementById('previewContent').textContent = formatLessonText();
+  document.getElementById('previewModal').classList.add('show');
+}
+
+function copyPreview() {
+  navigator.clipboard?.writeText(formatLessonText());
+  alert('Đã copy toàn bộ nội dung giáo án song ngữ!');
+}
+
+function buildBilingualTableHtml() {
+  const rows = [
+    ['I. Mục tiêu / Objectives', cur.objectivesVi, cur.objectivesEn],
+    ['II. Khởi động / Warm-up', cur.warmupVi, cur.warmupEn],
+    ['III. Hình thành kiến thức / Presentation', cur.knowledgeVi, cur.knowledgeEn],
+    ['IV. Luyện tập & Vận dụng / Practice', cur.practiceVi, cur.practiceEn],
+    ['V. Thuật ngữ, Đánh giá & Dặn dò', cur.extraVi, cur.extraEn]
+  ];
+  return rows.map(r =>
+    '<tr>' +
+      '<td width="20%"><b>' + esc(r[0]) + '<' + '/b><' + '/td>' +
+      '<td width="40%">' + esc(r[1]).replace(/\n/g, '<br>') + '<' + '/td>' +
+      '<td width="40%">' + esc(r[2]).replace(/\n/g, '<br>') + '<' + '/td>' +
+    '<' + '/tr>'
+  ).join('');
 }
 
 function exportDoc() {
-  if (plan !== 'pro') return pricing();
-  const flow = getFlowLabels();
-  const rows = flow.map((x, i) =>
-    '<tr><td><b>' + (i+1) + '. ' + esc(x[0]) + '</b><br>' + esc(x[1]) + '</td><td>' + esc(cur.stepsEn[i]) + '</td><td>' + esc(cur.stepsVi[i]) + '</td></tr>'
-  ).join('');
-  const docContent =
+  if (plan === 'Free') {
+    return openCheckout('Plus', '79.000đ / tháng');
+  }
+  const html =
     '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
-    '<head><meta charset="utf-8"><title>' + esc(cur.en) + '</title><' + '/head>' +
-    '<body style="font-family:Arial,sans-serif">' +
-    '<h2>' + esc(cur.en) + ' — ' + esc(cur.vi) + '<' + '/h2>' +
-    '<p><b>Framework:</b> ' + esc(cur.type) + ' | <b>Topic:</b> ' + esc(cur.topic) + '<' + '/p>' +
-    '<p>' + esc(cur.desc) + '<' + '/p>' +
+    '<head><meta charset="utf-8"><title>' + esc(cur.title) + '<' + '/title><' + '/head>' +
+    '<body style="font-family:Times New Roman,serif;line-height:1.5">' +
+    '<h2>GIÁO ÁN ' + (cur.subject === 'ENG' ? 'TIẾNG ANH' : 'KHOA HỌC TỰ NHIÊN SONG NGỮ') + '<' + '/h2>' +
+    '<p><b>Tên bài dạy:</b> ' + esc(cur.title) + '<br><b>Khối lớp:</b> ' + esc(cur.grade || '') + ' | <b>Thời lượng:</b> ' + esc(cur.duration) + '<' + '/p>' +
+    '<p><b>Chuẩn bị:</b><br>' + esc(cur.prep || '').replace(/\n/g, '<br>') + '<' + '/p>' +
     '<table border="1" cellpadding="8" cellspacing="0" width="100%">' +
-    '<tr style="background:#eef4e3"><th>Bước<' + '/th><th>English Script<' + '/th><th>Tiếng Việt<' + '/th><' + '/tr>' +
-    rows +
+    '<tr style="background:#eef4e3"><th>Hoạt động<' + '/th><th>Nội dung Tiếng Việt<' + '/th><th>English Content<' + '/th><' + '/tr>' +
+    buildBilingualTableHtml() +
     '<' + '/table><' + '/body><' + '/html>';
-  const blob = new Blob(['\ufeff', docContent], { type: 'application/msword' });
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'WorkFlow-' + cur.id + '.doc';
+  a.download = 'Giao-an-Song-ngu-' + cur.subject + '.doc';
   a.click();
 }
 
 function printPdf() {
-  if (plan !== 'pro') return pricing();
-  const flow = getFlowLabels();
+  if (plan !== 'Pro') {
+    return openCheckout('Pro', '149.000đ / tháng');
+  }
   const win = window.open('', '_blank');
   if (!win) return alert('Vui lòng cho phép mở cửa sổ bật lên (Pop-up) để in PDF.');
-  const rows = flow.map((x, i) =>
-    '<tr><td><b>' + (i+1) + '. ' + esc(x[0]) + '</b><br><small>' + esc(x[1]) + '</small></td><td>' + esc(cur.stepsEn[i]) + '</td><td>' + esc(cur.stepsVi[i]) + '</td></tr>'
-  ).join('');
-  const pdfContent =
-    '<html><head><title>' + esc(cur.en) + '</title>' +
-    '<style>body{font-family:Arial,sans-serif;padding:24px;color:#173f36}table{width:100%;border-collapse:collapse;margin-top:14px}th,td{border:1px solid #ccc;padding:9px;text-align:left;font-size:13px}th{background:#eef4e3}</style>' +
+  const html =
+    '<html><head><title>' + esc(cur.title) + '<' + '/title>' +
+    '<style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.5;color:#173f36}table{width:100%;border-collapse:collapse;margin-top:14px}th,td{border:1px solid #ccc;padding:9px;text-align:left;vertical-align:top;font-size:13px}th{background:#eef4e3}<' + '/style>' +
     '<' + '/head><body>' +
-    '<h2>' + esc(cur.en) + ' — ' + esc(cur.vi) + '<' + '/h2>' +
-    '<p><b>Khung giao tiếp:</b> ' + esc(cur.type) + ' | <b>Chủ đề:</b> ' + esc(cur.topic) + '<' + '/p>' +
-    '<p>' + esc(cur.desc) + '<' + '/p>' +
-    '<table><tr><th width="20%">Giai đoạn<' + '/th><th width="40%">English Script<' + '/th><th width="40%">Nghĩa tiếng Việt<' + '/th><' + '/tr>' +
-    rows +
+    '<h2>GIÁO ÁN ' + (cur.subject === 'ENG' ? 'TIẾNG ANH' : 'KHOA HỌC TỰ NHIÊN SONG NGỮ') + '<' + '/h2>' +
+    '<p><b>Tên bài dạy:</b> ' + esc(cur.title) + '<br><b>Khối lớp:</b> ' + esc(cur.grade || '') + ' | <b>Thời lượng:</b> ' + esc(cur.duration) + '<' + '/p>' +
+    '<p><b>Chuẩn bị:</b><br>' + esc(cur.prep || '').replace(/\n/g, '<br>') + '<' + '/p>' +
+    '<table><tr><th>Hoạt động<' + '/th><th>Nội dung Tiếng Việt<' + '/th><th>English Content<' + '/th><' + '/tr>' +
+    buildBilingualTableHtml() +
     '<' + '/table>' +
     '<script>window.onload=function(){window.print()}<' + '/script>' +
     '<' + '/body><' + '/html>';
-  win.document.write(pdfContent);
+  win.document.write(html);
   win.document.close();
 }
 
-/* ACCOUNT PLAN */
-function pricing() {
-  document.getElementById('price').classList.add('show');
+/* QUẢN LÝ GÓI FREE / PLUS / PRO */
+function openCheckout(targetPlan, priceText) {
+  pendingPlan = targetPlan;
+  document.getElementById('checkoutTitle').textContent = 'Nâng cấp lên gói ' + targetPlan;
+  document.getElementById('checkoutDesc').innerHTML =
+    'Bạn đang chọn gói <b>' + targetPlan + '</b> với mức phí <b>' + priceText + '</b>.';
+  document.getElementById('checkoutModal').classList.add('show');
 }
 
-function setPlan(p) {
+function closeCheckout() {
+  document.getElementById('checkoutModal').classList.remove('show');
+}
+
+function confirmUpgrade() {
+  if (pendingPlan) {
+    selectPlan(pendingPlan);
+  }
+  closeCheckout();
+}
+
+function selectPlan(p) {
   plan = p;
-  saveAll();
-  closeM('price');
-  updatePlanUI();
-  renderNotes();
+  saveState();
+  updatePlanButtons();
+  renderEditor();
 }
 
-function toggleQuickPlan() {
-  setPlan(plan === 'free' ? 'pro' : 'free');
+function updatePlanButtons() {
+  document.getElementById('currentPlanBadge').textContent = 'Gói hiện tại: ' + plan;
+  document.getElementById('btnFree').textContent = plan === 'Free' ? 'Đang sử dụng' : 'Chuyển về Free';
+  document.getElementById('btnPlus').textContent = plan === 'Plus' ? 'Đang sử dụng gói Plus ✓' : 'Chọn mua gói Plus';
+  document.getElementById('btnPro').textContent = plan === 'Pro' ? 'Đang sử dụng gói Pro ✓' : 'Chọn mua gói Pro';
 }
 
-function updatePlanUI() {
-  const isPro = plan === 'pro';
-  document.getElementById('planBadge').textContent = isPro ? 'Đang dùng: Gói Pro ✨' : 'Đang dùng: Free';
-  document.getElementById('planName').textContent = isPro ? 'Gói Pro · Đã kích hoạt' : 'Gói Free · 0đ';
-  document.getElementById('planText').textContent = isPro
-    ? 'Đã mở khóa toàn bộ: không giới hạn kịch bản & sổ tay, gợi ý Pro và xuất file Word (.doc) / PDF.'
-    : 'Tối đa 3 kịch bản cá nhân, 15 cụm từ trong sổ tay, tra từ điển & làm trắc nghiệm không giới hạn.';
-}
-
-/* INIT */
-renderLessons();
-renderToolkit();
-renderTerms();
-renderNotes();
-renderBank();
-renderQuiz();
-updatePlanUI();
-document.getElementById('rubric').innerHTML = RUBRIC.map(x => `<tr><td><b>${esc(x[0])}</b></td><td>${esc(x[1])}</td><td>${esc(x[2])}</td></tr>`).join('');
+/* KHỞI TẠO */
+renderGrid();
+renderEditor();
+updatePlanButtons();
 </script>
 </body>
 </html>
