@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EduDraft · Trợ lý Soạn Giáo án Song ngữ KHTN & Tiếng Anh</title>
+  <title>EduDraft · Studio Soạn Giáo án Song ngữ KHTN & Tiếng Anh</title>
   <style>
     :root{
       --g:#245f4a;
@@ -18,11 +18,11 @@
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--p);color:var(--i);font:15px Arial,sans-serif}
-    .w{width:min(1140px,calc(100% - 36px));margin:auto}
+    .w{width:min(1160px,calc(100% - 36px));margin:auto}
     .top{height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--b);position:sticky;top:0;background:#f8f7f0ed;backdrop-filter:blur(6px);z-index:5}
     .brand{font-weight:900;font-size:21px;cursor:pointer}
     .brand small{display:block;font-size:10px;color:var(--m);font-weight:600}
-    nav{display:flex;gap:20px;font-weight:bold;font-size:13px}
+    nav{display:flex;gap:18px;font-weight:bold;font-size:13px}
     a{text-decoration:none;color:inherit}
     nav a:hover{color:var(--g)}
     .nav-right{display:flex;align-items:center;gap:8px}
@@ -36,19 +36,25 @@
     .ey{font-size:10px;font-weight:bold;color:#668447;letter-spacing:1px;text-transform:uppercase}
     .hero h1{font-size:48px;line-height:1.06;letter-spacing:-2px;margin:12px 0}
     .hero h1 span{color:#779d4b}
-    .hero p{line-height:1.65;color:var(--m);max-width:550px;font-size:14px}
+    .hero p{line-height:1.65;color:var(--m);max-width:560px;font-size:14px}
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
     .board{background:#e7efd6;border-radius:22px;padding:20px}
     .row{padding:14px;margin:10px 0;background:white;border-radius:12px;font-size:13px;font-weight:bold}
     .row span{float:right;color:var(--m);font-weight:normal;font-size:12px}
 
-    .sec{margin-bottom:60px;scroll-margin-top:85px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:54px}
+    .stat{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:16px}
+    .stat b{display:block;font-size:17px;margin-top:4px}
+    .stat small{color:var(--m);font-size:12px}
+
+    .sec{margin-bottom:64px;scroll-margin-top:85px}
     .head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:18px;flex-wrap:wrap}
     .head h2{font-size:28px;margin:6px 0}
     .head p{margin:0;color:var(--m);font-size:13px}
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--c);border:1px solid var(--b);border-radius:18px;padding:20px;cursor:pointer;transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column;justify-content:space-between}
+    .card,.panel{background:var(--c);border:1px solid var(--b);border-radius:18px;padding:20px}
+    .card{cursor:pointer;transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column;justify-content:space-between}
     .card:hover{transform:translateY(-4px);box-shadow:0 10px 24px #173f3612}
     .card h3{margin:10px 0 6px;font-size:17px}
     .card p{color:var(--m);font-size:13px;line-height:1.55;margin:0 0 14px}
@@ -57,24 +63,43 @@
     .tag,.pill{display:inline-block;padding:5px 10px;background:#eef4e3;border-radius:20px;font-size:11px;font-weight:bold;color:#557143}
     .tag.eng{background:#ebe5f9;color:#553c9a}
 
-    /* STUDIO SOẠN THẢO SONG NGỮ */
+    /* STUDIO SOẠN THẢO SONG NGỮ 6 BƯỚC */
     .studio-wrap{background:var(--c);border:1px solid var(--b);border-radius:20px;overflow:hidden;box-shadow:0 8px 24px #173f360a}
     .studio-top{padding:16px 22px;background:#eff3e9;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-    .studio-body{display:grid;grid-template-columns:245px 1fr;min-height:600px}
-    .side{background:#f5f7f1;padding:14px;border-right:1px solid var(--b);display:flex;flex-direction:column;justify-content:space-between}
-    .step{display:block;width:100%;text-align:left;margin:5px 0;background:transparent;color:#596f63;padding:11px 12px;border-radius:10px;font-size:13px}
+    .studio-body{display:grid;grid-template-columns:260px 1fr;min-height:680px}
+    .side{background:#f5f7f1;padding:14px;border-right:1px solid var(--b);display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+    .step{display:block;width:100%;text-align:left;margin:4px 0;background:transparent;color:#596f63;padding:11px 12px;border-radius:10px;font-size:13px}
     .step.active{background:white;color:var(--g);box-shadow:0 2px 6px #0000000d}
     .work{padding:24px 28px}
     .bi{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
     .tri{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:10px}
+    .quad{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
     .box{border:1px solid var(--b);padding:14px;border-radius:12px;background:white;margin-bottom:14px}
     input,textarea,select{border:1px solid var(--b);border-radius:9px;padding:10px;width:100%;background:white;font:inherit;font-size:13px;margin-top:6px}
-    textarea{min-height:145px;resize:vertical;line-height:1.6}
+    textarea{min-height:165px;resize:vertical;line-height:1.6}
     .suggest-bar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px;padding:12px;background:#f3f7ec;border-radius:12px;border:1px dashed #b9ccb0;align-items:center}
     .suggest-bar span{font-size:12px;font-weight:bold;color:var(--g)}
-    .cue-box{background:#f9fbf6;border:1px solid var(--b);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:12px}
+    .cue-box{background:#f9fbf6;border:1px solid var(--b);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px}
     .cue-chip{display:inline-block;margin:4px 4px 0 0;padding:5px 9px;background:white;border:1px solid #cbd8c9;border-radius:8px;cursor:pointer;font-size:11px;color:var(--i)}
     .cue-chip:hover{background:#eef4e3;border-color:var(--g)}
+    .prog-bar{height:8px;background:#dfe6da;border-radius:99px;overflow:hidden;margin:6px 0}
+    .prog-fill{height:100%;background:var(--g);transition:width .25s}
+
+    /* TÍNH NĂNG MỞ RỘNG: TỪ ĐIỂN THUẬT NGỮ & CLASSROOM ENGLISH */
+    .two{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+    .chip{background:transparent;color:var(--g);border:1px solid #cddaca;padding:7px 11px;font-size:12px}
+    .chip.active{background:var(--g);color:white;border-color:var(--g)}
+    .term-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-height:480px;overflow:auto;padding-right:4px;margin-top:10px}
+    .term-item{border:1px solid var(--b);border-radius:12px;padding:12px;background:white;font-size:12px}
+    .term-item b{font-size:13px;color:var(--i)}
+    .term-item p{margin:6px 0;color:var(--m);line-height:1.45}
+    .phrase-item{border:1px solid var(--b);border-radius:12px;padding:12px;background:white;margin-bottom:10px;font-size:12px}
+
+    /* BẢNG RUBRIC & PHIẾU HỌC TẬP */
+    .tbl{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;background:white}
+    .tbl td,.tbl th{border:1px solid var(--b);padding:9px;text-align:left;vertical-align:top}
+    .tbl th{background:#eef4e3}
 
     /* GÓI TÀI KHOẢN */
     .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -88,14 +113,15 @@
 
     .modalbg{position:fixed;inset:0;background:#102b2375;display:none;z-index:10;align-items:center;justify-content:center;padding:15px}
     .modalbg.show{display:flex}
-    .modal{width:min(860px,100%);max-height:90vh;overflow:auto;background:var(--c);border-radius:20px;padding:22px}
+    .modal{width:min(880px,100%);max-height:90vh;overflow:auto;background:var(--c);border-radius:20px;padding:22px}
 
-    @media(max-width:850px){
+    @media(max-width:900px){
       nav{display:none}
-      .hero,.grid,.plans,.bi,.tri,.studio-body{grid-template-columns:1fr}
+      .hero,.grid,.plans,.bi,.tri,.quad,.two,.studio-body,.stats{grid-template-columns:1fr}
       .hero h1{font-size:38px}
       .side{border-right:0;border-bottom:1px solid var(--b)}
       .step{display:inline-block;width:auto}
+      .term-list{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -104,11 +130,12 @@
 <header class="w top">
   <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     ✳ EduDraft
-    <small>Soạn thảo Giáo án Song ngữ KHTN &amp; Tiếng Anh</small>
+    <small>Studio Soạn Giáo án Song ngữ KHTN &amp; Tiếng Anh</small>
   </div>
   <nav>
     <a href="#templates">Giáo án mẫu</a>
-    <a href="#editor">Trình soạn thảo</a>
+    <a href="#editor">Trình soạn thảo 6 bước</a>
+    <a href="#glossary">Từ điển &amp; Câu lệnh lớp học</a>
     <a href="#pricing">Gói Plus / Pro</a>
   </nav>
   <div class="nav-right">
@@ -121,22 +148,30 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="ey">TRỢ LÝ SOẠN GIÁO ÁN SONG NGỮ CHUẨN SƯ PHẠM</div>
+      <div class="ey">HỆ THỐNG SOẠN GIÁO ÁN SONG NGỮ CHUẨN 5512 &amp; CLIL</div>
       <h1>Soạn giáo án<br><span>KHTN &amp; Tiếng Anh.</span></h1>
-      <p>Hệ thống soạn thảo giáo án chi tiết theo tiến trình hoạt động dạy học (Mục tiêu – Chuẩn bị – Khởi động – Hình thành kiến thức – Luyện tập – Vận dụng), tích hợp song ngữ Anh – Việt và kho gợi ý lời dẫn trên lớp (Classroom English).</p>
+      <p>Không gian soạn thảo giáo án chuyên sâu dành cho giáo viên: đầy đủ tiến trình 4 hoạt động chuẩn 5512 song ngữ Anh – Việt, công cụ phân bổ thời lượng tiết học, bộ tạo Phiếu học tập (Worksheet), từ điển thuật ngữ KHTN có IPA và kho câu lệnh lớp học.</p>
       <div class="hero-actions">
-        <button onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Mở trình soạn thảo →</button>
+        <button onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Mở trình soạn thảo 6 bước →</button>
         <button class="out" onclick="newLesson('KHTN')">+ Giáo án KHTN mới</button>
         <button class="out" onclick="newLesson('ENG')">+ Giáo án Tiếng Anh mới</button>
       </div>
     </div>
     <div class="board">
-      <div class="row">🔬 Giáo án KHTN Song ngữ <span>Chuẩn 5512 + Thuật ngữ &amp; Lời dẫn Anh</span></div>
+      <div class="row">🔬 Giáo án KHTN Song ngữ <span>Chuẩn 5512 + Thí nghiệm &amp; Thuật ngữ IPA</span></div>
       <div class="row">🇬🇧 Giáo án Tiếng Anh <span>Lead-in · Presentation · Practice · Production</span></div>
-      <div class="row">✨ Gợi ý soạn thảo chuyên sâu <span>Chèn mẫu câu hỏi, CCQs, thí nghiệm &amp; Rubric</span></div>
-      <div class="row">💎 Gói Free · Plus · Pro <span>Xuất bảng giáo án Word (.doc) &amp; In PDF</span></div>
+      <div class="row">📝 Tạo Phiếu học tập &amp; Rubric <span>Tự động đóng gói vào file Word &amp; PDF</span></div>
+      <div class="row">⏱ Cân đối thời lượng 45 phút <span>Kiểm soát tiến độ từng hoạt động trên lớp</span></div>
     </div>
   </section>
+
+  <!-- THÔNG SỐ NHANH -->
+  <div class="stats">
+    <div class="stat">📋<b>6 bước soạn thảo</b><small>Từ Mục tiêu đến Phiếu học tập</small></div>
+    <div class="stat">🌐<b>Song ngữ Anh – Việt</b><small>Đối chiếu 2 cột từng hoạt động</small></div>
+    <div class="stat">📖<b>40+ Thuật ngữ IPA</b><small>Vật lí · Hóa học · Sinh học · ELT</small></div>
+    <div class="stat">📄<b>Xuất Word &amp; PDF</b><small>Định dạng bảng giáo án chuẩn</small></div>
+  </div>
 
   <!-- 1. GIÁO ÁN MẪU -->
   <section class="sec" id="templates">
@@ -144,7 +179,7 @@
       <div>
         <div class="ey">THƯ VIỆN GIÁO ÁN CHI TIẾT</div>
         <h2>Giáo án mẫu KHTN &amp; Tiếng Anh</h2>
-        <p>Chọn một giáo án mẫu hoàn chỉnh bên dưới để nạp vào trình soạn thảo song ngữ và tùy chỉnh.</p>
+        <p>Chọn một giáo án mẫu hoàn chỉnh bên dưới để nạp toàn bộ nội dung, bảng phân bổ thời gian và phiếu học tập vào Studio.</p>
       </div>
       <div style="display:flex;gap:8px">
         <button class="out" onclick="newLesson('KHTN')">+ Tạo bài KHTN</button>
@@ -154,17 +189,17 @@
     <div class="grid" id="lessonGrid"></div>
   </section>
 
-  <!-- 2. TRÌNH SOẠN THẢO GIÁO ÁN SONG NGỮ & GỢI Ý -->
+  <!-- 2. TRÌNH SOẠN THẢO GIÁO ÁN SONG NGỮ 6 BƯỚC -->
   <section class="sec" id="editor">
     <div class="head">
       <div>
-        <div class="ey">KHÔNG GIAN SOẠN THẢO SONG NGỮ 5 BƯỚC</div>
-        <h2>Trình soạn thảo &amp; Gợi ý chi tiết</h2>
-        <p>Soạn thảo chi tiết từng hoạt động song song Tiếng Việt &amp; Tiếng Anh, chèn gợi ý sư phạm và câu lệnh lớp học.</p>
+        <div class="ey">KHÔNG GIAN SOẠN THẢO SONG NGỮ CHUYÊN SÂU</div>
+        <h2>Trình soạn thảo giáo án 6 bước</h2>
+        <p>Soạn thảo chi tiết từng hoạt động song song Tiếng Việt &amp; Tiếng Anh, tạo phiếu bài tập và kiểm soát quỹ thời gian tiết dạy.</p>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="out" onclick="duplicateLesson()">Nhân bản bài</button>
-        <button class="out" onclick="previewLesson()">Xem trước giáo án</button>
+        <button class="out" onclick="previewLesson()">Xem trước toàn bộ</button>
         <button class="plus" onclick="exportDoc()">Xuất Word (.doc)</button>
         <button class="pro" onclick="printPdf()">In / Xuất PDF</button>
       </div>
@@ -173,11 +208,11 @@
     <div class="studio-wrap">
       <div class="studio-top">
         <div>
-          <span class="tag" id="editorTypeBadge">Giáo án KHTN</span>
+          <span class="tag" id="editorTypeBadge">Giáo án KHTN Song ngữ</span>
           <b id="editorHeading" style="margin-left:8px;font-size:15px"></b>
         </div>
         <div style="display:flex;gap:8px;align-items:center">
-          <small style="color:var(--m)">Phân môn:</small>
+          <small style="color:var(--m)">Chuyển phân môn:</small>
           <button class="out" style="padding:6px 10px;font-size:12px" onclick="switchSubject('KHTN')">🔬 KHTN Song ngữ</button>
           <button class="out" style="padding:6px 10px;font-size:12px" onclick="switchSubject('ENG')">🇬🇧 Tiếng Anh</button>
         </div>
@@ -186,15 +221,29 @@
       <div class="studio-body">
         <aside class="side">
           <div>
-            <button class="step active" onclick="setStep(0,this)">1. Thông tin, Mục tiêu &amp; Chuẩn bị</button>
+            <button class="step active" onclick="setStep(0,this)">1. Thông tin, Chuẩn bị &amp; Mục tiêu</button>
             <button class="step" onclick="setStep(1,this)">2. Khởi động &amp; Hình thành kiến thức</button>
             <button class="step" onclick="setStep(2,this)">3. Luyện tập &amp; Vận dụng thực tiễn</button>
-            <button class="step" onclick="setStep(3,this)">4. Thuật ngữ IPA, Rubric &amp; Dặn dò</button>
+            <button class="step" onclick="setStep(3,this)">4. Tạo Phiếu học tập (Worksheet)</button>
+            <button class="step" onclick="setStep(4,this)">5. Thuật ngữ IPA, Rubric &amp; Dặn dò</button>
+            <button class="step" onclick="setStep(5,this)">6. Rà soát thời lượng &amp; Xuất bản</button>
           </div>
-          <div style="padding:10px;background:white;border-radius:10px;border:1px solid var(--b);font-size:11px;color:var(--m);margin-top:16px">
-            <b style="color:var(--g);display:block;margin-bottom:4px">Trạng thái lưu:</b>
-            Tự động lưu trên trình duyệt.<br>
-            <span id="hintCounter"></span>
+
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="padding:12px;background:white;border-radius:12px;border:1px solid var(--b);font-size:12px">
+              <div style="display:flex;justify-content:space-between">
+                <b style="color:var(--g)">Mức độ hoàn thiện:</b>
+                <b id="compPercent">0%</b>
+              </div>
+              <div class="prog-bar"><div class="prog-fill" id="compFill" style="width:0%"></div></div>
+              <span id="timeSummary" style="font-size:11px;color:var(--m)">Tổng thời lượng: 45 phút</span>
+            </div>
+
+            <div style="padding:11px;background:white;border-radius:12px;border:1px solid var(--b);font-size:11px;color:var(--m)">
+              <b style="color:var(--g);display:block;margin-bottom:3px">Trạng thái tài khoản:</b>
+              Tự động lưu trên trình duyệt.<br>
+              <span id="hintCounter"></span>
+            </div>
           </div>
         </aside>
         <div class="work" id="workArea"></div>
@@ -202,13 +251,48 @@
     </div>
   </section>
 
-  <!-- 3. ĐỀ MỤC CHỌN MUA GÓI PLUS, PRO -->
+  <!-- 3. TÍNH NĂNG MỞ RỘNG: TỪ ĐIỂN THUẬT NGỮ KHTN & CÂU LỆNH LỚP HỌC -->
+  <section class="sec" id="glossary">
+    <div class="head">
+      <div>
+        <div class="ey">HỌC LIỆU BỔ TRỢ SOẠN GIÁO ÁN</div>
+        <h2>Từ điển Thuật ngữ KHTN &amp; Câu lệnh Lớp học</h2>
+        <p>Tra cứu thuật ngữ chuyên ngành kèm phiên âm IPA hoặc bấm chèn trực tiếp vào giáo án đang soạn.</p>
+      </div>
+    </div>
+
+    <div class="two">
+      <!-- CỘT TRÁI: TỪ ĐIỂN THUẬT NGỮ -->
+      <div class="panel">
+        <b>📖 Từ điển Thuật ngữ Song ngữ (KHTN &amp; Giảng dạy Tiếng Anh)</b>
+        <div class="filters">
+          <button class="chip active" onclick="filterGlossary('ALL', this)">Tất cả</button>
+          <button class="chip" onclick="filterGlossary('CHEM', this)">Hóa học</button>
+          <button class="chip" onclick="filterGlossary('BIO', this)">Sinh học</button>
+          <button class="chip" onclick="filterGlossary('PHYS', this)">Vật lí</button>
+          <button class="chip" onclick="filterGlossary('ELT', this)">Sư phạm Anh</button>
+        </div>
+        <input id="glossarySearch" oninput="renderGlossary()" placeholder="Tìm thuật ngữ (VD: photosynthesis, pH scale, velocity, CCQs...)">
+        <div class="term-list" id="glossaryList"></div>
+      </div>
+
+      <!-- CỘT PHẢI: KHO CÂU LỆNH LỚP HỌC (CLASSROOM ENGLISH) -->
+      <div class="panel">
+        <b>💬 Kho Câu lệnh Điều phối Lớp học (Classroom English)</b>
+        <p style="margin:6px 0 10px;color:var(--m);font-size:12px">Bấm <b>"+ Chèn vào giáo án"</b> để đưa câu lệnh tiếng Anh chuẩn sư phạm vào hoạt động tương ứng.</p>
+        <div class="filters" id="cueCatFilters"></div>
+        <div id="classroomPhraseList" style="max-height:470px;overflow:auto;padding-right:4px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ĐỀ MỤC CHỌN MUA GÓI PLUS, PRO -->
   <section class="sec" id="pricing">
     <div class="head">
       <div>
         <div class="ey">BẢNG GIÁ &amp; QUYỀN LỢI</div>
         <h2>Chọn gói sử dụng Plus / Pro</h2>
-        <p>Mở khóa không giới hạn gợi ý soạn giáo án song ngữ chi tiết và xuất file Word / PDF chuẩn.</p>
+        <p>Mở khóa không giới hạn gợi ý soạn giáo án song ngữ chi tiết, phiếu học tập và xuất file Word / PDF chuẩn.</p>
       </div>
     </div>
 
@@ -222,7 +306,7 @@
           <ul class="plan-list">
             <li>Lưu tối đa <b>3 giáo án</b></li>
             <li>Gợi ý soạn thảo cơ bản (<b>3 lượt/ngày</b>)</li>
-            <li>Xem trước và copy toàn bộ giáo án</li>
+            <li>Tra cứu từ điển thuật ngữ IPA &amp; xem trước bài</li>
             <li>Hỗ trợ cả mẫu KHTN &amp; Tiếng Anh</li>
           </ul>
         </div>
@@ -238,7 +322,7 @@
           <ul class="plan-list">
             <li>Lưu tối đa <b>30 giáo án</b></li>
             <li><b>Không giới hạn</b> gợi ý soạn thảo &amp; Classroom English</li>
-            <li>Mở khóa tính năng <b>Xuất file Word (.doc)</b> dạng bảng</li>
+            <li>Mở khóa tính năng <b>Xuất file Word (.doc)</b> kèm Phiếu học tập</li>
             <li>Trọn bộ mẫu câu CCQs, thí nghiệm &amp; Rubric</li>
           </ul>
         </div>
@@ -250,7 +334,7 @@
           <span class="tag" style="background:#d9ed9c;color:#173f36">TOÀN DIỆN</span>
           <h3 style="margin:12px 0 4px;font-size:20px">Gói Pro</h3>
           <div class="price" style="color:#d9ed9c">149.000đ <small style="color:#e2ece7">/ tháng</small></div>
-          <p>Trợ lý toàn diện cho giáo viên dạy song ngữ &amp; tổ trưởng chuyên môn.</p>
+          <p>Trợ lý toàn diện cho giáo viên dạy song ngữ &amp; tổ chuyên môn.</p>
           <ul class="plan-list">
             <li><b>Không giới hạn</b> số lượng giáo án lưu trữ</li>
             <li>Gợi ý chuyên sâu <b>KHTN Song ngữ Anh – Việt</b></li>
@@ -265,7 +349,7 @@
 </main>
 
 <footer class="w" style="padding:24px 0;border-top:1px solid var(--b);color:#78867d;font-size:12px">
-  © 2026 EduDraft · Trợ lý Soạn thảo Giáo án Song ngữ KHTN &amp; Tiếng Anh.
+  © 2026 EduDraft · Studio Soạn thảo Giáo án Song ngữ KHTN &amp; Tiếng Anh.
 </footer>
 
 <!-- MODAL XÁC NHẬN CHỌN GÓI -->
@@ -279,7 +363,7 @@
       <p id="checkoutDesc" style="font-size:14px;line-height:1.6;color:var(--i)"></p>
       <div class="box" style="background:#f4f8ee;margin-top:12px">
         <small style="color:var(--m)">Chế độ kích hoạt nhanh:</small>
-        <p style="margin:6px 0 0;font-size:13px">Kích hoạt ngay gói này để mở khóa gợi ý song ngữ không giới hạn và xuất file Word/PDF.</p>
+        <p style="margin:6px 0 0;font-size:13px">Kích hoạt ngay gói này để mở khóa gợi ý song ngữ không giới hạn, phiếu học tập và xuất file Word/PDF.</p>
       </div>
     </div>
     <div style="display:flex;gap:10px;justify-content:flex-end">
@@ -312,6 +396,7 @@ const DEFAULT_LESSONS = [
     title: 'Phản ứng Acid – Base và Thang đo pH (Acids, Bases & pH Scale)',
     grade: 'KHTN 8 · Hóa học',
     duration: '45 phút (1 tiết)',
+    timeSplit: { warmup: 5, knowledge: 22, practice: 15, wrapup: 3 },
     prep: '• Giáo viên: Bộ 6 dung dịch mẫu (giấm ăn, nước chanh, nước cất, nước muối, nước xà phòng, dung dịch baking soda), giấy quỳ tím, giấy chỉ thị vạn năng pH, khay thí nghiệm, phiếu học tập song ngữ.\n• Học sinh: Đọc trước bài học, chuẩn bị bảng ghi chép kết quả thí nghiệm theo nhóm 4 người.',
     objectivesVi: '1. Về kiến thức:\n- Nêu được khái niệm acid, base theo thang đo pH (pH < 7: môi trường acid; pH = 7: trung tính; pH > 7: môi trường base).\n- Trình bày được cách sử dụng giấy chỉ thị màu để xác định tính chất của dung dịch.\n2. Về năng lực:\n- Năng lực KHTN: Thực hiện an toàn thí nghiệm kiểm tra độ pH; thu thập, phân tích số liệu và rút ra kết luận.\n- Năng lực chung: Giao tiếp và hợp tác nhóm hiệu quả.\n3. Về phẩm chất: Trung thực trong ghi chép số liệu thí nghiệm, cẩn thận khi thao tác với hóa chất.',
     objectivesEn: '1. Knowledge:\n- Define acids, bases, and neutral solutions based on the pH scale (0–14).\n- Explain how universal indicator paper identifies the pH level of common substances.\n2. Competences:\n- Scientific Inquiry: Safely conduct a lab test, record pH observations, and draw evidence-based conclusions.\n- Bilingual Communication: Use core chemistry terms accurately during group presentations.\n3. Attitude: Be honest in recording lab data and strictly follow laboratory safety rules.',
@@ -321,7 +406,11 @@ const DEFAULT_LESSONS = [
     knowledgeEn: 'Activity 2: Exploration & Lab Experiment (22 mins)\n- Lab Instructions: "Work in groups of 4. Dip one strip of universal indicator paper into each solution, wait 10 seconds, and match the color against the pH chart."\n- Safety Cue: "Wear your safety goggles and avoid touching the solutions directly."\n- Guided Questions: "Which sample has the lowest pH? How do we classify a solution with a pH of 7?"',
     practiceVi: 'Hoạt động 3: Luyện tập & Vận dụng thực tiễn (15 phút)\n- Luyện tập: HS hoàn thành nhanh 5 câu trắc nghiệm phân loại dung dịch theo giá trị pH trên phiếu cá nhân.\n- Vận dụng: GV nêu tình huống thực tế: "Đất trồng ở một số vùng bị nhiễm phèn, độ pH đo được là 4,5. Người nông dân thường bón vôi bột (CaO/Ca(OH)2) vào ruộng để làm gì?" HS vận dụng phản ứng trung hòa acid – base để giải thích.',
     practiceEn: 'Activity 3: Practice & Real-world Application (15 mins)\n- Practice Task: Complete the 5-item classification table (Acidic / Neutral / Basic) on your worksheet.\n- Application Scenario: "Farm soil in this area has a pH of 4.5 (too acidic for crops). Why do farmers add lime (calcium hydroxide) to the soil? Discuss and write a 2-sentence explanation."',
-    extraVi: '• Thiết bị & Học liệu: Máy chiếu, bảng màu pH chuẩn, 6 bộ khay thí nghiệm hóa chất an toàn, phiếu học tập.\n• Hướng dẫn về nhà (3 phút): Hoàn thiện báo cáo thực hành nhóm; tìm hiểu độ pH lý tưởng của nước sinh hoạt và dịch vị dạ dày người.',
+    worksheet: [
+      { qVi: 'Câu 1: Dung dịch nước chanh có giá trị pH khoảng 2,5. Môi trường của nước chanh là gì?', qEn: 'Q1: Lemon juice has a pH of around 2.5. How do we classify this solution?', ans: 'Môi trường Acid (Acidic solution, pH < 7)' },
+      { qVi: 'Câu 2: Giải thích vì sao người nông dân bón vôi bột để khử chua cho đất trồng?', qEn: 'Q2: Why do farmers apply lime (calcium hydroxide) to acidic soil?', ans: 'Vôi bột có tính base, phản ứng trung hòa lượng acid dư trong đất, nâng độ pH lên mức phù hợp cho cây trồng.' }
+    ],
+    extraVi: '• Thiết bị & Học liệu: Máy chiếu, bảng màu pH chuẩn, 6 bộ khay thí nghiệm hóa chất an toàn, phiếu học tập.\n• Rubric đánh giá nhóm: Thao tác an toàn (3đ) – Số liệu chính xác (4đ) – Thuyết trình rõ ràng (3đ).\n• Hướng dẫn về nhà (3 phút): Hoàn thiện báo cáo thực hành nhóm; tìm hiểu độ pH lý tưởng của nước sinh hoạt và dịch vị dạ dày người.',
     extraEn: '• Key Bilingual Vocabulary:\n  - acid /ˈæs.ɪd/ (n): axit | acidic /əˈsɪd.ɪk/ (adj): có tính axit\n  - base /beɪs/ (n): bazơ | basic /ˈbeɪ.sɪk/ (adj): có tính kiềm/bazơ\n  - neutral /ˈnjuː.trəl/ (adj): trung tính\n  - universal indicator /ˌjuː.nɪˈvɜː.səl ˈɪn.dɪ.keɪ.tər/: chất chỉ thị vạn năng\n• Homework: Write a short lab reflection (50 words) explaining one household acid and one base you found at home.'
   },
   {
@@ -331,6 +420,7 @@ const DEFAULT_LESSONS = [
     title: 'Unit 5: Describing Daily Routines & Time Management',
     grade: 'Tiếng Anh 7 · Global Success',
     duration: '45 minutes',
+    timeSplit: { warmup: 5, knowledge: 14, practice: 22, wrapup: 4 },
     prep: '• Teacher: Projector, slides with daily routine flashcards, stopwatch, Pair-work Information Gap worksheets (Student A & Student B).\n• Students: Notebooks, pens, review adverbs of frequency (always, usually, often, sometimes, never).',
     objectivesVi: '1. Về kiến thức:\n- Ghi nhớ và sử dụng đúng 10 cụm động từ chỉ hoạt động hằng ngày.\n- Vận dụng chính xác thì Hiện tại đơn (Present Simple) và trạng từ chỉ tần suất (Adverbs of frequency) để hỏi – đáp về lịch trình.\n2. Về năng lực:\n- Giao tiếp tiếng Anh trôi chảy theo cặp trong hoạt động khai thác thông tin (Information Gap).\n3. Về phẩm chất: Hình thành thói quen quản lý thời gian khoa học, lành mạnh.',
     objectivesEn: '1. Knowledge:\n- Master 10 daily routine collocations and place adverbs of frequency in the correct sentence position.\n- Use Present Simple questions ("How often do you...?", "What time do you usually...?") accurately.\n2. Skills:\n- Speaking & Listening: Conduct a 3-minute pair interview to complete a weekly schedule.\n3. Attitude: Develop healthy daily routines and effective time-management habits.',
@@ -340,6 +430,10 @@ const DEFAULT_LESSONS = [
     knowledgeEn: 'Stage 2: Presentation – Vocabulary & Grammar Focus (14 mins)\n- Vocabulary Drilling: Model pronunciation clearly (commute, work out, take a nap, stay up late) → Choral drill → Individual check.\n- Grammar Highlight & CCQs:\n  + Example: "She usually wakes up at 6 AM." / "He is never late for school."\n  + CCQ 1: "Does ‘usually’ go before or after the main verb ‘wakes up’?" (Before)\n  + CCQ 2: "Does it go before or after ‘is’?" (After)',
     practiceVi: 'Hoạt động 3: Luyện tập & Vận dụng giao tiếp (22 phút)\n- Luyện tập có kiểm soát (8 phút): HS hoàn thành bài tập sắp xếp từ thành câu hoàn chỉnh và chia động từ trên phiếu cá nhân.\n- Vận dụng tự do – Phỏng vấn cặp đôi (14 phút): Phát phiếu Information Gap (bản A và bản B). HS hỏi đáp với bạn cùng bàn để điền nốt các khung giờ trống, sau đó báo cáo trước lớp.',
     practiceEn: 'Stage 3: Practice & Production (22 mins)\n- Controlled Practice (8 mins): Complete the 6-sentence gap-fill & word-order exercise individually, then peer-check in pairs.\n- Freer Production – "Schedule Detective" Pair Work (14 mins):\n  + Instruction: "Student A has Tom’s morning schedule; Student B has his afternoon schedule. Ask your partner using ‘What time does Tom...?’ and ‘How often does he...?’ without showing your paper."',
+    worksheet: [
+      { qVi: 'Bài 1: Chia động từ trong ngoặc: My brother usually (work out) ______ at 5 PM.', qEn: 'Task 1: Put the verb in brackets into the correct form: My brother usually (work out) ______ at 5 PM.', ans: 'works out' },
+      { qVi: 'Bài 2: Sắp xếp từ thành câu hoàn chỉnh: never / is / for / she / class / late / .', qEn: 'Task 2: Rearrange the words: never / is / for / she / class / late / .', ans: 'She is never late for class.' }
+    ],
     extraVi: '• Đánh giá cuối tiết (4 phút): GV nhận xét lỗi phát âm và ngữ pháp phổ biến quan sát được trong lúc HS thảo luận nhóm.\n• Bài tập về nhà: Viết một đoạn văn ngắn (60–80 từ) mô tả lịch trình cuối tuần của bản thân và gạch chân các trạng từ chỉ tần suất.',
     extraEn: '• Target Vocabulary & IPA:\n  - commute /kəˈmjuːt/ (v): đi lại (giữa nhà và trường/nơi làm việc)\n  - work out /wɜːk aʊt/ (phr.v): tập thể dục\n  - take a nap /teɪk ə næp/ (phr): chợp mắt buổi trưa\n  - stay up late /steɪ ʌp leɪt/ (phr): thức khuya\n• Homework: Write a 60–80 word paragraph about your weekend routine and underline at least 4 adverbs of frequency.'
   },
@@ -350,15 +444,19 @@ const DEFAULT_LESSONS = [
     title: 'Quang hợp ở thực vật (Photosynthesis in Plants)',
     grade: 'KHTN 7 · Sinh học',
     duration: '45 phút (1 tiết)',
+    timeSplit: { warmup: 5, knowledge: 22, practice: 15, wrapup: 3 },
     prep: '• Giáo viên: Tranh cấu tạo tế bào lá cây, video tua nhanh quá trình quang hợp, mẫu lá cây đã bịt giấy đen một phần, đèn cồn, dung dịch iodine.\n• Học sinh: Ôn lại kiến thức về cấu tạo tế bào thực vật và vai trò của lục lạp.',
     objectivesVi: '1. Về kiến thức:\n- Viết được phương trình quang hợp dạng chữ; nêu rõ nguyên liệu (nước, CO2), năng lượng ánh sáng và sản phẩm (chất hữu cơ, khí O2).\n- Phân tích được ảnh hưởng của ánh sáng và nhiệt độ đến cường độ quang hợp.\n2. Về năng lực:\n- Quan sát, phân tích sơ đồ trao đổi khí qua khí khổng và giải thích kết quả thí nghiệm chứng minh lá tạo tinh bột.\n3. Về phẩm chất: Có ý thức trồng và bảo vệ cây xanh ở trường học và địa phương.',
     objectivesEn: '1. Knowledge:\n- Write the word equation for photosynthesis; identify inputs (water, carbon dioxide, light) and outputs (glucose, oxygen).\n- Explain how light intensity and temperature affect the rate of photosynthesis.\n2. Competences:\n- Analyze diagrams of gas exchange through stomata and interpret the starch test experiment.\n3. Attitude: Actively protect green spaces at school and in the community.',
-    warmupVi: 'Hoạt động 1: Khởi động – Tình huống có vấn đề (5 phút)\n- GV đặt tình huống: "Một bạn học sinh đặt chậu cây xanh vào trong tủ tối 4 ngày liên tiếp. Theo em, lá cây sẽ thay đổi màu sắc như thế nào và vì sao?"\n- HS thảo luận nhanh trong 1 phút và nêu giả thuyết ban đầu.',
+    warmupVi: 'Hoạt động 1: Khởi động – Tình huống có vấn đề (5 phút)\n- GV đặt tình huống: "Một bạn học sinh đặt chậu cây xanh vào trong tủ tối 4 ngày liên tiếp. Theo em, lá cây sẽ thay đổi như thế nào và vì sao?"\n- HS thảo luận nhanh trong 1 phút và nêu giả thuyết ban đầu.',
     warmupEn: 'Activity 1: Warm-up / Problem Scenario (5 mins)\n- Teacher Prompt: "Imagine a student puts a healthy green plant inside a dark closet for 4 days. What happens to its leaves, and why?"\n- Student Prediction: Discuss with your partner and share your hypothesis.',
     knowledgeVi: 'Hoạt động 2: Hình thành kiến thức – Cơ chế quang hợp (22 phút)\n- Nhiệm vụ 1: HS quan sát sơ đồ lá cây trên màn hình, thảo luận nhóm 4 người để xác định đường đi của nước từ rễ lên lá và khí CO2 đi vào qua khí khổng.\n- Nhiệm vụ 2: Quan sát video thí nghiệm thử tinh bột bằng dung dịch iodine trên lá bịt băng giấy đen → Rút ra vai trò bắt buộc của ánh sáng và diệp lục.',
     knowledgeEn: 'Activity 2: Concept Formation – How Photosynthesis Works (22 mins)\n- Group Task 1: "Trace how water enters through roots and how carbon dioxide enters through stomata on your diagram."\n- Experiment Observation: "Why did the covered part of the leaf stay brown while the uncovered part turned blue-black with iodine solution?"',
     practiceVi: 'Hoạt động 3: Luyện tập & Vận dụng (15 phút)\n- Luyện tập: Hoàn thành sơ đồ tư duy phương trình quang hợp và điền bảng so sánh nguyên liệu – sản phẩm.\n- Vận dụng: Giải thích cơ sở khoa học của câu hỏi thực tế: "Tại sao ban ngày người ta khuyến khích dạo chơi dưới tán cây xanh, nhưng ban đêm không nên để quá nhiều chậu cây lớn trong phòng ngủ đóng kín cửa?"',
     practiceEn: 'Activity 3: Practice & Application (15 mins)\n- Practice: Complete the photosynthesis word equation: Carbon dioxide + Water —(Light & Chlorophyll)→ Glucose + Oxygen.\n- Critical Thinking: "Why is sitting under trees refreshing during the daytime, yet keeping many large plants in a closed bedroom at night is not advised?"',
+    worksheet: [
+      { qVi: 'Câu 1: Viết phương trình quang hợp dạng chữ và xác định nơi diễn ra quá trình này trong tế bào lá.', qEn: 'Q1: Write the word equation for photosynthesis and identify the organelle where it takes place.', ans: 'Nước + Khí carbon dioxide —(Ánh sáng, Diệp lục)→ Glucose + Khí oxygen. Diễn ra tại lục lạp (chloroplast).' }
+    ],
     extraVi: '• Thiết bị & Học liệu: Máy chiếu, bộ thí nghiệm thử tinh bột ở lá xanh, phiếu học tập nhóm.\n• Dặn dò về nhà (3 phút): Vẽ sơ đồ tư duy bài Quang hợp; chuẩn bị nội dung bài Hô hấp tế bào ở thực vật.',
     extraEn: '• Key Bilingual Vocabulary:\n  - photosynthesis /ˌfəʊ.təʊˈsɪn.θə.sɪs/ (n): quá trình quang hợp\n  - chlorophyll /ˈklɔː.rə.fɪl/ (n): chất diệp lục\n  - stomata /ˈstəʊ.mə.tə/ (n): khí khổng\n  - glucose /ˈɡluː.kəʊs/ (n): đường glucozơ (chất hữu cơ)\n• Homework: Create a bilingual mind map summarizing photosynthesis.'
   }
@@ -451,38 +549,78 @@ const SUGGESTIONS = {
   }
 };
 
-const QUICK_CLASSROOM_CUES = {
-  KHTN: [
-    '“Today’s topic is... Let’s look at the learning objectives.”',
-    '“Work in groups of 4 and assign a timekeeper and a presenter.”',
-    '“What is your hypothesis before we start the experiment?”',
-    '“Record your data carefully in the observation table.”',
-    '“What conclusion can we draw from these results?”'
+const GLOSSARY_DATA = [
+  { term: 'hypothesis', ipa: '/haɪˈpɒθ.ə.sɪs/', cat: 'CHEM', vi: 'giả thuyết khoa học', ex: 'Before testing the liquid, state your hypothesis clearly.' },
+  { term: 'neutralization', ipa: '/ˌnjuː.trə.laɪˈzeɪ.ʃən/', cat: 'CHEM', vi: 'phản ứng trung hòa', ex: 'Adding lime to acidic soil is an example of neutralization.' },
+  { term: 'solubility', ipa: '/ˌsɒl.jʊˈbɪl.ə.ti/', cat: 'CHEM', vi: 'độ tan (của một chất)', ex: 'Temperature affects the solubility of salt in water.' },
+  { term: 'precipitate', ipa: '/prɪˈsɪp.ɪ.teɪt/', cat: 'CHEM', vi: 'chất kết tủa', ex: 'A white precipitate formed at the bottom of the test tube.' },
+  { term: 'photosynthesis', ipa: '/ˌfəʊ.təʊˈsɪn.θə.sɪs/', cat: 'BIO', vi: 'quá trình quang hợp', ex: 'Sunlight is essential for photosynthesis in green plants.' },
+  { term: 'chlorophyll', ipa: '/ˈklɔː.rə.fɪl/', cat: 'BIO', vi: 'chất diệp lục', ex: 'Chlorophyll absorbs light energy inside the chloroplasts.' },
+  { term: 'stomata', ipa: '/ˈstəʊ.mə.tə/', cat: 'BIO', vi: 'khí khổng (trên bề mặt lá)', ex: 'Carbon dioxide enters the leaf through tiny pores called stomata.' },
+  { term: 'ecosystem', ipa: '/ˈiː.kəʊˌsɪs.təm/', cat: 'BIO', vi: 'hệ sinh thái', ex: 'Protecting wetlands helps preserve the local ecosystem.' },
+  { term: 'velocity', ipa: '/vəˈlɒs.ə.ti/', cat: 'PHYS', vi: 'vận tốc (có hướng)', ex: 'Calculate the average velocity of the car over 10 seconds.' },
+  { term: 'friction', ipa: '/ˈfrɪk.ʃən/', cat: 'PHYS', vi: 'lực ma sát', ex: 'Rough surfaces create more friction than smooth ones.' },
+  { term: 'refraction', ipa: '/rɪˈfræk.ʃən/', cat: 'PHYS', vi: 'hiện tượng khúc xạ ánh sáng', ex: 'A straw looks bent in water due to light refraction.' },
+  { term: 'conductor', ipa: '/kənˈdʌk.tər/', cat: 'PHYS', vi: 'vật dẫn điện / dẫn nhiệt', ex: 'Copper is an excellent electrical conductor.' },
+  { term: 'eliciting', ipa: '/ɪˈlɪs.ɪt.ɪŋ/', cat: 'ELT', vi: 'kỹ thuật gợi mở câu trả lời từ HS', ex: 'Use pictures for eliciting vocabulary instead of translating.' },
+  { term: 'scaffolding', ipa: '/ˈskæf.əl.dɪŋ/', cat: 'ELT', vi: 'hỗ trợ giàn giáo từng bước cho HS', ex: 'Provide sentence starters as scaffolding for weaker learners.' },
+  { term: 'CCQs', ipa: '/ˌsiː.siːˈkjuːz/', cat: 'ELT', vi: 'câu hỏi kiểm tra mức độ hiểu khái niệm', ex: 'Ask two short CCQs to check if students understand the tense.' },
+  { term: 'peer feedback', ipa: '/pɪər ˈfiːd.bæk/', cat: 'ELT', vi: 'nhận xét chéo giữa các học sinh', ex: 'Students exchange paragraphs for structured peer feedback.' }
+];
+
+const CLASSROOM_PHRASES = {
+  'Mở đầu & Dẫn nhập': [
+    { en: '“Today’s topic is... By the end of this lesson, you will be able to...”', vi: 'Chủ đề hôm nay là... Cuối tiết học này, các em sẽ có thể...', target: 'warmupEn' },
+    { en: '“Look at the phenomenon on the screen. Discuss with your partner for 60 seconds.”', vi: 'Hãy quan sát hiện tượng trên màn hình và thảo luận cặp đôi trong 60 giây.', target: 'warmupEn' }
   ],
-  ENG: [
-    '“Let’s kick off with a quick 5-minute warm-up game!”',
-    '“Listen and repeat after me. Pay attention to the word stress.”',
-    '“Check your answers with your partner before we review together.”',
-    '“Stand up, walk around, and interview 3 classmates.”',
-    '“Great effort! Let’s look at two common mistakes on the board.”'
+  'Tổ chức Thí nghiệm & Thảo luận nhóm': [
+    { en: '“Form groups of four. Assign one timekeeper, one recorder, and one presenter.”', vi: 'Chia thành các nhóm 4 người. Phân công 1 bạn canh giờ, 1 thư ký và 1 báo cáo viên.', target: 'knowledgeEn' },
+    { en: '“Follow steps 1 to 3 carefully and record your observations in the table.”', vi: 'Thực hiện cẩn thận từ bước 1 đến bước 3 và ghi kết quả quan sát vào bảng.', target: 'knowledgeEn' },
+    { en: '“Safety first: Please put on your goggles before handling any chemicals.”', vi: 'An toàn là trên hết: Hãy đeo kính bảo hộ trước khi thao tác với hóa chất.', target: 'knowledgeEn' }
+  ],
+  'Kiểm tra hiểu & Chốt kiến thức': [
+    { en: '“What evidence from your experiment supports that conclusion?”', vi: 'Bằng chứng nào từ thí nghiệm của nhóm em chứng minh cho kết luận đó?', target: 'practiceEn' },
+    { en: '“Swap your worksheet with your partner and check the answers together.”', vi: 'Đổi phiếu học tập với bạn cùng bàn và cùng nhau kiểm tra đáp án.', target: 'practiceEn' },
+    { en: '“Let’s wrap up today’s key takeaways before we move to homework.”', vi: 'Chúng ta hãy tổng kết các điểm mấu chốt hôm nay trước khi chuyển sang bài tập về nhà.', target: 'extraEn' }
   ]
 };
 
-let lessons = JSON.parse(localStorage.getItem('edudraft_lessons_v3') || 'null') || DEFAULT_LESSONS;
+let lessons = JSON.parse(localStorage.getItem('edudraft_lessons_v4') || 'null') || DEFAULT_LESSONS;
 let cur = lessons[0];
 let step = 0;
 let plan = localStorage.getItem('edudraft_plan') || 'Free';
 let freeHintsUsed = Number(localStorage.getItem('edudraft_hints') || '0');
 let pendingPlan = null;
+let glossFilter = 'ALL';
+let cueCat = Object.keys(CLASSROOM_PHRASES)[0];
 
 function saveState() {
-  localStorage.setItem('edudraft_lessons_v3', JSON.stringify(lessons));
+  localStorage.setItem('edudraft_lessons_v4', JSON.stringify(lessons));
   localStorage.setItem('edudraft_plan', plan);
   localStorage.setItem('edudraft_hints', String(freeHintsUsed));
+  updateCompleteness();
 }
 
 function esc(s) {
   return String(s || '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+}
+
+function updateCompleteness() {
+  const fields = [cur.title, cur.prep, cur.objectivesVi, cur.objectivesEn, cur.warmupVi, cur.knowledgeVi, cur.practiceVi, cur.extraVi];
+  const filled = fields.filter(f => f && f.trim().length > 12).length;
+  const pct = Math.round((filled / fields.length) * 100);
+  const pctEl = document.getElementById('compPercent');
+  const fillEl = document.getElementById('compFill');
+  if (pctEl && fillEl) {
+    pctEl.textContent = pct + '%';
+    fillEl.style.width = pct + '%';
+  }
+  const ts = cur.timeSplit || { warmup: 5, knowledge: 20, practice: 15, wrapup: 5 };
+  const totalMins = Number(ts.warmup || 0) + Number(ts.knowledge || 0) + Number(ts.practice || 0) + Number(ts.wrapup || 0);
+  const timeEl = document.getElementById('timeSummary');
+  if (timeEl) {
+    timeEl.innerHTML = `Phân bổ hoạt động: <b>${totalMins} phút</b> ${totalMins > 45 ? '<span style="color:#c53030">(Vượt 45p)</span>' : '(Chuẩn 1 tiết)'}`;
+  }
 }
 
 function renderGrid() {
@@ -505,6 +643,8 @@ function renderGrid() {
 
 function loadLesson(id) {
   cur = lessons.find(x => x.id === id) || lessons[0];
+  if (!cur.worksheet) cur.worksheet = [];
+  if (!cur.timeSplit) cur.timeSplit = { warmup: 5, knowledge: 20, practice: 15, wrapup: 5 };
   renderEditor();
   document.getElementById('editor').scrollIntoView({ behavior: 'smooth' });
 }
@@ -522,6 +662,7 @@ function newLesson(subject) {
     title: isEng ? 'New English Lesson Plan #' + (lessons.length + 1) : 'Giáo án KHTN Song ngữ mới #' + (lessons.length + 1),
     grade: isEng ? 'Tiếng Anh THCS' : 'KHTN THCS',
     duration: '45 phút (1 tiết)',
+    timeSplit: { warmup: 5, knowledge: 20, practice: 15, wrapup: 5 },
     prep: '• Giáo viên:\n• Học sinh:',
     objectivesVi: '1. Về kiến thức:\n2. Về năng lực:\n3. Về phẩm chất:',
     objectivesEn: '1. Knowledge:\n2. Competences / Skills:\n3. Attitude:',
@@ -531,6 +672,7 @@ function newLesson(subject) {
     knowledgeEn: '',
     practiceVi: '',
     practiceEn: '',
+    worksheet: [],
     extraVi: '',
     extraEn: ''
   };
@@ -572,22 +714,21 @@ function setStep(idx, btn) {
   renderEditor();
 }
 
-function insertClassroomCue(fieldEn, cueText) {
-  cur[fieldEn] = (cur[fieldEn] ? cur[fieldEn] + '\n' : '') + '• Teacher Cue: ' + cueText;
+function addWorksheetItem() {
+  if (!cur.worksheet) cur.worksheet = [];
+  cur.worksheet.push({
+    qVi: 'Câu ' + (cur.worksheet.length + 1) + ': Nhập câu hỏi / bài tập tiếng Việt...',
+    qEn: 'Q' + (cur.worksheet.length + 1) + ': Enter English question / task...',
+    ans: 'Đáp án / Gợi ý chấm...'
+  });
   saveState();
   renderEditor();
 }
 
-function renderClassroomCueBar(targetFieldEn) {
-  const cues = QUICK_CLASSROOM_CUES[cur.subject] || [];
-  return `
-    <div class="cue-box">
-      <b style="color:var(--g)">💬 Chèn nhanh câu lệnh lớp học (Classroom English):</b>
-      <div>
-        ${cues.map(c => `<span class="cue-chip" onclick="insertClassroomCue('${targetFieldEn}', '${c.replace(/'/g, "\\'")}')">+ ${esc(c)}</span>`).join('')}
-      </div>
-    </div>
-  `;
+function removeWorksheetItem(idx) {
+  cur.worksheet.splice(idx, 1);
+  saveState();
+  renderEditor();
 }
 
 function renderEditor() {
@@ -599,12 +740,14 @@ function renderEditor() {
   document.getElementById('hintCounter').textContent = plan === 'Free'
     ? `Gợi ý miễn phí đã dùng: ${freeHintsUsed}/3 lượt`
     : `Gói ${plan}: Không giới hạn gợi ý ✨`;
+  updateCompleteness();
 
   const work = document.getElementById('workArea');
+  const ts = cur.timeSplit || { warmup: 5, knowledge: 20, practice: 15, wrapup: 5 };
 
   if (step === 0) {
     work.innerHTML = `
-      <div class="ey">BƯỚC 1 · THÔNG TIN CHUNG, CHUẨN BỊ &amp; MỤC TIÊU SONG NGỮ</div>
+      <div class="ey">BƯỚC 1 · THÔNG TIN CHUNG, PHÂN BỔ THỜI GIAN &amp; MỤC TIÊU</div>
       <div class="tri">
         <div class="box">
           <b>Tên bài dạy / Lesson Title</b>
@@ -615,19 +758,32 @@ function renderEditor() {
           <input value="${esc(cur.grade || '')}" oninput="cur.grade=this.value;saveState();renderGrid()">
         </div>
         <div class="box">
-          <b>Thời lượng / Duration</b>
+          <b>Thời lượng tổng</b>
           <input value="${esc(cur.duration)}" oninput="cur.duration=this.value;saveState();renderGrid()">
         </div>
       </div>
+
       <div class="box">
-        <b>Chuẩn bị của Giáo viên &amp; Học sinh (Teaching Aids &amp; Preparation)</b>
-        <textarea style="min-height:85px" oninput="cur.prep=this.value;saveState()">${esc(cur.prep || '')}</textarea>
+        <b>⏱ Phân bổ quỹ thời gian các hoạt động trên lớp (Đơn vị: phút)</b>
+        <div class="quad">
+          <div><small>1. Khởi động</small><input type="number" min="1" max="30" value="${ts.warmup}" oninput="cur.timeSplit.warmup=Number(this.value);saveState()"></div>
+          <div><small>2. Hình thành kiến thức</small><input type="number" min="1" max="60" value="${ts.knowledge}" oninput="cur.timeSplit.knowledge=Number(this.value);saveState()"></div>
+          <div><small>3. Luyện tập &amp; Vận dụng</small><input type="number" min="1" max="60" value="${ts.practice}" oninput="cur.timeSplit.practice=Number(this.value);saveState()"></div>
+          <div><small>4. Tổng kết &amp; Dặn dò</small><input type="number" min="1" max="20" value="${ts.wrapup}" oninput="cur.timeSplit.wrapup=Number(this.value);saveState()"></div>
+        </div>
       </div>
+
+      <div class="box">
+        <b>Chuẩn bị của Giáo viên &amp; Học sinh (Teaching Aids &amp; Lab Equipment)</b>
+        <textarea style="min-height:95px" oninput="cur.prep=this.value;saveState()">${esc(cur.prep || '')}</textarea>
+      </div>
+
       <div class="suggest-bar">
         <span>✨ Gợi ý mục tiêu:</span>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('objectives', 0)">+ Gợi ý năng lực trọng tâm (Anh – Việt)</button>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('objectives', 1)">+ Gợi ý phẩm chất &amp; tương tác song ngữ</button>
       </div>
+
       <div class="bi">
         <div class="box">
           <b>🇻🇳 Mục tiêu tiếng Việt (Kiến thức – Năng lực – Phẩm chất)</b>
@@ -644,36 +800,35 @@ function renderEditor() {
       <div class="ey">BƯỚC 2 · KHỞI ĐỘNG &amp; HÌNH THÀNH KIẾN THỨC (SONG NGỮ)</div>
       <div class="suggest-bar">
         <span>✨ Gợi ý tiến trình lên lớp:</span>
-        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('warmup', 0)">+ Gợi ý Khởi động (Warm-up)</button>
+        <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('warmup', 0)">+ Gợi ý Khởi động (${ts.warmup}p)</button>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('warmup', 1)">+ Gợi ý Câu hỏi gợi mở</button>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('knowledge', 0)">+ Gợi ý 4 bước Hình thành kiến thức</button>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('knowledge', 1)">+ Gợi ý ${isEng ? 'Luyện phát âm & CCQs' : 'An toàn thí nghiệm'}</button>
       </div>
       <div class="bi">
         <div class="box">
-          <b>🇻🇳 1. Hoạt động Khởi động (Tiếng Việt)</b>
+          <b>🇻🇳 1. Hoạt động Khởi động (${ts.warmup} phút)</b>
           <textarea oninput="cur.warmupVi=this.value;saveState()">${esc(cur.warmupVi)}</textarea>
         </div>
         <div class="box">
-          <b>🇬🇧 1. Warm-up / Engage (English)</b>
+          <b>🇬🇧 1. Warm-up / Engage (${ts.warmup} mins)</b>
           <textarea oninput="cur.warmupEn=this.value;saveState()">${esc(cur.warmupEn)}</textarea>
         </div>
       </div>
       <div class="bi">
         <div class="box">
-          <b>🇻🇳 2. Hình thành kiến thức (Tiếng Việt)</b>
-          <textarea style="min-height:175px" oninput="cur.knowledgeVi=this.value;saveState()">${esc(cur.knowledgeVi)}</textarea>
+          <b>🇻🇳 2. Hình thành kiến thức (${ts.knowledge} phút)</b>
+          <textarea style="min-height:190px" oninput="cur.knowledgeVi=this.value;saveState()">${esc(cur.knowledgeVi)}</textarea>
         </div>
         <div class="box">
-          <b>🇬🇧 2. Presentation / Lab Exploration (English)</b>
-          <textarea style="min-height:175px" oninput="cur.knowledgeEn=this.value;saveState()">${esc(cur.knowledgeEn)}</textarea>
+          <b>🇬🇧 2. Presentation / Lab Exploration (${ts.knowledge} mins)</b>
+          <textarea style="min-height:190px" oninput="cur.knowledgeEn=this.value;saveState()">${esc(cur.knowledgeEn)}</textarea>
         </div>
       </div>
-      ${renderClassroomCueBar('knowledgeEn')}
     `;
   } else if (step === 2) {
     work.innerHTML = `
-      <div class="ey">BƯỚC 3 · LUYỆN TẬP &amp; VẬN DỤNG THỰC TIỄN</div>
+      <div class="ey">BƯỚC 3 · LUYỆN TẬP &amp; VẬN DỤNG THỰC TIỄN (${ts.practice} PHÚT)</div>
       <div class="suggest-bar">
         <span>✨ Gợi ý luyện tập &amp; đánh giá:</span>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('practice', 0)">+ Gợi ý Bài tập / Hoạt động cặp nhóm</button>
@@ -682,18 +837,48 @@ function renderEditor() {
       <div class="bi">
         <div class="box">
           <b>🇻🇳 Hoạt động Luyện tập &amp; Vận dụng (Tiếng Việt)</b>
-          <textarea style="min-height:210px" oninput="cur.practiceVi=this.value;saveState()">${esc(cur.practiceVi)}</textarea>
+          <textarea style="min-height:220px" oninput="cur.practiceVi=this.value;saveState()">${esc(cur.practiceVi)}</textarea>
         </div>
         <div class="box">
           <b>🇬🇧 Practice &amp; Production (English)</b>
-          <textarea style="min-height:210px" oninput="cur.practiceEn=this.value;saveState()">${esc(cur.practiceEn)}</textarea>
+          <textarea style="min-height:220px" oninput="cur.practiceEn=this.value;saveState()">${esc(cur.practiceEn)}</textarea>
         </div>
       </div>
-      ${renderClassroomCueBar('practiceEn')}
     `;
   } else if (step === 3) {
+    const ws = cur.worksheet || [];
     work.innerHTML = `
-      <div class="ey">BƯỚC 4 · THUẬT NGỮ ANH – VIỆT (IPA), RUBRIC &amp; DẶN DÒ</div>
+      <div class="ey">BƯỚC 4 · BỘ TẠO PHIẾU HỌC TẬP SONG NGỮ (WORKSHEET BUILDER)</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0 14px;flex-wrap:wrap;gap:8px">
+        <p style="margin:0;color:var(--m);font-size:13px">Các câu hỏi dưới đây sẽ tự động đính kèm thành Phiếu học tập ở cuối file Word / PDF khi xuất bản.</p>
+        <button onclick="addWorksheetItem()">+ Thêm câu hỏi / bài tập</button>
+      </div>
+      ${ws.map((item, idx) => `
+        <div class="box">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <b style="color:var(--g)">Câu hỏi / Nhiệm vụ #${idx + 1}</b>
+            <button class="out" style="padding:4px 9px;font-size:11px" onclick="removeWorksheetItem(${idx})">Xóa ×</button>
+          </div>
+          <div class="bi">
+            <div>
+              <small>🇻🇳 Nội dung Tiếng Việt</small>
+              <textarea style="min-height:80px" oninput="cur.worksheet[${idx}].qVi=this.value;saveState()">${esc(item.qVi)}</textarea>
+            </div>
+            <div>
+              <small>🇬🇧 English Version</small>
+              <textarea style="min-height:80px" oninput="cur.worksheet[${idx}].qEn=this.value;saveState()">${esc(item.qEn)}</textarea>
+            </div>
+          </div>
+          <div style="margin-top:8px">
+            <small>✅ Đáp án / Hướng dẫn chấm</small>
+            <input value="${esc(item.ans)}" oninput="cur.worksheet[${idx}].ans=this.value;saveState()">
+          </div>
+        </div>
+      `).join('') || '<div class="box"><p style="margin:0;color:var(--m)">Chưa có câu hỏi nào trong Phiếu học tập. Bấm <b>"+ Thêm câu hỏi / bài tập"</b> ở góc trên để tạo.</p></div>'}
+    `;
+  } else if (step === 4) {
+    work.innerHTML = `
+      <div class="ey">BƯỚC 5 · THUẬT NGỮ ANH – VIỆT (IPA), RUBRIC &amp; DẶN DÒ (${ts.wrapup} PHÚT)</div>
       <div class="suggest-bar">
         <span>✨ Gợi ý bổ sung:</span>
         <button class="out" style="padding:6px 10px;font-size:12px" onclick="applyDualSuggestion('extra', 0)">+ Gợi ý Rubric đánh giá &amp; Thuật ngữ IPA</button>
@@ -701,13 +886,35 @@ function renderEditor() {
       </div>
       <div class="bi">
         <div class="box">
-          <b>🇻🇳 Đánh giá, Thiết bị &amp; Dặn dò về nhà</b>
-          <textarea style="min-height:200px" oninput="cur.extraVi=this.value;saveState()">${esc(cur.extraVi)}</textarea>
+          <b>🇻🇳 Rubric Đánh giá, Thiết bị &amp; Dặn dò về nhà</b>
+          <textarea style="min-height:210px" oninput="cur.extraVi=this.value;saveState()">${esc(cur.extraVi)}</textarea>
         </div>
         <div class="box">
           <b>🇬🇧 Key Vocabulary (IPA) &amp; Homework</b>
-          <textarea style="min-height:200px" oninput="cur.extraEn=this.value;saveState()">${esc(cur.extraEn)}</textarea>
+          <textarea style="min-height:210px" oninput="cur.extraEn=this.value;saveState()">${esc(cur.extraEn)}</textarea>
         </div>
+      </div>
+    `;
+  } else if (step === 5) {
+    const totalMins = Number(ts.warmup || 0) + Number(ts.knowledge || 0) + Number(ts.practice || 0) + Number(ts.wrapup || 0);
+    work.innerHTML = `
+      <div class="ey">BƯỚC 6 · RÀ SOÁT CẤU TRÚC GIÁO ÁN &amp; XUẤT FILE</div>
+      <div class="box">
+        <b>Bảng tổng hợp tiến trình tiết dạy (Tổng thời lượng: ${totalMins} phút)</b>
+        <table class="tbl">
+          <tr><th>Giai đoạn / Stage</th><th>Thời lượng</th><th>Trạng thái nội dung</th></tr>
+          <tr><td>I. Mục tiêu &amp; Chuẩn bị</td><td>—</td><td>${cur.objectivesVi && cur.objectivesEn ? '✅ Đầy đủ song ngữ' : '⚠️ Cần bổ sung'}</td></tr>
+          <tr><td>II. Khởi động (Warm-up)</td><td>${ts.warmup} phút</td><td>${cur.warmupVi ? '✅ Đã soạn' : '⚠️ Trống'}</td></tr>
+          <tr><td>III. Hình thành kiến thức</td><td>${ts.knowledge} phút</td><td>${cur.knowledgeVi ? '✅ Đã soạn' : '⚠️ Trống'}</td></tr>
+          <tr><td>IV. Luyện tập &amp; Vận dụng</td><td>${ts.practice} phút</td><td>${cur.practiceVi ? '✅ Đã soạn' : '⚠️ Trống'}</td></tr>
+          <tr><td>V. Phiếu học tập (Worksheet)</td><td>—</td><td>${(cur.worksheet || []).length} câu hỏi đính kèm</td></tr>
+          <tr><td>VI. Thuật ngữ IPA &amp; Dặn dò</td><td>${ts.wrapup} phút</td><td>${cur.extraEn ? '✅ Đã soạn' : '⚠️ Trống'}</td></tr>
+        </table>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="previewLesson()">Xem trước &amp; Copy văn bản</button>
+        <button class="plus" onclick="exportDoc()">Xuất file Word (.doc) chuẩn bảng</button>
+        <button class="pro" onclick="printPdf()">In / Xuất file PDF</button>
       </div>
     `;
   }
@@ -727,26 +934,85 @@ function applyDualSuggestion(baseField, idx) {
   renderGrid();
 }
 
+/* TỪ ĐIỂN THUẬT NGỮ & KHO CÂU LỆNH LỚP HỌC */
+function filterGlossary(cat, btn) {
+  glossFilter = cat;
+  document.querySelectorAll('#glossary .panel:first-child .chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderGlossary();
+}
+
+function renderGlossary() {
+  const q = (document.getElementById('glossarySearch')?.value || '').toLowerCase().trim();
+  const list = document.getElementById('glossaryList');
+  const filtered = GLOSSARY_DATA.filter(x =>
+    (glossFilter === 'ALL' || x.cat === glossFilter) &&
+    (x.term.toLowerCase().includes(q) || x.vi.toLowerCase().includes(q))
+  );
+  list.innerHTML = filtered.map(x => `
+    <div class="term-item">
+      <b>${esc(x.term)}</b> <small style="color:var(--m)">${esc(x.ipa)}</small>
+      <p><b style="color:var(--g)">${esc(x.vi)}</b><br><i>“${esc(x.ex)}”</i></p>
+      <button class="out" style="padding:5px 9px;font-size:11px" onclick="insertTermToLesson('${x.term.replace(/'/g,"\\'")}', '${x.ipa.replace(/'/g,"\\'")}', '${x.vi.replace(/'/g,"\\'")}')">+ Chèn vào mục Từ vựng</button>
+    </div>
+  `).join('') || '<p style="color:var(--m);font-size:12px">Không tìm thấy thuật ngữ phù hợp.</p>';
+}
+
+function insertTermToLesson(term, ipa, vi) {
+  cur.extraEn = (cur.extraEn ? cur.extraEn + '\n' : '') + `  - ${term} ${ipa}: ${vi}`;
+  saveState();
+  renderEditor();
+  alert(`Đã chèn thuật ngữ "${term}" vào Bước 5 (Thuật ngữ IPA & Dặn dò) của giáo án!`);
+}
+
+function renderClassroomPhrases() {
+  const cats = Object.keys(CLASSROOM_PHRASES);
+  document.getElementById('cueCatFilters').innerHTML = cats.map(c => `
+    <button class="chip ${c === cueCat ? 'active' : ''}" onclick="cueCat='${c}';renderClassroomPhrases()">${c}</button>
+  `).join('');
+
+  document.getElementById('classroomPhraseList').innerHTML = CLASSROOM_PHRASES[cueCat].map(p => `
+    <div class="phrase-item">
+      <b style="font-size:13px;color:var(--i)">${esc(p.en)}</b>
+      <p style="margin:5px 0 8px;color:var(--m)">${esc(p.vi)}</p>
+      <button class="out" style="padding:5px 10px;font-size:11px" onclick="insertPhraseToLesson('${p.target}', '${p.en.replace(/'/g,"\\'")}')">+ Chèn vào giáo án</button>
+    </div>
+  `).join('');
+}
+
+function insertPhraseToLesson(targetField, text) {
+  cur[targetField] = (cur[targetField] ? cur[targetField] + '\n' : '') + '• Teacher Cue: ' + text;
+  saveState();
+  renderEditor();
+  alert('Đã chèn mẫu câu lệnh lớp học vào giáo án đang soạn!');
+}
+
+/* XEM TRƯỚC & XUẤT FILE */
 function formatLessonText() {
   const isEng = cur.subject === 'ENG';
+  const ts = cur.timeSplit || { warmup: 5, knowledge: 20, practice: 15, wrapup: 5 };
+  const wsText = (cur.worksheet || []).map((w, i) => `${i + 1}. ${w.qVi}\n   EN: ${w.qEn}\n   -> Đáp án: ${w.ans}`).join('\n\n') || '(Chưa tạo phiếu học tập)';
   return [
     `GIÁO ÁN ${isEng ? 'TIẾNG ANH' : 'KHOA HỌC TỰ NHIÊN SONG NGỮ ANH – VIỆT'}`,
     `Tên bài dạy: ${cur.title}`,
     `Khối lớp / Phân môn: ${cur.grade || ''} | Thời lượng: ${cur.duration}`,
+    `Phân bổ thời gian: Khởi động (${ts.warmup}p) – Hình thành kiến thức (${ts.knowledge}p) – Luyện tập (${ts.practice}p) – Tổng kết (${ts.wrapup}p)`,
     `\nCHUẨN BỊ CỦA GV & HS:\n${cur.prep || '(Chưa nhập)'}`,
     `\nI. MỤC TIÊU BÀI HỌC / OBJECTIVES`,
     `[Tiếng Việt]:\n${cur.objectivesVi || '(Chưa nhập)'}`,
     `[English]:\n${cur.objectivesEn || '(Not filled)'}`,
-    `\nII. KHỞI ĐỘNG / WARM-UP`,
+    `\nII. KHỞI ĐỘNG / WARM-UP (${ts.warmup} phút)`,
     `[Tiếng Việt]:\n${cur.warmupVi || '(Chưa nhập)'}`,
     `[English]:\n${cur.warmupEn || '(Not filled)'}`,
-    `\nIII. HÌNH THÀNH KIẾN THỨC / PRESENTATION`,
+    `\nIII. HÌNH THÀNH KIẾN THỨC / PRESENTATION (${ts.knowledge} phút)`,
     `[Tiếng Việt]:\n${cur.knowledgeVi || '(Chưa nhập)'}`,
     `[English]:\n${cur.knowledgeEn || '(Not filled)'}`,
-    `\nIV. LUYỆN TẬP & VẬN DỤNG / PRACTICE & PRODUCTION`,
+    `\nIV. LUYỆN TẬP & VẬN DỤNG / PRACTICE & PRODUCTION (${ts.practice} phút)`,
     `[Tiếng Việt]:\n${cur.practiceVi || '(Chưa nhập)'}`,
     `[English]:\n${cur.practiceEn || '(Not filled)'}`,
-    `\nV. THUẬT NGỮ, ĐÁNH GIÁ & DẶN DÒ / VOCABULARY & HOMEWORK`,
+    `\nV. PHIẾU HỌC TẬP / BILINGUAL WORKSHEET`,
+    wsText,
+    `\nVI. THUẬT NGỮ IPA, ĐÁNH GIÁ & DẶN DÒ (${ts.wrapup} phút)`,
     `[Tiếng Việt]:\n${cur.extraVi || '(Chưa nhập)'}`,
     `[English]:\n${cur.extraEn || '(Not filled)'}`
   ].join('\n');
@@ -763,12 +1029,13 @@ function copyPreview() {
 }
 
 function buildBilingualTableHtml() {
+  const ts = cur.timeSplit || { warmup: 5, knowledge: 20, practice: 15, wrapup: 5 };
   const rows = [
     ['I. Mục tiêu / Objectives', cur.objectivesVi, cur.objectivesEn],
-    ['II. Khởi động / Warm-up', cur.warmupVi, cur.warmupEn],
-    ['III. Hình thành kiến thức / Presentation', cur.knowledgeVi, cur.knowledgeEn],
-    ['IV. Luyện tập & Vận dụng / Practice', cur.practiceVi, cur.practiceEn],
-    ['V. Thuật ngữ, Đánh giá & Dặn dò', cur.extraVi, cur.extraEn]
+    [`II. Khởi động / Warm-up (${ts.warmup}p)`, cur.warmupVi, cur.warmupEn],
+    [`III. Hình thành kiến thức (${ts.knowledge}p)`, cur.knowledgeVi, cur.knowledgeEn],
+    [`IV. Luyện tập & Vận dụng (${ts.practice}p)`, cur.practiceVi, cur.practiceEn],
+    [`V. Thuật ngữ IPA & Dặn dò (${ts.wrapup}p)`, cur.extraVi, cur.extraEn]
   ];
   return rows.map(r =>
     '<tr>' +
@@ -777,6 +1044,15 @@ function buildBilingualTableHtml() {
       '<td width="40%">' + esc(r[2]).replace(/\n/g, '<br>') + '<' + '/td>' +
     '<' + '/tr>'
   ).join('');
+}
+
+function buildWorksheetHtml() {
+  const ws = cur.worksheet || [];
+  if (!ws.length) return '';
+  return '<h3>PHIẾU HỌC TẬP SONG NGỮ / BILINGUAL WORKSHEET<' + '/h3>' +
+    ws.map((w, i) =>
+      '<p><b>Câu ' + (i + 1) + ':</b> ' + esc(w.qVi) + '<br><i>' + esc(w.qEn) + '<' + '/i><br><small>Đáp án: ' + esc(w.ans) + '<' + '/small><' + '/p>'
+    ).join('');
 }
 
 function exportDoc() {
@@ -793,7 +1069,9 @@ function exportDoc() {
     '<table border="1" cellpadding="8" cellspacing="0" width="100%">' +
     '<tr style="background:#eef4e3"><th>Hoạt động<' + '/th><th>Nội dung Tiếng Việt<' + '/th><th>English Content<' + '/th><' + '/tr>' +
     buildBilingualTableHtml() +
-    '<' + '/table><' + '/body><' + '/html>';
+    '<' + '/table>' +
+    buildWorksheetHtml() +
+    '<' + '/body><' + '/html>';
   const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -817,6 +1095,7 @@ function printPdf() {
     '<table><tr><th>Hoạt động<' + '/th><th>Nội dung Tiếng Việt<' + '/th><th>English Content<' + '/th><' + '/tr>' +
     buildBilingualTableHtml() +
     '<' + '/table>' +
+    buildWorksheetHtml() +
     '<script>window.onload=function(){window.print()}<' + '/script>' +
     '<' + '/body><' + '/html>';
   win.document.write(html);
@@ -860,6 +1139,8 @@ function updatePlanButtons() {
 /* KHỞI TẠO */
 renderGrid();
 renderEditor();
+renderGlossary();
+renderClassroomPhrases();
 updatePlanButtons();
 </script>
 </body>
